@@ -152,5 +152,4 @@ class UserController extends Controller
             ->with('flash_message',
              'User successfully deleted.');
     }
-    }
 }
