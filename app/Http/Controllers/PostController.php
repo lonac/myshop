@@ -4,8 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Post;
+use Auth;
+use Session;
+
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','clearance'])->except('index','show');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::orderby('id','desc')->paginate('5');
+
+        return view('posts.index',compact('posts'));
     }
 
     /**
@@ -23,7 +33,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -34,7 +44,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title'=>'required|max:100',
+            'body'=>'required',
+            ]);
+
+        $title = $request['title'];
+        $body = $request['body'];
+
+        $post = Post::create($request->only('title', 'body'));
+
+    //Display a successful message upon save
+        return redirect()->route('posts.index')
+            ->with('flash_message', 'Article,
+             '. $post->title.' created');
+
     }
 
     /**
@@ -45,7 +69,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id); //Find post of id = $id
+
+        return view ('posts.show', compact('post'));
     }
 
     /**
@@ -56,7 +82,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -68,7 +96,19 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title'=>'required|max:100',
+            'body'=>'required',
+        ]);
+
+        $post = Post::findOrFail($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        return redirect()->route('posts.show', 
+            $post->id)->with('flash_message', 
+            'Article, '. $post->title.' updated');
     }
 
     /**
@@ -79,6 +119,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect()->route('posts.index')
+            ->with('flash_message',
+             'Article successfully deleted');
     }
 }

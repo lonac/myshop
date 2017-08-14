@@ -4,8 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Product;
+use Auth;
+use Session;
+
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','clearance'])->except('index','show');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::orderby('id','desc')->paginate('5');
+
+        return view('products.index',compact('products'));
     }
 
     /**
@@ -23,7 +33,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+         return view('products.create');
     }
 
     /**
@@ -34,7 +44,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title'=>'required|max:100',
+            'body'=>'required',
+            ]);
+
+        $title = $request['title'];
+        $body = $request['body'];
+
+        $product = Product::create($request->only('title', 'body'));
+
+    //Display a successful message upon save
+        return redirect()->route('products.index')
+            ->with('flash_message', 'Article,
+             '. $product->title.' created');
     }
 
     /**
@@ -45,7 +68,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $product = Product::findOrFail($id); //Find product of id = $id
+
+        return view ('products.show', compact('product'));
     }
 
     /**
@@ -56,7 +82,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -68,7 +96,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title'=>'required|max:100',
+            'body'=>'required',
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->title = $request->input('title');
+        $product->body = $request->input('body');
+        $product->save();
+
+        return redirect()->route('products.show', 
+            $product->id)->with('flash_message', 
+            'Product, '. $product->title.' updated');
     }
 
     /**
@@ -79,6 +119,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('products.index')
+            ->with('flash_message',
+             'Product successfully deleted');
     }
 }
