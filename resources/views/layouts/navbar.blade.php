@@ -16,18 +16,18 @@
                  <form class="navbar-form navbar-right form-horizontal" role="search">
                       <div class="input-group">
                          <input type="text" class="form-control" placeholder="Search"> 
-                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                       </div>
                 </form>
-                        
-            </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Links -->
-                    <li>
+                <li>
                         <a href="#" class="btn btn-info btn-sm">
                               <span class="glyphicon glyphicon-shopping-cart"></span> Cart
                         </a>
                      </li>
+                        
+            </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Links -->
+                    
                         <li><a href="/">Home</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
