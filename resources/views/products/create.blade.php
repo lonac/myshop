@@ -21,7 +21,21 @@
             {{ Form::text('manufacturer', null, array('class' => 'form-control')) }}
             <br>
 
-            {{ Form::label('body', 'Post Body') }}
+            @if(!$category->isEmpty()) 
+            <label for="categories">Choose Categories</label><br>
+                @foreach ($category as $catee) 
+                    {{ Form::checkbox('category[]',  $catee->id ) }}
+                    {{ Form::label($catee->name, ucfirst($catee->name)) }}
+                @endforeach
+            @endif
+            <br>
+
+             {{ Form::label('cost', 'Product Cost') }}
+            {{ Form::text('cost', null, array('class' => 'form-control')) }}
+            <br>
+
+
+             {{ Form::label('body', 'Post Body') }}
             {{ Form::textarea('body', null, array('class' => 'form-control')) }}
             <br>
 

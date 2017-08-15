@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use Auth;
 use Session;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -33,7 +34,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-         return view('products.create');
+        $category = Category::all();
+        
+         return view('products.create',compact('category'));
     }
 
     /**
