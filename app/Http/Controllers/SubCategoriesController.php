@@ -4,16 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Category;
+
+use App\Subcategory;
+
+use Session;
+
+
+
 class SubCategoriesController extends Controller
 {
+
+     public function __construct()
+    {
+        $this->middleware(['auth','product'])->except('index','show');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+
+        $category = Category::findOrFail($id);
+
+        $subcat = $category->subcategories;
+
+        return view('subcategories.index',compact('subcat','category'));
     }
 
     /**
@@ -21,9 +40,12 @@ class SubCategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+       
+        $category = Category::findOrFail($id);
+
+         return view('subcategories.create',compact('category'));
     }
 
     /**
@@ -32,9 +54,19 @@ class SubCategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+         $category = Category::findOrFail($id);
+
+        $subcat = new Subcategory;
+       
+        $subcat->category_id = $category->id;
+        $subcat->name = $request->input('name');
+
+        $subcat->save();
+
+        return redirect()->route('categories.index')->with('message_flash','
+            Subcategory successfully added');
     }
 
     /**
@@ -45,7 +77,11 @@ class SubCategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $cat = Category::findOrFail($id);
+
+        $subcat = $cat->subcategories;
+
+        return view('subcategories.show',compact('subcat','cat'));
     }
 
     /**
@@ -56,7 +92,9 @@ class SubCategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $subcat = Subcategory::findOrFail($id);
+
+        return view('subcategories.edit',compact('subcat'));
     }
 
     /**
@@ -68,7 +106,19 @@ class SubCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request, [
+            'name'=>'required|max:100',
+        ]);
+
+        $category = Category::findOrFail($id);
+        $subcat->category_id = $category->id;
+        $subcat = Subcategory::findOrFail($id);
+        $subcat->name = $request->input('name');
+        $subcat->save();
+
+        return redirect()->route('subcategories.show', 
+            $subcat->id)->with('flash_message', 
+            'Article, '. $subcat->title.' updated');
     }
 
     /**
@@ -79,6 +129,11 @@ class SubCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subcat = Subcategory::findOrFail($id);
+        $subcat->delete();
+
+        return redirect()->route('subcategories.index')
+            ->with('flash_message',
+             'Article successfully deleted');
     }
 }

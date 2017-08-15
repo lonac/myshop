@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Category;
+
 class CategoriesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','product'])->except('index','show');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $cat = Category::all();
+
+        return view('categories.index',compact('cat'));
     }
 
     /**
@@ -23,7 +31,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -34,7 +42,14 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $cat = new Category;
+        $cat->name = $request->input('name');
+
+        $cat->save();
+
+        return redirect()->route('categories.index')->with('message_flash','
+            Category successfully added');
     }
 
     /**
@@ -45,7 +60,11 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $cat = Category::findOrFail($id);
+
+        $subcat = $cat->subcategories;
+
+        return view('categories.show',compact('cat','subcat'));
     }
 
     /**
@@ -56,7 +75,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cat = Category::findOrFail($id);
+
+        return view('categories.edit',compact('cat'));
     }
 
     /**
@@ -68,7 +89,17 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name'=>'required|max:100',
+        ]);
+
+        $cat = Category::findOrFail($id);
+        $cat->name = $request->input('name');
+        $cat->save();
+
+        return redirect()->route('categories.show', 
+            $cat->id)->with('flash_message', 
+            'Article, '. $cat->title.' updated');
     }
 
     /**
@@ -79,6 +110,11 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cat = Category::findOrFail($id);
+        $cat->delete();
+
+        return redirect()->route('categories.index')
+            ->with('flash_message',
+             'Article successfully deleted');
     }
 }

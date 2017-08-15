@@ -32,3 +32,17 @@ Route::resource('posts', 'PostController');
 //Product controller
 
 Route::resource('products','ProductController');
+
+//Categories controller
+
+Route::resource('categories','CategoriesController');
+
+//Subcateg
+
+Route::resource('subcategories','SubCategoriesController');
+
+Route::get('categories/{id}/subcategories/create','SubCategoriesController@create');
+Route::post('categories/{id}/subcategories/create','SubCategoriesController@store');
+Route::get('categories/{id}/subcategories/edit','SubCategoriesController@edit');
+Route::get('categories/{id}/subcategories/show','SubCategoriesController@show');
+Route::patch('categories/{id}/subcategories/edit','SubCategoriesController@update');
