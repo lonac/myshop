@@ -26,88 +26,13 @@
                         
             </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- Links -->
-                    
+                        <!-- Links --> 
                         <li><a href="/">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            Men
-                            <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{url('/men/Trousers')}}">Trousers</a></li>
-                                <li><a href="#">Shirts</a></li>
-                                <li><a href="#">Underwear</a></li>
-                                <li><a href="#">Jacket</a></li>
-                                <li><a href="#">Sweater</a></li>
-                            <li class="divider"></li>
-                                <li><a href="#">Watch</a></li>
-                                <li><a href="#">Culture</a></li>
-                            <li class="divider"></li>
-                                <li><a href="#">Shoes</a></li>
-                                <li><a href="#">Rabber</a></li>
-                                <li><a href="#">Sandals</a></li>
-                            </ul>
-                         </li>
-                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Women
-                            <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Trousers</a></li>
-                                <li><a href="#">Shirts</a></li>
-                                <li><a href="#">Underwear</a></li>
-                                <li><a href="#">Jacket</a></li>
-                                <li><a href="#">Sweater</a></li>
-                            <li class="divider"></li>
-                                <li><a href="#">Watch</a></li>
-                                <li><a href="#">Culture</a></li>
-                                <li><a href="#">Earings</a></li>
-                            <li class="divider"></li>
-                                <li><a href="#">Shoes</a></li>
-                                <li><a href="#">Rabber</a></li>
-                                <li><a href="#">Sandals</a></li>
-                            </ul>
-                         </li>
-                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Computers
-                                <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">HP</a></li>
-                                    <li><a href="#">Samsung</a></li>
-                                    <li><a href="#">Dell</a></li>
-                                </ul>
-                             </li>
-                             <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Phones
-                                    <b class="caret"></b>
-                                    </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Iphone</a></li>
-                                    <li><a href="#">Samsung</a></li>
-                                    <li><a href="#">Huawei</a></li>
-                                    <li><a href="#">Techno</a></li>
-                                    <li><a href="#">Nokia</a></li>
-                                <li class="divider"></li>
-                                    <li><a href="#">Other supports</a></li>
-                                </ul>
-                             </li>  
-                             <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    House
-                                    <b class="caret"></b>
-                                    </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Windows Cartens</a></li>
-                                    <li><a href="#">yarn</a></li>
-                                <li class="divider"></li>
-                                    <li><a href="#">Bed pillor</a></li>
-                                </ul>
-                             </li>    
+                        <li><a href="/categories">Products</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Help</a></li>
+                    
                                 <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>

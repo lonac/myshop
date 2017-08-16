@@ -1,23 +1,23 @@
 @extends('layouts.master')
+
+@section('title','Categories')
+
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-10 col-md-offset-0">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Categories</h3></div>
-                    @foreach ($cat as $catee)
+                    <div class="panel-heading"><strong>Categories</strong></div>
                         <div class="panel-body">
-                            <li style="list-style-type:disc">
-                                <a href="{{ route('categories.show', $catee->id ) }}"><b>{{ $catee->name }}</b><br> View/Add Sub-Categories
-                                </a>
-                            </li>
+                            @foreach ($cat as $catee)
+                                <h2><a href="{{ route('categories.show', $catee->id ) }}">{{ $catee->name}}</a></h2>
+                            @endforeach
                         </div>
-                    @endforeach
                     </div>
                     <div class="text-center">
 
                     </div>
-                </div>
+            </div>
             </div>
         </div>
 @endsection
