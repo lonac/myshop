@@ -12,6 +12,11 @@ class Product extends Model
     {
     	return $this->hasOne('App\Category');
     }
+
+    public function dimensions()
+    {
+    	return $this->hasMany('App\Dimension');
+    }
 }
 
 

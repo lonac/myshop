@@ -46,3 +46,7 @@ Route::post('categories/{id}/subcategories/create','SubCategoriesController@stor
 Route::get('categories/{id}/subcategories/edit','SubCategoriesController@edit');
 Route::get('categories/{id}/subcategories/show','SubCategoriesController@show');
 Route::patch('categories/{id}/subcategories/edit','SubCategoriesController@update');
+
+//dimension
+
+Route::resource('dimensions','DimensionsProductController');
