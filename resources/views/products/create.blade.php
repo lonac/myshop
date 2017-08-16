@@ -30,7 +30,16 @@
             @endif
             <br>
 
-             {{ Form::label('cost', 'Product Cost') }}
+            <label for="dimension">Dimensions</label>
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">Option 1</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">Option 2</label>
+                </div>
+            <br>
+
+            {{ Form::label('cost', 'Product Cost') }}
             {{ Form::text('cost', null, array('class' => 'form-control')) }}
             <br>
 
