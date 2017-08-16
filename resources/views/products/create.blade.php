@@ -22,18 +22,27 @@
             <br>
 
             @if(!$category->isEmpty()) 
-            <label for="categories">Choose Categories</label><br>
+            <label for="categories">Choose Category</label><br>
                 @foreach ($category as $catee) 
-                    {{ Form::checkbox('category[]',  $catee->id ) }}
+                    {{ Form::radio('category[]',  $catee->id ) }}
                     {{ Form::label($catee->name, ucfirst($catee->name)) }}
+                @endforeach
+            @endif  
+            <br>
+
+            @if(!$subcategory->isEmpty()) 
+            <label for="subcategories">On:</label><br>
+                @foreach ($subcategory as $subcatee) 
+                    {{ Form::radio('subcategory[]',  $subcatee->id ) }}
+                    {{ Form::label($subcatee->name, ucfirst($subcatee->name)) }}
                 @endforeach
             @endif
             <br>
 
             @if(!$dimensions->isEmpty()) 
-            <label for="Dimension">Add Dimension</label><br>
+            <label for="Dimension">Available Dimension</label><br>
                 @foreach ($dimensions as $dimee) 
-                    {{ Form::checkbox('category[]',  $dimee->id ) }}
+                    {{ Form::checkbox('size[]',  $dimee->id ) }}
                     {{ Form::label($dimee->size, ucfirst($dimee->size)) }}
                 @endforeach
             @endif
@@ -44,7 +53,7 @@
             <br>
 
 
-             {{ Form::label('body', 'Post Body') }}
+             {{ Form::label('body', 'More Specifications') }}
             {{ Form::textarea('body', null, array('class' => 'form-control')) }}
             <br>
 

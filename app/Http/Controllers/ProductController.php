@@ -9,6 +9,7 @@ use App\Dimension;
 use Auth;
 use Session;
 use App\Category;
+use App\Subcategory;
 
 class ProductController extends Controller
 {
@@ -37,8 +38,9 @@ class ProductController extends Controller
     {
         $category = Category::all();
         $dimensions = Dimension::all();
+        $subcategory = Subcategory::all();
         
-         return view('products.create',compact('category','dimensions'));
+         return view('products.create',compact('category','dimensions','subcategory'));
     }
 
     /**
@@ -51,13 +53,20 @@ class ProductController extends Controller
     {
         $this->validate($request, [
             'title'=>'required|max:100',
-            'body'=>'required',
+            'cost'=>'required',
+            'manufacturer'=>'required',
             ]);
 
         $title = $request['title'];
         $body = $request['body'];
+        $manufacturer = $request['manufacturer'];
+        $category = $request['category'];
+        $size = $request['size'];
+        $cost = $request['cost'];
+        $subcategory = $request['subcategory'];
 
-        $product = Product::create($request->only('title', 'body'));
+        $product = Product::create($request
+            ->only('title', 'body','manufacturer','category','subcategory','size','cost'));
 
     //Display a successful message upon save
         return redirect()->route('products.index')

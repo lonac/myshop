@@ -35,7 +35,7 @@
                             <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Trousers</a></li>
+                                <li><a href="{{url('/men/Trousers')}}">Trousers</a></li>
                                 <li><a href="#">Shirts</a></li>
                                 <li><a href="#">Underwear</a></li>
                                 <li><a href="#">Jacket</a></li>
