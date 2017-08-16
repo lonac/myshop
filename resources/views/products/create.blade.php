@@ -30,13 +30,13 @@
             @endif
             <br>
 
-            <label for="dimension">Dimensions</label>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="">Option 1</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="">Option 2</label>
-                </div>
+            @if(!$dimensions->isEmpty()) 
+            <label for="Dimension">Add Dimension</label><br>
+                @foreach ($dimensions as $dimee) 
+                    {{ Form::checkbox('category[]',  $dimee->id ) }}
+                    {{ Form::label($dimee->size, ucfirst($dimee->size)) }}
+                @endforeach
+            @endif
             <br>
 
             {{ Form::label('cost', 'Product Cost') }}

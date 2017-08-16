@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Product;
+use App\Dimension;
 use Auth;
 use Session;
 use App\Category;
@@ -35,8 +36,9 @@ class ProductController extends Controller
     public function create()
     {
         $category = Category::all();
+        $dimensions = Dimension::all();
         
-         return view('products.create',compact('category'));
+         return view('products.create',compact('category','dimensions'));
     }
 
     /**
