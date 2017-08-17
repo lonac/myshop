@@ -10,7 +10,7 @@
                     <div class="panel-heading"><strong>Categories</strong></div>
                         <div class="panel-body">
                             @foreach ($cat as $catee)
-                                <h2><a href="{{ route('categories.show', $catee->id ) }}">{{ $catee->name}}</a></h2>
+                                <strong><a href="{{ route('categories.show', $catee->id ) }}">{{ $catee->name}}</a></strong>
                             @endforeach
                         </div>
                     </div>
