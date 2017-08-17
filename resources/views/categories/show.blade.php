@@ -18,7 +18,7 @@
                         <div class="panel-body"> 
                             @if(!$subcat->isEmpty())
                                 @foreach($subcat as $subcatee)
-                                <a href="{{ url('categories/'.$cat->id.'/subcategories/show') }}">{{$subcatee->name}}</a>
+                                    <a href="{{ route('categories.subcategories.show', [$cat->id, $subcatee->id]) }}">{{$subcatee->name}}</a>
                                 @endforeach
                             @endif
 
