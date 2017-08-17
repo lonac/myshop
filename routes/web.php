@@ -35,13 +35,11 @@ Route::resource('products','ProductController');
 Route::resource('categories','CategoriesController');
 
 //Subcateg
-
-Route::resource('subcategories','SubCategoriesController');
-
+Route::get('categories/{id}/subcategories','SubCategoriesController@index');
 Route::get('categories/{id}/subcategories/create','SubCategoriesController@create');
 Route::post('categories/{id}/subcategories/create','SubCategoriesController@store');
 Route::get('categories/{id}/subcategories/edit','SubCategoriesController@edit');
-Route::get('categories/{id}/subcategories/show','SubCategoriesController@show');
+Route::get('categories/{id}/subcategories/{sub_id}','SubCategoriesController@show');
 Route::patch('categories/{id}/subcategories/edit','SubCategoriesController@update');
 
 //dimension

@@ -1,4 +1,6 @@
 @extends('layouts.master')
+
+@section('title','KKOO')
 @section('content')
     <div class="container">
         <div class="row">
@@ -7,17 +9,13 @@
                     <div class="panel-heading"><h3>Sub Categories</h3></div>
                     @foreach ($subcat as $subcatee)
                         <div class="panel-body">
-                            <li style="list-style-type:disc">
-                                <a href="{{ route('subcategories.show', $subcatee->id ) }}"><b>{{ $subcatee->name }}</b><br>
-                                </a>
-                            </li>
+                                <a href="{{url('categories/')}}">{{ $subcatee->name }}<br></a> 
                         </div>
                     @endforeach
-                    </div>
-                    <div class="text-center">
-
-                    </div>
                 </div>
+                    <div class="text-center">
+                    </div>
             </div>
         </div>
+    </div>
 @endsection

@@ -27,7 +27,6 @@ class SubCategoriesController extends Controller
      */
     public function index($id)
     {
-
         $category = Category::findOrFail($id);
 
         $subcat = $category->subcategories;
@@ -75,13 +74,14 @@ class SubCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$sub_id)
     {
         $cat = Category::findOrFail($id);
 
-        $subcat = $cat->subcategories;
+        $subcategory = Subcategory::findOrFail($sub_id);
 
-        return view('subcategories.show',compact('subcat','cat'));
+        return view('subcategories.show',compact('subcat','cat','subcategory'));
+
     }
 
     /**

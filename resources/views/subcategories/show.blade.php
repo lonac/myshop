@@ -5,18 +5,21 @@
 @section('content')
 
 <div class="container">
-
-    <h1>{{ $cat->name }}</h1>
-    {!! Form::open(['method' => 'DELETE', 'route' => ['subcategories.destroy', $subcat->id] ]) !!}
-    <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
-    @can('Edit Subcategory')
-        <a href="{{ route('subcategories.edit', $subcat->id) }}" class="btn btn-info" role="button">Edit</a>
-    @endcan
-    @can('Delete Subcategory')
-    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-    @endcan
-    {!! Form::close() !!}
-
+    <div class="row">
+        <div class="col-md-12 col-md-offset-0">
+            <div class="panel panel-default"><h1>{{ $cat->name }}</h1>
+                <div class="panel panel-heading">Subcategories</div>
+                <div class="panel panel-body">
+                    <form method="POST" action="{{url('categories/'.$cat->id.'/subcategories/'.$subcategory->sub_id)}}">
+                    {{ method_field('delete') }}
+                        <h3>{{$subcategory->name}}</h3>
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection
