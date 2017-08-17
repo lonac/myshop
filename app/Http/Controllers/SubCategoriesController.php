@@ -78,7 +78,7 @@ class SubCategoriesController extends Controller
     {
         $cat = Category::findOrFail($id);
 
-        $subcategory = Subcategory::findOrFail($sub_id);
+        $subcategory = $cat->subcategories()->where('category_id', $cat->id)->firstOrFail();
 
         return view('subcategories.show',compact('subcat','cat','subcategory'));
 
