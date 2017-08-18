@@ -26,11 +26,13 @@ class ProductController extends Controller
     {
        $category = Category::findOrFail($id);
   
-        $subcategory = Subcategory::findOrFail($sub_id);
+        $subcat = Subcategory::findOrFail($sub_id);
+
+        $products = Product::orderby('id','desc')->paginate('5');
         
         $subcategory = $category->subcategories()->where('category_id', $category->id)->firstOrFail();
 
-        return view('products.index',compact('subcat','category','subcategory'));
+        return view('products.index',compact('subcat','category','subcategory','products'));
     }
 
     /**
