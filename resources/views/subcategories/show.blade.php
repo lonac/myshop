@@ -23,7 +23,7 @@
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 <div class="panel panel-body">
-                    here is the list of trousers
+                    here is the list of {{$subcategory->name}}
                 </div>
             </div>
         </div>
