@@ -23,7 +23,7 @@
                     <br>
 
                     {{ Form::label('cost', 'Product Cost') }}
-                    {{ Form::text('cost', null, array('class' => 'form-control')) }}
+                    {{ Form::number('cost', null, array('class' => 'form-control')) }}
                     <br>
 
 
