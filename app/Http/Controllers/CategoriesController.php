@@ -97,7 +97,7 @@ class CategoriesController extends Controller
         $cat->name = $request->input('name');
         $cat->save();
 
-        return redirect()->route('categories.show', 
+        return redirect('categories.show', 
             $cat->id)->with('flash_message', 
             'Article, '. $cat->title.' updated');
     }

@@ -64,7 +64,7 @@ class SubCategoriesController extends Controller
 
         $subcat->save();
 
-        return redirect('subcategories/show')->with('message_flash','
+        return redirect('categories/'.$category->id)->with('message_flash','
             Subcategory successfully added');
     }
 

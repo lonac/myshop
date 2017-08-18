@@ -10,8 +10,11 @@
                     <div class="panel-heading">
                             @foreach ($cat as $catee)
                                 <strong><a href="{{ route('categories.show', $catee->id ) }}">{{ $catee->name}}</a></strong>
-                            @endforeach                   
-                             </div>
+                            @endforeach 
+                            @can('Create Category')
+                                <a href="{{url('categories/create')}}" class="button">Add Category</a>
+                            @endcan                  
+                    </div>
                         <div class="panel-body">
                            
                         </div>
