@@ -31,6 +31,7 @@ Route::resource('posts', 'PostController');
 Route::get('categories/{id}/subcategories/{sub_id}/products','ProductController@index');
 Route::get('categories/{id}/subcategories/{sub_id}/products/create','ProductController@create');
 Route::post('categories/{id}/subcategories/{sub_id}/products/create','ProductController@store');
+Route::get('categories/{id}/subcategories/{sub_id}/products/{prod_id}','ProductController@show');
 
 
 

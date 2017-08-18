@@ -96,12 +96,20 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$sub_id,$prod_id)
     {
         
-        $product = Product::findOrFail($id); //Find product of id = $id
+       $category = Category::findOrFail($id);
+  
+        $subcat = Subcategory::findOrFail($sub_id);
 
-        return view ('products.show', compact('product'));
+      //  $prod = Product::findOrFail($prod_id);
+        
+        $subcategory = $category->subcategories()->where('category_id', $category->id)->firstOrFail();
+
+        $product = $subcategory->products()->where('subcategory_id', $subcategory->id)->firstOrFail();
+
+        return view('products.show',compact('subcat','category','subcategory','product'));
     }
 
     /**
