@@ -17,12 +17,11 @@
 
                             <label for="subcategory">Subcategory Name</label>
                             <input type="text" name="name" id="name" class="form-control" placeholder="e.g. shirts" />
-                        </div>
                         <button type="submit" class="btn btn-success">ADD</button>
                     </form>
                 </div>
             </div>
-     </div>
+        </div>
     </div>
 
 @endsection

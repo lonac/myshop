@@ -18,7 +18,7 @@
                         <div class="panel-body"> 
                             @if(!$subcat->isEmpty())
                                 @foreach($subcat as $subcatee)
-                                <a href="{{ url('categories/'.$cat->id.'/subcategories') }}">{{$subcatee->name}}</a>
+                                <a href="{{ url('categories/'.$cat->id.'/subcategories/'.$subcatee->id) }}">{{$subcatee->name}}</a>
                                 @endforeach
                             @endif
 

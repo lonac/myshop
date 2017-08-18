@@ -64,7 +64,7 @@ class SubCategoriesController extends Controller
 
         $subcat->save();
 
-        return redirect()->route('categories.index')->with('message_flash','
+        return redirect('subcategories/show')->with('message_flash','
             Subcategory successfully added');
     }
 
@@ -78,7 +78,7 @@ class SubCategoriesController extends Controller
     {
        $cat = Category::findOrFail($id);
   
-        $subcategory = Subcategory::findOrFail($sub_id);
+        $subcat = Subcategory::findOrFail($sub_id);
         
         $subcategory = $cat->subcategories()->where('category_id', $cat->id)->firstOrFail();
 

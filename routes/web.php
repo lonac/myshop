@@ -14,9 +14,9 @@
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'ProductController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('users', 'UserController');
 
@@ -28,7 +28,12 @@ Route::resource('posts', 'PostController');
 
 //Product controller
 
-Route::resource('products','ProductController');
+Route::get('categories/{id}/subcategories/{sub_id}/products','ProductController@index');
+Route::get('categories/{id}/subcategories/{sub_id}/products/create','ProductController@create');
+Route::post('categories/{id}/subcategories/{sub_id}/products/create','ProductController@store');
+
+
+
 
 //Categories controller
 

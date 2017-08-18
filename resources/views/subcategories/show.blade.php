@@ -6,9 +6,16 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12 col-md-offset-0">
+        <div class="col-md-10 col-md-offset-0">
             <div class="panel panel-default">
-                <div class="panel panel-heading"><h2>{{$subcategory->name}}</h2> <a href="{{url('categories/'.$cat->id)}}">{{$cat->name}}</a> >
+                <div class="panel panel-heading">
+                    <h2>{{$subcategory->name}}
+                        @can('Create Product')
+                            <a href="{{url('categories/'.$cat->id.'/subcategories/'.$subcategory->id.'/products/create')}}" 
+                            class="btn btn-info" role="button">Add {{$subcategory->name}} </a>
+                         @endcan
+                    </h2> 
+                    <a href="{{url('categories/'.$cat->id)}}">{{$cat->name}}</a> >
                     <a href="">{{$subcategory->name}}</a></div>
                     <form method="POST" action="{{url('categories/'.$cat->id.'/subcategories/'.$subcategory->sub_id)}}">
                         {{ method_field('delete') }}             

@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-       protected $fillable = ['title','body','cost','manufacturer','category','size','subcategory',];
+       protected $fillable = ['name','body','cost','manufacturer','subcategory_id',];
 
-    public function categories()
+    public function subcategories()
     {
-    	return $this->hasOne('App\Category');
+    	return $this->belongsTo('App\Subcategory');
     }
 
     public function dimensions()

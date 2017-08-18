@@ -15,7 +15,7 @@ class Dimensions extends Migration
     {
         Schema::create('dimensions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('size');
+            $table->string('size')->unique();
             $table->timestamps();
         });
     }

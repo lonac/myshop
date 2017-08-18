@@ -22,12 +22,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id,$sub_id)
     {
-        $products = Product::orderby('id','desc')->paginate('5');
-        $category = Category::all();
+       $category = Category::findOrFail($id);
+  
+        $subcategory = Subcategory::findOrFail($sub_id);
+        
+        $subcategory = $category->subcategories()->where('category_id', $category->id)->firstOrFail();
 
-        return view('products.index',compact('products','category'));
+        return view('products.index',compact('subcat','category','subcategory'));
     }
 
     /**
@@ -35,13 +38,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id, $sub_id)
     {
-        $category = Category::all();
-        $dimensions = Dimension::all();
-        $subcategory = Subcategory::all();
+       $category = Category::findOrFail($id);
+  
+        $subcategory = Subcategory::findOrFail($sub_id);
         
-         return view('products.create',compact('category','dimensions','subcategory'));
+        $subcategory = $category->subcategories()->where('category_id', $category->id)->firstOrFail();
+
+        return view('products.create',compact('category','subcategory'));
     }
 
     /**
@@ -50,29 +55,37 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id, $sub_id)
     {
         $this->validate($request, [
-            'title'=>'required|max:100',
+            'name'=>'required|max:100',
             'cost'=>'required',
             'manufacturer'=>'required',
             ]);
 
-        $title = $request['title'];
-        $body = $request['body'];
-        $manufacturer = $request['manufacturer'];
-        $category = $request['category'];
-        $size = $request['size'];
-        $cost = $request['cost'];
-        $subcategory = $request['subcategory'];
+        //category id
+        $cat = Category::findOrFail($id);
 
-        $product = Product::create($request
-            ->only('title', 'body','manufacturer','category','subcategory','size','cost'));
+        //subcategory
+        $subcat = Subcategory::findOrFail($sub_id);
+
+        //subcategory's id
+        $subcategory = $cat->subcategories()->where('category_id', $cat->id)->firstOrFail();
+
+        $product = new Product;
+        $product->name = $request->input('name');
+        $product->body = $request->input('body');
+        $product->manufacturer = $request->input('manufacturer');
+        $product->subcategory_id = $subcat->id;
+        $product->cost = $request->input('cost');
+
+        $product->save();
+
 
     //Display a successful message upon save
         return redirect()->route('products.index')
             ->with('flash_message', 'Article,
-             '. $product->title.' created');
+             '. $product->name.' created');
     }
 
     /**
@@ -112,18 +125,18 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'title'=>'required|max:100',
+            'name'=>'required|max:100',
             'body'=>'required',
         ]);
 
         $product = Product::findOrFail($id);
-        $product->title = $request->input('title');
+        $product->name = $request->input('name');
         $product->body = $request->input('body');
         $product->save();
 
         return redirect()->route('products.show', 
             $product->id)->with('flash_message', 
-            'Product, '. $product->title.' updated');
+            'Product, '. $product->name.' updated');
     }
 
     /**
