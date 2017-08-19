@@ -10,20 +10,17 @@
             <div class="panel panel-default">
                 <div class="panel panel-heading">
                     <h2>{{$subcategory->name}}
-                        @can('Create Product')
-                            <a href="{{url('categories/'.$cat->id.'/subcategories/'.$subcategory->id.'/products/create')}}" 
-                            class="btn btn-info" role="button">Add {{$subcategory->name}} </a>
-                         @endcan
                     </h2> 
-                    <a href="{{url('categories/'.$cat->id)}}">{{$cat->name}}</a> >
-                    <a href="">{{$subcategory->name}}</a></div>
-                    <form method="POST" action="{{url('categories/'.$cat->id.'/subcategories/'.$subcategory->sub_id)}}">
-                        {{ method_field('delete') }}             
-                        {{ csrf_field() }}
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                <div class="panel panel-body">
-                    here is the list of {{$subcategory->name}}
+                <div class="panel-body">
+                    <h2>Here is {{$subcategory->name}} Products</h2> 
+                    @if($products->count()>0)
+                        @foreach($products as $product)
+                            <a href="{{url('products/'.$product->id)}}">{{$product->name}}</a><br>
+                        @endforeach
+                    @else
+                        <h2>No Products in Here</h2>
+                    @endif
+
                 </div>
             </div>
         </div>

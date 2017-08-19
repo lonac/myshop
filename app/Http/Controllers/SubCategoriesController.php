@@ -8,6 +8,8 @@ use App\Category;
 
 use App\Subcategory;
 
+use App\Product;
+
 use Session;
 
 
@@ -74,15 +76,18 @@ class SubCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id,$sub_id)
+    public function show($id, $sub_id)
     {
-       $cat = Category::findOrFail($id);
-  
-        $subcat = Subcategory::findOrFail($sub_id);
-        
-        $subcategory = $cat->subcategories()->where('category_id', $cat->id)->firstOrFail();
 
-        return view('subcategories.show',compact('subcat','cat','subcategory'));
+        $category = Category::findOrFail($id);
+
+       $subcategory = Subcategory::findOrFail($sub_id);
+
+
+  
+        $products = Product::where('subcategoryname', $subcategory->name)->get();
+
+        return view('subcategories.show',compact('subcategory','products'));
 
     }
 
