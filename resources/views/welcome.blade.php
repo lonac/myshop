@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title','KKOO')
+
 @section('content')
  <div class="container">
         <div class="row">
@@ -7,7 +9,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong>Categories</h3></strong></div>
                     <div class="panel-body">
-   
+                        @if($category->count()>0)
+                            @foreach($category as $catee)
+                                <a href="{{url('categories/'.$catee->id)}}">{{$catee->name}}</a><br>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

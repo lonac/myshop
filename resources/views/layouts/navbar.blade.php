@@ -28,10 +28,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Links --> 
                         <li><a href="/">Home</a></li>
-                        <li><a href="/categories">Products</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="">Contact Us</a></li>
-                        <li><a href="">Help</a></li>
+                        <li><a href="/products">Products</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contacts">Contact Us</a></li>
+                        <li><a href="/help">Help</a></li>
                     
                                 <!-- Authentication Links -->
                         @if (Auth::guest())

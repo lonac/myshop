@@ -15,6 +15,11 @@
 Auth::routes();
 
 Route::get('/','PagesController@index')->name('KKOO');
+Route::get('/about','PagesController@about')->name('About');
+Route::get('/contacts','PagesController@contacts')->name('contacts');
+Route::get('/help','PagesController@help')->name('help');
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
