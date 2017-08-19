@@ -28,11 +28,11 @@ class ProductController extends Controller
   
         $subcat = Subcategory::findOrFail($sub_id);
 
-       // $prod = Product::findOrFail($prod_id);
+        $products = Product::all();
         
         $subcategory = $category->subcategories()->where('category_id', $category->id)->firstOrFail();
 
-        $products = $subcat->products()->where('subcategory_id', $subcat->id)->firstOrFail();
+       // $products = $subcat->products()->where('category_id',$category->id)->where('subcategory_id',$subcat->id)->firstOrFail();
 
         return view('products.index',compact('subcat','category','subcategory','products'));
     }
@@ -81,13 +81,14 @@ class ProductController extends Controller
         $product->body = $request->input('body');
         $product->manufacturer = $request->input('manufacturer');
         $product->subcategory_id = $subcat->id;
+        $product->category_id = $cat->id;
         $product->cost = $request->input('cost');
 
         $product->save();
 
 
     //Display a successful message upon save
-        return redirect()->route('products.index')
+        return redirect('categories/'.$cat->id.'/subcategories/'.$subcat->id.'/products')
             ->with('flash_message', 'Article,
              '. $product->name.' created');
     }
