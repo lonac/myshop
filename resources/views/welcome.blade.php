@@ -14,9 +14,15 @@
 
             <div class="col-md-7 col-md-offset-0">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><strong>Images Here!</h3></strong></div>
+                    <div class="panel-heading"><strong>Products!</h3></strong></div>
                     <div class="panel-body">
-             
+                        @if($products->count()>0)
+                            @foreach($products as $product)
+                                <h2>{{$product->name}}</h2><br>
+                            @endforeach
+                        @else
+                            <strong>No Products added so far!</strong>
+                        @endif
                     </div>
                 </div>
             </div>
