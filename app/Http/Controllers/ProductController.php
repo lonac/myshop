@@ -81,10 +81,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        
-      $product = Product::findOrFail($id); //Find product of id = $id
+       
+        $product = Product::findOrFail($id); //Find product of id = $id
 
-        return view ('products.show', compact('product'));
+        return view('products.show',compact('product'));
     }
 
     /**
@@ -95,9 +95,13 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::findOrFail($id);
+         $categories = Category::all();
+        
+        $subcategories = Subcategory::all();
 
-        return view('products.edit', compact('product'));
+        $product = Product::findOrFail($id); //Find product of id = $id
+
+        return view ('products.edit', compact('product','categories','subcategories'));
     }
 
     /**
@@ -110,14 +114,24 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'title'=>'required|max:100',
+            'name'=>'required|max:100',
             'body'=>'required',
+            'manufacturer'=>'required',
+            'categoryname'=>'required',
+            'subcategoryname'=>'required',
+            'cost'=>'required',
         ]);
 
         $product = Product::findOrFail($id);
-        $product->title = $request->input('title');
-        $product->body = $request->input('body');
-        $product->save();
+        $name = $request['name'];
+        $manufacturer = $request['manufacturer'];
+        $categoryname = $request['categoryname'];
+        $subcategoryname = $request['subcategoryname'];
+        $cost = $request['cost'];
+        $body = $request['body'];
+
+        $product = Product::create($request->only('name', 'cost','body','manufacturer','categoryname','subcategoryname'));
+
 
         return redirect()->route('products.show', 
             $product->id)->with('flash_message', 

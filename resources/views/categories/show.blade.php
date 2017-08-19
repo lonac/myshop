@@ -14,8 +14,8 @@
                             @can('Edit Category')
                                     <a href="{{ route('categories.edit', $cat->id) }}" class="btn btn-info" role="button">Edit</a>
                              @endcan
-                        </strong></div>
-                        <div class="panel-body"> 
+                        </strong>
+                        
                             @if(!$subcat->isEmpty())
                                 @foreach($subcat as $subcatee)
                                 <a href="{{ url('categories/'.$cat->id.'/subcategories/'.$subcatee->id.'/products') }}">{{$subcatee->name}}</a>
@@ -33,6 +33,25 @@
                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                             @endcan
                             {!! Form::close() !!}
+                        </div>
+
+                         <div class="panel-body"> 
+                            <h2>Here is {{$cat->name}} Products</h2>
+                                @if($products->count()>0)
+                                   @foreach ($products as $product)
+                                        <div class="panel-body">
+                                            <li style="list-style-type:disc">
+                                                <a href="{{ route('products.show', $product->id ) }}"><b>{{ $product->name }}</b><br>
+                                                    <p class="teaser">
+                                                       {{  str_limit($product->body, 100) }} {{-- Limit teaser to 100 characters --}}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <p>No products in Here</p>
+                                @endif
                         </div>
                  </div>
              </div>

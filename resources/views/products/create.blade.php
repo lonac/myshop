@@ -6,8 +6,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
-        <h2>Add New Product
-        <hr>
+        <h2>Add New Product</h2>
             {{-- Using the Laravel HTML Form Collective to create our form --}}
             {{ Form::open(array('route' => 'products.store')) }}
 

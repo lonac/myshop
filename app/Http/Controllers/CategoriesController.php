@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Category;
 
+use App\Product;
+
 class CategoriesController extends Controller
 {
     public function __construct()
@@ -64,7 +66,9 @@ class CategoriesController extends Controller
 
         $subcat = $cat->subcategories;
 
-        return view('categories.show',compact('cat','subcat'));
+        $products = Product::where('categoryname', $cat->name)->get();
+
+        return view('categories.show',compact('cat','subcat','products'));
     }
 
     /**
