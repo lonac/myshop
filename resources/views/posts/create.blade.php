@@ -24,6 +24,7 @@
             {{ Form::submit('Create Post', array('class' => 'btn btn-success btn-lg btn-block')) }}
             {{ Form::close() }}
         </div>
+        
         </div>
     </div>
 

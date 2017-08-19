@@ -11,8 +11,8 @@
         <hr>
             {{ Form::model($product, array('route' => array('products.update', $product->id), 'method' => 'PUT')) }}
             <div class="form-group">
-            {{ Form::label('title', 'Title') }}
-            {{ Form::text('title', null, array('class' => 'form-control')) }}<br>
+            {{ Form::label('name', 'Name') }}
+            {{ Form::text('name', null, array('class' => 'form-control')) }}<br>
 
             {{ Form::label('body', 'Post Body') }}
             {{ Form::textarea('body', null, array('class' => 'form-control')) }}<br>

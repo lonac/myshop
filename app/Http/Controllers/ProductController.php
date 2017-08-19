@@ -22,17 +22,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id,$sub_id)
+    public function index()
     {
-       $category = Category::findOrFail($id);
-  
-        $subcat = Subcategory::findOrFail($sub_id);
+       $products = Product::orderby('id','desc')->paginate('5');
 
-        $products = Product::orderby('id','desc')->paginate('5');
-        
-        $subcategory = $category->subcategories()->where('category_id', $category->id)->firstOrFail();
-
-        return view('products.index',compact('subcat','category','subcategory','products'));
+        return view('products.index',compact('products'));
     }
 
     /**
@@ -40,15 +34,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id, $sub_id)
+    public function create()
     {
-       $category = Category::findOrFail($id);
-  
-        $subcategory = Subcategory::findOrFail($sub_id);
-        
-        $subcategory = $category->subcategories()->where('category_id', $category->id)->firstOrFail();
-
-        return view('products.create',compact('category','subcategory'));
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        return view('products.create',compact('categories','subcategories'));
     }
 
     /**
@@ -57,32 +47,25 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id, $sub_id)
+    public function store(Request $request)
     {
-        $this->validate($request, [
+         $this->validate($request, [
             'name'=>'required|max:100',
-            'cost'=>'required',
+            'body'=>'required',
             'manufacturer'=>'required',
+            'categoryname'=>'required',
+            'subcategoryname'=>'required',
+            'cost'=>'required',
             ]);
 
-        //category id
-        $cat = Category::findOrFail($id);
+        $name = $request['name'];
+        $manufacturer = $request['manufacturer'];
+        $categoryname = $request['categoryname'];
+        $subcategoryname = $request['subcategoryname'];
+        $cost = $request['cost'];
+        $body = $request['body'];
 
-        //subcategory
-        $subcat = Subcategory::findOrFail($sub_id);
-
-        //subcategory's id
-        $subcategory = $cat->subcategories()->where('category_id', $cat->id)->firstOrFail();
-
-        $product = new Product;
-        $product->name = $request->input('name');
-        $product->body = $request->input('body');
-        $product->manufacturer = $request->input('manufacturer');
-        $product->subcategory_id = $subcat->id;
-        $product->cost = $request->input('cost');
-
-        $product->save();
-
+        $product = Product::create($request->only('name', 'cost','body','manufacturer','categoryname','subcategoryname'));
 
     //Display a successful message upon save
         return redirect()->route('products.index')
@@ -96,20 +79,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id,$sub_id,$prod_id)
+    public function show($id)
     {
         
-       $category = Category::findOrFail($id);
-  
-        $subcat = Subcategory::findOrFail($sub_id);
+      $product = Product::findOrFail($id); //Find product of id = $id
 
-      //  $prod = Product::findOrFail($prod_id);
-        
-        $subcategory = $category->subcategories()->where('category_id', $category->id)->firstOrFail();
-
-        $product = $subcategory->products()->where('subcategory_id', $subcategory->id)->firstOrFail();
-
-        return view('products.show',compact('subcat','category','subcategory','product'));
+        return view ('products.show', compact('product'));
     }
 
     /**
@@ -135,18 +110,18 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name'=>'required|max:100',
+            'title'=>'required|max:100',
             'body'=>'required',
         ]);
 
         $product = Product::findOrFail($id);
-        $product->name = $request->input('name');
+        $product->title = $request->input('title');
         $product->body = $request->input('body');
         $product->save();
 
         return redirect()->route('products.show', 
             $product->id)->with('flash_message', 
-            'Product, '. $product->name.' updated');
+            'Article, '. $product->title.' updated');
     }
 
     /**
