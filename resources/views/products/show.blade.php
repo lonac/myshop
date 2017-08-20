@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="panel panel-default">
             <div class="panel panel-heading">
             <h2>
@@ -26,13 +26,30 @@
                 <strong>By: </strong><a href=""> {{$product->manufacturer}}</a><br>
                 <h2>{{$product->cost}} /= Tshs. </h2><br>
                 <hr>
-                  <p class="lead">{{ $product->body }} </p>
-                <hr>
-                <a href="" class="btn btn-info" role="button">Take Order</a>
+                  <form>
+                    <div class="form-group">
+                        {{ Form::label('region', 'Shipping Region') }}
+                        {{ Form::text('region', null, array('class' => 'form-control')) }}
+                        <br>
+
+                        {{ Form::label('name', 'Product Name') }}
+                        {{ Form::text('name', null, array('class' => 'form-control')) }}
+                        <br>
+                        {{ Form::label('name', 'Product Name') }}
+                        {{ Form::text('name', null, array('class' => 'form-control')) }}
+                        <br>
+                        {{ Form::label('name', 'Product Name') }}
+                        {{ Form::text('name', null, array('class' => 'form-control')) }}
+                        <br>
+                        {{ Form::label('name', 'Product Name') }}
+                        {{ Form::text('name', null, array('class' => 'form-control')) }}
+                        <br>
+                    </div>
+                  </form>
             </div>
          </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="panel panel-deafault">
                 <div class="panel panel-heading">Images Here!</div>
                     <div class="panel panel-body">

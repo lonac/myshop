@@ -28,6 +28,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Links --> 
                         <li><a href="/">Home</a></li>
+                        <li><a href="/news">News</a></li>
                         <li><a href="/products">Products</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/contacts">Contact Us</a></li>
@@ -35,8 +36,8 @@
                     
                                 <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <li><a href="{{ url('/login') }}">Sign In</a></li>
+                            <li><a href="{{ url('/register') }}">Join</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
