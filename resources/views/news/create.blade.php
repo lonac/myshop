@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', '| Create New Post')
+@section('title', '| Publish News')
 
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
-        <h1>Create New Post</h1>
+        <h1>Write News</h1>
         <hr>
 
     {{-- Using the Laravel HTML Form Collective to create our form --}}

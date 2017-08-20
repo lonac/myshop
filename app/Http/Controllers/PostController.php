@@ -23,7 +23,7 @@ class PostController extends Controller
     {
         $posts = Post::orderby('id','desc')->paginate('5');
 
-        return view('posts.index',compact('posts'));
+        return view('news.index',compact('posts'));
     }
     /**
      * Show the form for creating a new resource.
@@ -32,7 +32,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('news.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class PostController extends Controller
         $post = Post::create($request->only('title', 'body'));
 
     //Display a successful message upon save
-        return redirect()->route('posts.index')
+        return redirect()->route('news.index')
             ->with('flash_message', 'Article,
              '. $post->title.' created');
 
@@ -70,7 +70,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id); //Find post of id = $id
 
-        return view ('posts.show', compact('post'));
+        return view ('news.show', compact('post'));
     }
 
     /**
@@ -83,7 +83,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        return view('posts.edit', compact('post'));
+        return view('news.edit', compact('post'));
     }
 
     /**
@@ -105,7 +105,7 @@ class PostController extends Controller
         $post->body = $request->input('body');
         $post->save();
 
-        return redirect()->route('posts.show', 
+        return redirect()->route('news.show', 
             $post->id)->with('flash_message', 
             'Article, '. $post->title.' updated');
     }
@@ -121,7 +121,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $post->delete();
 
-        return redirect()->route('posts.index')
+        return redirect()->route('news.index')
             ->with('flash_message',
              'Article successfully deleted');
     }
