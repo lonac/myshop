@@ -57,3 +57,6 @@ Route::patch('categories/{id}/subcategories/edit','SubCategoriesController@updat
 //dimension
 
 Route::resource('dimensions','DimensionsProductController');
+
+//cart
+Route::resource('cart','CartController');
