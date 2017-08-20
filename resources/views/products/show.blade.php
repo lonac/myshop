@@ -46,8 +46,8 @@
                     </div>
 
                     <div class="form-group">
-                        <a href="/cart" class="btn btn-primary">Add To Cart</a>
-                    <button type="button" class="btn btn-success">Buy </button>                    
+                        <a href="{{url('/cart')}}" class="btn btn-primary">Add To Cart</a>
+                    <button type="button" class="btn btn-success">Buy Item </button>                    
                     </div>
                   </form>
 
@@ -113,6 +113,8 @@
                 <div class="panel panel-default">
                     <div class="panel panel-heading">Package Description:</div>
                     <div class="panel-body">
+                        <strong>Package size:</strong><br>
+                        <strong>Package Weight:</strong><br>
 
                     </div>
                 </div>

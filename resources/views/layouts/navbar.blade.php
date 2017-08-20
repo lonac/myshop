@@ -19,7 +19,7 @@
                       </div>
                 </form>
                 <li>
-                        <a href="#" class="btn btn-info btn-sm">
+                        <a href="{{url('/cart')}}" class="btn btn-info btn-sm">
                               <span class="glyphicon glyphicon-shopping-cart"></span> Cart
                         </a>
                      </li>
