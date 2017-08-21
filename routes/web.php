@@ -60,3 +60,7 @@ Route::resource('dimensions','DimensionsProductController');
 
 //cart
 Route::resource('cart','CartController');
+
+//photo upload
+Route::get('products/{id}/photos/create', 'PhotoController@create');
+Route::post('products/{id}/photos/create', 'PhotoController@store');

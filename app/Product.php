@@ -17,6 +17,11 @@ class Product extends Model
     {
     	return $this->hasMany('App\Dimension');
     }
+
+    public function products_photos()
+    {
+    	return $this->hasMany('App\ProductsPhoto');
+    }
 }
 
 
