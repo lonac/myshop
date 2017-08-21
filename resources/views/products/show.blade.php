@@ -26,7 +26,9 @@
                 <strong>By: </strong><a href=""> {{$product->manufacturer}}</a><br>
                 <h2>{{$product->cost}} /= Tshs. </h2><br>
                 <hr>
-                  <form>
+                  <form method="POST" action="{{url('cart')}}">
+                    {{ csrf_field() }}
+
                     <div class="form-group">
                         <label for="Region">Shipping Region:</label>
                             <input type="text" class="form-control" name="region" value="">
