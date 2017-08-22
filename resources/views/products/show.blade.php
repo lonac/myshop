@@ -66,7 +66,13 @@
                   <form>
                     <div class="form-group">
                        <h3><label for="payment">Payment Mode:</label></h3>
-                        You can now pay through
+                       @if($paymentmodes->count()>0)
+                           @foreach ($paymentmodes as $paymentmode)
+                                <strong>Company Name:</strong>{{ $paymentmode->companyname}}
+                                <br>                
+                            </div>
+                            @endforeach
+                        @endif
                     </div>
 
                     <div class="form-group">

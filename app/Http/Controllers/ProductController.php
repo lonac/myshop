@@ -11,6 +11,7 @@ use Session;
 use App\Category;
 use App\Subcategory;
 use App\ReachablePlaces;
+use App\PaymentMode;
 
 class ProductController extends Controller
 {
@@ -87,9 +88,11 @@ class ProductController extends Controller
 
         $places = ReachablePlaces::all();
 
+        $paymentmodes = PaymentMode::all();
+
         $productpictures = $product->products_photos()->where('product_id',$product->id)->get();
 
-        return view('products.show',compact('product','places','productpictures'));
+        return view('products.show',compact('product','places','productpictures','paymentmodes'));
     }
 
     /**
