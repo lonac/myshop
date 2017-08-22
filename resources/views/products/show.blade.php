@@ -70,7 +70,6 @@
                            @foreach ($paymentmodes as $paymentmode)
                                 <strong>Company Name:</strong>{{ $paymentmode->companyname}}
                                 <br>                
-                            </div>
                             @endforeach
                         @endif
                     </div>
@@ -88,7 +87,7 @@
             </div>
          </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-6">
             <div class="panel panel-deafault">
                 <div class="panel panel-heading">Images Here!</div>
                     <div class="panel panel-body">
