@@ -39,3 +39,25 @@ $factory->define(App\Subcategory::class, function (Faker\Generator $faker) {
         },
     ];
 });
+
+$factory->define(App\Product::class, function (Faker\Generator $faker) {
+
+    return [
+        'categoryname' => ucfirst($faker->word),
+        'subcategoryname' => ucfirst($faker->word),
+        'name' => ucfirst($faker->unique()->word),
+        'manufacturer' => $faker->company,
+        'body' => $faker->paragraph,
+        'cost' => $faker->randomNumber,
+    ];
+});
+
+$factory->define(App\ProductsPhoto::class, function (Faker\Generator $faker) {
+
+    return [
+        'product_id' => function () {
+            return factory('App\Product')->create()->id;
+        },
+        'filename' => $faker->imageUrl
+    ];
+});
