@@ -39,3 +39,15 @@ $factory->define(App\Subcategory::class, function (Faker\Generator $faker) {
         },
     ];
 });
+
+$factory->define(App\Product::class, function (Faker\Generator $faker) {
+
+    return [
+        'categoryname' => ucfirst($faker->word),
+        'subcategoryname' => ucfirst($faker->word),
+        'name' => ucfirst($faker->unique()->word),
+        'manufacturer' => $faker->company,
+        'body' => $faker->paragraph,
+        'cost' => $faker->randomNumber,
+    ];
+});
