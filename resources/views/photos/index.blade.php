@@ -1,28 +1,19 @@
 @extends('layouts.master')
 
-@section('title','News')
+@section('title','Products')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>News</h3></div>
-                    <div class="panel-heading">Page {{ $posts->currentPage() }} of {{ $posts->lastPage() }}</div>
-                    @foreach ($posts as $post)
-                        <div class="panel-body">
-                            <li style="list-style-type:disc">
-                                <a href="{{ route('posts.show', $post->id ) }}"><b>{{ $post->title }}</b><br>
-                                    <p class="teaser">
-                                       {{  str_limit($post->body, 100) }} {{-- Limit teaser to 100 characters --}}
-                                    </p>
-                                </a>
-                            </li>
+                    <div class="panel-heading"><h3>Products</h3></div>
+                    @foreach ($photos as $photo)
+                      
+                        <img src="{!! url('/storage/photos/'.$photo->filename) !!}" ></img>
+
                         </div>
                     @endforeach
-                    </div>
-                    <div class="text-center">
-                        {!! $posts->links() !!}
                     </div>
                 </div>
             </div>
