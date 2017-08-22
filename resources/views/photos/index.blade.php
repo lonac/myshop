@@ -9,10 +9,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><h3>Products</h3></div>
                     @foreach ($photos as $photo)
-                      
-                    <img src="<?php echo asset("storage/$photo->filename")?>"></img>
-
-                        </div>
+                        <img src="<?php echo asset("storage/app/$photo->filename")?>"></img>        
                     @endforeach
                     </div>
                 </div>

@@ -14,7 +14,7 @@
                             <li style="list-style-type:disc">
                                 <a href="{{ route('products.show', $product->id ) }}"><b>{{ $product->name }}</b><br>
                                     <p class="teaser">
-                                       {{  str_limit($product->body, 100) }} {{-- Limit teaser to 100 characters --}}
+                                       {{  str_limit($product->manufacturer, 100) }} {{-- Limit teaser to 100 characters --}}
                                     </p>
                                 </a>
                             </li>

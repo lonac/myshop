@@ -20,18 +20,20 @@
 
             <div class="col-md-7 col-md-offset-0">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><strong>Products!</h3></strong></div>
-                    <div class="panel-body">
-                        @if($products->count()>0)
-                            @foreach($products as $product)
-                                <h2>{{$product->name}}</h2><br>
-                            @endforeach
-                        @else
-                            <strong>No Products added so far!</strong>
-                        @endif
+                   <div class="panel-heading">Page {{ $products->currentPage() }} of {{ $products->lastPage() }}</div>
+                    @foreach ($products as $product)
+                        <div class="panel-body">
+                            <li style="list-style-type:disc">
+                                <a href="{{ route('products.show', $product->id ) }}"><b>{{ $product->name }}</b><br>
+                                    <p class="teaser">
+                                       {{  str_limit($product->manufacturer, 100) }} {{-- Limit teaser to 100 characters --}}
+                                    </p>
+                                </a>
+                            </li>
+                        </div>
+                    @endforeach
                     </div>
                 </div>
-            </div>
 
             <div class="col-md-3 col-md-offset-0">
                 <div class="panel panel-default">

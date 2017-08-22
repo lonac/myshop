@@ -13,8 +13,9 @@ class PagesController extends Controller
  
     public function index()
     {
-        $products = Product::all();
-        $category = Category::all();
+        $products = Product::orderby('id','desc')->paginate('8');       
+
+         $category = Category::all();
 
       return view('welcome',compact('products','category'));  
     }
