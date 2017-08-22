@@ -19,7 +19,6 @@
                             @if(!$subcat->isEmpty())
                                 @foreach($subcat as $subcatee)
                                 <a href="{{ url('categories/'.$cat->id.'/subcategories/'.$subcatee->id) }}">{{$subcatee->name}}</a>
-                                    <a href="{{ route('categories.subcategories.show', [$cat->id, $subcatee->id]) }}">{{$subcatee->name}}</a>
                                 @endforeach
                             @endif
 
