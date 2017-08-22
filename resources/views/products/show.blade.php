@@ -23,16 +23,26 @@
             </h2>
             </div>    
             <div class="panel-body">
-                <strong>By: </strong><a href=""> {{$product->manufacturer}}</a><br>
+                <strong>By: </strong><font color="blue"> {{$product->manufacturer}}</font><br>
                 <h2>{{$product->cost}} /= Tshs. </h2><br>
                 <hr>
                   <form method="POST" action="{{url('cart')}}">
                     {{ csrf_field() }}
 
+                @if($places->count()>0)
                     <div class="form-group">
-                        <label for="Region">Shipping Region:</label>
-                            <input type="text" class="form-control" name="region" value="">
+                        <label for="name">Shipping place</label>
+                        <select class="form-control" name="name">
+                            @foreach ($places as $placess)
+                                <option value="{{$placess->name}}">{{$placess->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
+                @else
+                    @can('Create Category')
+                         <strong><a href="reachableplaces/create">Add Place first</a></strong>
+                     @endcan
+                @endif
 
                     <div class="form-group">
                         <label for="Quantity">Quantity:</label>
@@ -76,6 +86,9 @@
             <div class="panel panel-deafault">
                 <div class="panel panel-heading">Images Here!</div>
                     <div class="panel panel-body">
+                        @foreach ($productpictures as $productpicture)
+                          <img src="{{ asset('storage/' . $productpicture->filename) }}" alt="">
+                        @endforeach
                     </div>
             </div>
 

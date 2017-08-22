@@ -10,6 +10,7 @@ use Auth;
 use Session;
 use App\Category;
 use App\Subcategory;
+use App\ReachablePlaces;
 
 class ProductController extends Controller
 {
@@ -24,7 +25,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-       $products = Product::orderby('id','desc')->paginate('5');
+       $products = Product::orderby('id','desc')->paginate('8');
 
         return view('products.index',compact('products'));
     }
@@ -84,7 +85,11 @@ class ProductController extends Controller
        
         $product = Product::findOrFail($id); //Find product of id = $id
 
-        return view('products.show',compact('product'));
+        $places = ReachablePlaces::all();
+
+        $productpictures = $product->products_photos()->where('product_id',$product->id)->get();
+
+        return view('products.show',compact('product','places','productpictures'));
     }
 
     /**

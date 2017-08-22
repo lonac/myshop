@@ -24,7 +24,7 @@
                     <div class="panel-body">
                         @if($products->count()>0)
                             @foreach($products as $product)
-                                <h2>{{$product->name}}</h2><br>
+                           <h2> <a href="{{url('products/'.$product->id)}}">{{$product->name}}</a></h2><br>      
                             @endforeach
                         @else
                             <strong>No Products added so far!</strong>
