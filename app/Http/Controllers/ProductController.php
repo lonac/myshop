@@ -10,6 +10,7 @@ use Auth;
 use Session;
 use App\Category;
 use App\Subcategory;
+use App\ReachablePlaces;
 
 class ProductController extends Controller
 {
@@ -84,7 +85,9 @@ class ProductController extends Controller
        
         $product = Product::findOrFail($id); //Find product of id = $id
 
-        return view('products.show',compact('product'));
+        $places = ReachablePlaces::all();
+
+        return view('products.show',compact('product','places'));
     }
 
     /**

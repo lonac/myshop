@@ -29,10 +29,20 @@
                   <form method="POST" action="{{url('cart')}}">
                     {{ csrf_field() }}
 
+                @if($places->count()>0)
                     <div class="form-group">
-                        <label for="Region">Shipping Region:</label>
-                            <input type="text" class="form-control" name="region" value="">
+                        <label for="name">Shipping place</label>
+                        <select class="form-control" name="name">
+                            @foreach ($places as $placee)
+                                <option value="{{$placee->name}}">{{$placee->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
+                @else
+                    @can('Create Category')
+                         <strong><a href="reachableplaces/create">Add Place first</a></strong>
+                     @endcan
+                @endif
 
                     <div class="form-group">
                         <label for="Quantity">Quantity:</label>

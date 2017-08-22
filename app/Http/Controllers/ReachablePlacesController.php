@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Category;
-
-use App\Product;
+use App\ReachablePlaces;
 
 use Session;
-class CategoriesController extends Controller
+
+class ReachablePlacesController extends Controller
 {
-    public function __construct()
+     public function __construct()
     {
         $this->middleware(['auth','product'])->except('index','show');
     }
@@ -22,9 +21,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $cat = Category::all();
+        $place = ReachablePlaces::all();
 
-        return view('categories.index',compact('cat'));
+        return view('reachableplaces.index',compact('place'));
     }
 
     /**
@@ -34,7 +33,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('reachableplaces.create');
     }
 
     /**
@@ -45,14 +44,13 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $place = new ReachablePlaces;
+        $place->name = $request->input('name');
 
-        $cat = new Category;
-        $cat->name = $request->input('name');
+        $place->save();
 
-        $cat->save();
-
-        return redirect()->route('categories.index')->with('message_flash','
-            Category successfully added');
+        return redirect()->route('reachableplaces.index')->with('message_flash','
+            ReachablePlaces successfully added');
     }
 
     /**
@@ -63,13 +61,9 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        $cat = Category::findOrFail($id);
+         $place = ReachablePlaces::findOrFail($id);
 
-        $subcat = $cat->subcategories;
-
-        $products = Product::where('categoryname', $cat->name)->get();
-
-        return view('categories.show',compact('cat','subcat','products'));
+         return view('reachableplaces.show',compact('place'));
     }
 
     /**
@@ -80,9 +74,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $cat = Category::findOrFail($id);
+        $place = ReachablePlaces::findOrFail($id);
 
-        return view('categories.edit',compact('cat'));
+        return view('reachableplaces.edit',compact('place'));
     }
 
     /**
@@ -98,13 +92,13 @@ class CategoriesController extends Controller
             'name'=>'required|max:100',
         ]);
 
-        $cat = Category::findOrFail($id);
-        $cat->name = $request->input('name');
-        $cat->save();
+        $place = ReachablePlaces::findOrFail($id);
+        $place->name = $request->input('name');
+        $place->save();
 
-        return redirect('categories.show', 
-            $cat->id)->with('flash_message', 
-            'Article, '. $cat->title.' updated');
+        return redirect('reachableplaces.show', 
+            $place->id)->with('flash_message', 
+            'Article, '. $place->name.' updated');
     }
 
     /**
@@ -115,10 +109,10 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $cat = Category::findOrFail($id);
-        $cat->delete();
+        $place = ReachablePlaces::findOrFail($id);
+        $place->delete();
 
-        return redirect()->route('categories.index')
+        return redirect()->route('reachableplaces.index')
             ->with('flash_message',
              'Article successfully deleted');
     }

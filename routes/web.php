@@ -46,6 +46,9 @@ Route::resource('products','ProductController');
 
 Route::resource('categories','CategoriesController');
 
+//reachable places
+Route::resource('reachableplaces','ReachablePlacesController');
+
 //Subcateg
 Route::get('categories/{id}/subcategories','SubCategoriesController@index');
 Route::get('categories/{id}/subcategories/create','SubCategoriesController@create');
