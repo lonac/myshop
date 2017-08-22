@@ -23,7 +23,7 @@
             </h2>
             </div>    
             <div class="panel-body">
-                <strong>By: </strong><a href=""> {{$product->manufacturer}}</a><br>
+                <strong>By: </strong><font color="blue"> {{$product->manufacturer}}</font><br>
                 <h2>{{$product->cost}} /= Tshs. </h2><br>
                 <hr>
                   <form method="POST" action="{{url('cart')}}">
@@ -66,7 +66,13 @@
                   <form>
                     <div class="form-group">
                        <h3><label for="payment">Payment Mode:</label></h3>
-                        You can now pay through
+                       @if($paymentmodes->count()>0)
+                           @foreach ($paymentmodes as $paymentmode)
+                                <strong>Company Name:</strong>{{ $paymentmode->companyname}}
+                                <br>                
+                            </div>
+                            @endforeach
+                        @endif
                     </div>
 
                     <div class="form-group">
@@ -86,6 +92,9 @@
             <div class="panel panel-deafault">
                 <div class="panel panel-heading">Images Here!</div>
                     <div class="panel panel-body">
+                        @foreach ($productpictures as $productpicture)
+                          <img src="{{ asset('storage/' . $productpicture->filename) }}" alt="">
+                        @endforeach
                     </div>
             </div>
 

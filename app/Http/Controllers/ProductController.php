@@ -12,6 +12,8 @@ use App\Category;
 use App\Subcategory;
 use App\ReachablePlaces;
 
+use App\PaymentMode;
+
 class ProductController extends Controller
 {
     public function __construct()
@@ -87,7 +89,11 @@ class ProductController extends Controller
 
         $places = ReachablePlaces::all();
 
-        return view('products.show',compact('product','places'));
+        $paymentmodes = PaymentMode::all();
+
+        $productpictures = $product->products_photos()->where('product_id',$product->id)->get();
+
+        return view('products.show',compact('product','places','productpictures','paymentmodes'));
     }
 
     /**

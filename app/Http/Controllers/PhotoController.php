@@ -50,7 +50,7 @@ class PhotoController extends Controller
     {
         $product = Product::create($request->all());
         foreach ($request->photos as $photo) {
-            $filename = $photo->store('photos');
+            $filename = $photo->store('public');
             ProductsPhoto::create([
                 'product_id' => $product->id,
                 'filename' => $filename
