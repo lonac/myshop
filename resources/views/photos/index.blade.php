@@ -10,7 +10,7 @@
                     <div class="panel-heading"><h3>Products</h3></div>
                     @foreach ($photos as $photo)
                       
-                        <img src="{!! url('/storage/photos/'.$photo->filename) !!}" ></img>
+                    <img src="<?php echo asset("storage/$photo->filename")?>"></img>
 
                         </div>
                     @endforeach
