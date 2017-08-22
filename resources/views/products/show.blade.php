@@ -76,7 +76,7 @@
 
                     <div class="form-group">
                         <h3><label for="policy">Return Policy</label></h3>
-                        here is the return policy                    
+                        <p>The product will be returned if it is not the one ordered!</p>                 
                     </div>
                   </form>
             </div>
