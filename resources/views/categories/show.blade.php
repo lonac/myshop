@@ -15,12 +15,7 @@
                                     <a href="{{ route('categories.edit', $cat->id) }}" class="btn btn-info" role="button">Edit</a>
                              @endcan
                         </strong>
-                        
-                            @if(!$subcat->isEmpty())
-                                @foreach($subcat as $subcatee)
-                                <a href="{{ url('categories/'.$cat->id.'/subcategories/'.$subcatee->id) }}">{{$subcatee->name}}</a>
-                                @endforeach
-                            @endif
+                
 
                             {!! Form::open(['method' => 'DELETE', 'route' => ['categories.destroy', $cat->id] ]) !!}
                             <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>

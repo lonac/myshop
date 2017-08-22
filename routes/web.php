@@ -51,7 +51,7 @@ Route::get('categories/{id}/subcategories','SubCategoriesController@index');
 Route::get('categories/{id}/subcategories/create','SubCategoriesController@create');
 Route::post('categories/{id}/subcategories/create','SubCategoriesController@store');
 Route::get('categories/{id}/subcategories/edit','SubCategoriesController@edit');
-Route::get('categories/{id}/subcategories/{sub_id}','SubCategoriesController@show');
+Route::get('categories/{id}/subcategories/{sub_id}','SubCategoriesController@show')->name('categories.subcategories.show');
 Route::patch('categories/{id}/subcategories/edit','SubCategoriesController@update');
 
 //dimension
@@ -65,3 +65,4 @@ Route::resource('cart','CartController');
 //Route::get('products/{id}/photos/create', 'PhotoController@create');
 //Route::post('products/{id}/photos/create', 'PhotoController@store');
 Route::resource('photos', 'PhotoController');
+
