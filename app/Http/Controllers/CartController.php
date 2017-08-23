@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+
+use App\Cart;
+
+use Session;
+
 class CartController extends Controller
 {
     /**
@@ -13,7 +19,17 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart.index');
+       $user = Auth::user();
+
+       if($user)
+       {
+         $carts = $user->carts;
+
+         return view('cart.index',compact('carts'));
+       }
+
+          return view('cart.guest');
+      
     }
 
     /**

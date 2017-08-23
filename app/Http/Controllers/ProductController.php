@@ -11,7 +11,7 @@ use Session;
 use App\Category;
 use App\Subcategory;
 use App\ReachablePlaces;
-
+use App\ProductsPhoto;
 use App\PaymentMode;
 
 class ProductController extends Controller
@@ -27,9 +27,12 @@ class ProductController extends Controller
      */
     public function index()
     {
+
+        $productpictures =ProductsPhoto::all();
+
        $products = Product::orderby('id','desc')->paginate('8');
 
-        return view('products.index',compact('products'));
+        return view('products.index',compact('products','productpictures'));
     }
 
     /**

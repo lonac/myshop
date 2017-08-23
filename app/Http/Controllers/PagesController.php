@@ -8,6 +8,8 @@ use App\Product;
 
 use App\Category;
 
+use App\ProductsPhoto;
+
 class PagesController extends Controller
 {
  
@@ -17,7 +19,9 @@ class PagesController extends Controller
 
          $category = Category::all();
 
-      return view('welcome',compact('products','category'));  
+         $productpictures= ProductsPhoto::all();
+
+      return view('welcome',compact('products','category','productpictures'));  
     }
 
     public function about()

@@ -36,5 +36,9 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
+    public function carts()
+    {
+        return $this->hasMany('App\Cart');
+    }
     
 }

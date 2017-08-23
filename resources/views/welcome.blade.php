@@ -18,16 +18,18 @@
                 </div>
             </div>
 
-            <div class="col-md-7 col-md-offset-0">
+            <div class="col-md-4 col-md-offset-0">
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong>Products!</h3></strong></div>
                     <div class="panel-body">
-                        @if($products->count()>0)
-                            @foreach($products as $product)
-                           <h2> <a href="{{url('products/'.$product->id)}}">{{$product->name}}</a></h2><br>      
+                        @if($productpictures->count()>0)
+                           @foreach ($productpictures as $productpicture)
+                            <div class="panel-body">
+                                <a href="#">
+                                    <img src="{{ asset('storage/' . $productpicture->filename) }}" alt="">
+                                </a>     
+                            </div>
                             @endforeach
-                        @else
-                            <strong>No Products added so far!</strong>
                         @endif
                     </div>
                 </div>

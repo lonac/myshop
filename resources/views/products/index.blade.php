@@ -9,17 +9,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><h3>Products</h3></div>
                     <div class="panel-heading">Page {{ $products->currentPage() }} of {{ $products->lastPage() }}</div>
-                    @foreach ($products as $product)
-                        <div class="panel-body">
-                            <li style="list-style-type:disc">
-                                <a href="{{ route('products.show', $product->id ) }}"><b>{{ $product->name }}</b><br>
-                                    <p class="teaser">
-                                       {{  str_limit($product->manufacturer, 100) }} {{-- Limit teaser to 100 characters --}}
-                                    </p>
-                                </a>
-                            </li>
-                        </div>
-                    @endforeach
+                        @foreach ($productpictures as $productpicture)
+                            <div class="panel-body">
+                                <a href="#">
+                                    <img src="{{ asset('storage/' . $productpicture->filename) }}" alt="">
+                                </a>     
+                            </div>
+                        @endforeach
                     </div>
                     <div class="text-center">
                         {!! $products->links() !!}
