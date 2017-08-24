@@ -14,6 +14,8 @@ use App\Subcategory;
 
 use App\ProductsPhoto;
 
+use Image;
+
 class PhotoController extends Controller
 {
     /**
@@ -48,9 +50,11 @@ class PhotoController extends Controller
      */
     public function store(UploadRequest $request)
     {
+
         $product = Product::create($request->all());
         foreach ($request->photos as $photo) {
-            $filename = $photo->store('public');
+            $pic = Image::make(Input::file('photo'))->resize(300, 200);
+            $filename = $pic->store('public');
             ProductsPhoto::create([
                 'product_id' => $product->id,
                 'filename' => $filename
