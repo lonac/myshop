@@ -25,8 +25,9 @@
                         @if($productpictures->count()>0)
                            @foreach ($productpictures as $productpicture)
                             <div class="panel-body">
-                                <a href="#">
-                                    <img src="{{ asset('storage/' . $productpicture->filename) }}" alt="">
+                             <div class="panel-body">
+                                <a href="{{url('products'.$productpicture->product_id)}}">
+                                    <img src="{{ asset('storage/' . $productpicture->filename) }}" class= "img-responsive style= height: 22px; width: 100px;">
                                 </a>     
                             </div>
                             @endforeach
