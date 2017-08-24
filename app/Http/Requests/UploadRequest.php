@@ -30,8 +30,8 @@ class UploadRequest extends FormRequest
               'categoryname'=>'required',
               'subcategoryname'=>'required',
               'cost'=>'required',
-             // 'photo' => 'image|mimes:jpeg,bmp,png|size:2000',
-              'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+              'photo' => 'image|mimes:jpeg,bmp,png|size:2000',
+              //'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
 
         ];
 

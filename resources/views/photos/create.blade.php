@@ -55,8 +55,8 @@
                     {{ Form::textarea('body', null, array('class' => 'form-control')) }}
                     <br>
 
-                {{ Form::label('photos', 'Choose File') }}
-                {{ Form::file('photos[]', null, array('class' => 'form-control')) }}
+                {{ Form::label('photo', 'Choose File') }}
+                {{ Form::file('photo[]', null, array('class' => 'form-control')) }}
                 <br>
 
                 {{ Form::submit('Upload File', array('class' => 'btn btn-success btn-lg btn-block')) }}
