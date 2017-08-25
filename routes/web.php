@@ -62,7 +62,9 @@ Route::patch('categories/{id}/subcategories/edit','SubCategoriesController@updat
 Route::resource('dimensions','DimensionsProductController');
 
 //cart
-Route::resource('cart','CartController');
+Route::get('cart','CartController@index');
+Route::get('products/{id}/cart/create','CartController@create');
+Route::post('products/{id}/cart/create','CartController@store');
 
 //photo upload
 Route::resource('photos', 'PhotoController');

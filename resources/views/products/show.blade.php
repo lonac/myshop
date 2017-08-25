@@ -26,7 +26,7 @@
                 <strong>By: </strong><font color="blue"> {{$product->manufacturer}}</font><br>
                 <h2>{{$product->cost}} /= Tshs. </h2><br>
                 <hr>
-                  <form method="POST" action="{{url('cart')}}">
+                  <form>
                     {{ csrf_field() }}
 
                 @if($places->count()>0)
@@ -56,14 +56,14 @@
                     <div class="form-group">       
                         <label for="totalcost">Total Cost:</label>
                     </div>
-
                     <div class="form-group">
-                        <a href="{{url('/cart')}}" class="btn btn-primary">Add To Cart</a>
-                    <button type="button" class="btn btn-success">Buy Item </button>                    
+                        <a href="{{ url('/products/'.$product->id.'/cart/create') }}" class="btn btn-info" role="button">Add To Cart</a>
                     </div>
                   </form>
 
+
                   <form>
+
                     <div class="form-group">
                        <h3><label for="payment">Payment Mode:</label></h3>
                        @if($paymentmodes->count()>0)
@@ -93,7 +93,7 @@
                     <div class="panel panel-body">
                         @foreach ($productpictures as $productpicture)
                           <div class="panel-body">
-                                <a href="{{url('products'.$productpicture->product_id)}}">
+                                <a href="{{url('products/'.$productpicture->product_id)}}">
                                     <img src="{{ asset('storage/' . $productpicture->filename) }}" class= "img-responsive style= height: 22px; width: 100px;">
                                 </a>     
                             </div>

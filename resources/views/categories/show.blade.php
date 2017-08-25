@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', '| View Category')
+@section('title', $cat->name)
 
 @section('content')
 

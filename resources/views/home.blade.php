@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-2 col-md-offset-0">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><strong>Nomal Users</h3></strong></div>
+                    <div class="panel-heading"><strong><a href="{{url('/cart')}}">My Cart</a></h3></strong></div>
                     <div class="panel-body">
 
                     </div>

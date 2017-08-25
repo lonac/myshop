@@ -8,10 +8,16 @@ use Auth;
 
 use App\Cart;
 
+use App\Product;
+
 use Session;
 
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware('auth')->except('index');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,9 +29,9 @@ class CartController extends Controller
 
        if($user)
        {
-         $carts = $user->carts;
+         $mycarts = $user->carts;
 
-         return view('cart.index',compact('carts'));
+         return view('cart.index',compact('mycarts'));
        }
 
           return view('cart.guest');
@@ -37,9 +43,13 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('cart.create');
+        $product = Product::findOrFail($id);
+
+        $mycart = Auth::user()->carts;
+
+        return view('cart.create',compact('product','mycart'));
     }
 
     /**
@@ -48,9 +58,17 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        $carts = new Cart;
+
+        $carts->user_id = Auth::user()->id;
+        $carts->product_id = $product->id;
+
+        $carts->save();
+
     }
 
     /**
