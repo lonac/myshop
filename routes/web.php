@@ -82,3 +82,6 @@ Route::post('customerdetails/create','CustomersDetailsController@store');
 Route::get('customerdetails/edit','CustomersDetailsController@edit');
 Route::get('customerdetails/show','CustomersDetailsController@show');
 Route::patch('customerdetails/edit','CustomersDetailsController@update');
+
+//order's details
+Route::resource('orders','OrderController');

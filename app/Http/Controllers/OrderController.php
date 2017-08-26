@@ -4,20 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Auth;
+use Order;
 
-use App\Cart;
+use Auth;
 
 use App\Product;
 
-use Session;
+use App\PaymentMode;
 
-class CartController extends Controller
+class OrderController extends Controller
 {
-    public function __construct()
-    {
-        return $this->middleware('auth')->except('index');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -25,19 +21,9 @@ class CartController extends Controller
      */
     public function index()
     {
-       $user = Auth::user();
+         $paymentmodes = PaymentMode::all();
 
-       if($user)
-       {
-         $mycarts = $user->carts;
-
-         $customerdetail = Auth::user()->customers;
-
-         return view('cart.index',compact('mycarts','customerdetail'));
-       }
-
-          return view('cart.guest');
-      
+        return view('orders.index',compact('paymentmodes'));
     }
 
     /**
@@ -45,13 +31,9 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $product = Product::findOrFail($id);
-
-        $mycart = Auth::user()->carts;
-
-        return view('cart.create',compact('product','mycart'));
+        //
     }
 
     /**
@@ -60,21 +42,9 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        $product = Product::findOrFail($id);
-
-        $carts = new Cart;
-
-        $carts->user_id = Auth::user()->id;
-        $carts->product_id = $product->id;
-
-        $carts->save();
-
-        return redirect()->route('carts.index')
-            ->with('flash_message', 'Product added
-              to cart');
-
+        //
     }
 
     /**
@@ -119,8 +89,6 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //get the Id of the Cart
-        $user = Auth::user();
-
+        //
     }
 }
