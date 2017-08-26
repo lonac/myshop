@@ -31,7 +31,9 @@ class CartController extends Controller
        {
          $mycarts = $user->carts;
 
-         return view('cart.index',compact('mycarts'));
+         $customerdetail = Auth::user()->customers;
+
+         return view('cart.index',compact('mycarts','customerdetail'));
        }
 
           return view('cart.guest');
@@ -68,6 +70,8 @@ class CartController extends Controller
         $carts->product_id = $product->id;
 
         $carts->save();
+
+        //return redirect('cart.index');
 
     }
 
@@ -113,6 +117,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //get the Id of the Cart
+        $user = Auth::user();
+
     }
 }
