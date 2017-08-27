@@ -6,10 +6,16 @@
 
 <div class="container">
 
-    @can('Delete Cart')
-    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-    @endcan
-    {!! Form::close() !!}
+    <div class="row">
+    	<div class="col-md-6 col-md-offset-2">
+    		<div class="panel panel-primary">
+    			<div class="panel-heading">My Cart</div>
+    			<div class="panel-body">
+    				list of my cart here
+    			</div>
+    		</div>
+    	</div>
+    </div>
 
 </div>
 

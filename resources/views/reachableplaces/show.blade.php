@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', '| View Places')
+@section('title', $place->name)
 
 @section('content')
 

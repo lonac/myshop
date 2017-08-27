@@ -22,6 +22,11 @@ class Product extends Model
     {
     	return $this->hasMany('App\ProductsPhoto');
     }
+
+    public function myprod()
+    {
+        return $this->belongsTo('App\Cart','product_id');
+    }
 }
 
 

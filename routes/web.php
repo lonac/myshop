@@ -62,7 +62,13 @@ Route::patch('categories/{id}/subcategories/edit','SubCategoriesController@updat
 Route::resource('dimensions','DimensionsProductController');
 
 //cart
-Route::resource('cart','CartController');
+Route::get('cart','CartController@index');
+Route::get('cart/show','CartController@show');
+Route::get('products/{id}/cart/create','CartController@create');
+Route::post('products/{id}/cart/create','CartController@store');
+Route::get('products/{id}/cart/edit','CartController@edit');
+Route::patch('products/{id}/cart/edit','CartController@update');
+
 
 //photo upload
 Route::resource('photos', 'PhotoController');
@@ -70,4 +76,19 @@ Route::resource('photos', 'PhotoController');
 //payment modes
 Route::resource('paymentmodes','PaymentModeController');
 
+//customer's details
+Route::get('customerdetails','CustomersDetailsController@index');
+Route::get('customerdetails/create','CustomersDetailsController@create');
+Route::post('customerdetails/create','CustomersDetailsController@store');
+Route::get('customerdetails/edit','CustomersDetailsController@edit');
+Route::get('customerdetails/show','CustomersDetailsController@show');
+Route::patch('customerdetails/edit','CustomersDetailsController@update');
+
+//order's details
+Route::get('orders','OrderController@index');
+Route::get('orders/create','OrderController@create');
+Route::post('orders/create','OrderController@store');
+Route::get('orders/edit','OrderController@edit');
+Route::patch('orders/edit','OrderController@update');
+Route::get('orders/kkoo','OrderController@kkoo');
 

@@ -4,19 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Auth;
+use App\Order;
 
-use App\Cart;
+use Auth;
 
 use App\Product;
 
-use Session;
+use App\PaymentMode;
 
-class CartController extends Controller
+class OrderController extends Controller
 {
     public function __construct()
     {
-        return $this->middleware('auth')->except('index');
+        $this->middleware(['auth','clearance'])->except('index','show');
     }
     /**
      * Display a listing of the resource.
@@ -25,19 +25,10 @@ class CartController extends Controller
      */
     public function index()
     {
-       $user = Auth::user();
 
-       if($user)
-       {
-         $mycarts = $user->carts;
+         $myorders = Auth::user()->orders;
 
-         $customerdetail = Auth::user()->customers;
-
-         return view('cart.index',compact('mycarts','customerdetail'));
-       }
-
-          return view('cart.guest');
-      
+        return view('orders.index',compact('myorders'));
     }
 
     /**
@@ -45,13 +36,11 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $product = Product::findOrFail($id);
+        $paymentmodes = PaymentMode::all();
 
-        $mycart = Auth::user()->carts;
-
-        return view('cart.create',compact('product','mycart'));
+        return view('orders.create',compact('paymentmodes'));
     }
 
     /**
@@ -60,21 +49,21 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        $product = Product::findOrFail($id);
+        $this->validate($request,[
+            'company'=>'required',
+            'reference'=>'required|max:100',
+            ]);
 
-        $carts = new Cart;
+        $orders = new Order;
+        $orders->user_id = Auth::user()->id;
+        $orders->company = $request->input('company');
+        $orders->reference = $request->input('reference');
 
-        $carts->user_id = Auth::user()->id;
-        $carts->product_id = $product->id;
+        $orders->save();
 
-        $carts->save();
-
-        return redirect()->route('carts.index')
-            ->with('flash_message', 'Product added
-              to cart');
-
+        return redirect('orders')->with('status','Your Order was successfully place with ID NO-');
     }
 
     /**
@@ -83,11 +72,9 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-         $mycarts = Auth::user()->carts;
-
-         return view('cart.show',compact('mycarts'));
+        //
     }
 
     /**
@@ -121,8 +108,13 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //get the Id of the Cart
-        $user = Auth::user();
+        //
+    }
 
+    public function kkoo()
+    {
+        $kkoo_orders = Order::all();
+
+        return view('orders.kkoo',compact('kkoo_orders'));
     }
 }
