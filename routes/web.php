@@ -63,6 +63,7 @@ Route::resource('dimensions','DimensionsProductController');
 
 //cart
 Route::get('cart','CartController@index');
+Route::get('cart/show','CartController@show');
 Route::get('products/{id}/cart/create','CartController@create');
 Route::post('products/{id}/cart/create','CartController@store');
 Route::get('products/{id}/cart/edit','CartController@edit');
@@ -84,4 +85,10 @@ Route::get('customerdetails/show','CustomersDetailsController@show');
 Route::patch('customerdetails/edit','CustomersDetailsController@update');
 
 //order's details
-Route::resource('orders','OrderController');
+Route::get('orders','OrderController@index');
+Route::get('orders/create','OrderController@create');
+Route::post('orders/create','OrderController@store');
+Route::get('orders/edit','OrderController@edit');
+Route::patch('orders/edit','OrderController@update');
+Route::get('orders/kkoo','OrderController@kkoo');
+

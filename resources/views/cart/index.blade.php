@@ -65,7 +65,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h2>My Order:</h2></div>
                         <div class="panel-body">
-                            <a href="{{url('orders')}}" class="btn btn-success">Place Order Now</a>
+                            <a href="{{url('orders/create')}}" class="btn btn-success">Place Order Now</a>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Order;
+use App\Order;
 
 use Auth;
 
@@ -14,6 +14,10 @@ use App\PaymentMode;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','clearance'])->except('index','show');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,9 +25,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-         $paymentmodes = PaymentMode::all();
 
-        return view('orders.index',compact('paymentmodes'));
+         $myorders = Auth::user()->orders;
+
+        return view('orders.index',compact('myorders'));
     }
 
     /**
@@ -33,7 +38,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $paymentmodes = PaymentMode::all();
+
+        return view('orders.create',compact('paymentmodes'));
     }
 
     /**
@@ -44,7 +51,19 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'company'=>'required',
+            'reference'=>'required|max:100',
+            ]);
+
+        $orders = new Order;
+        $orders->user_id = Auth::user()->id;
+        $orders->company = $request->input('company');
+        $orders->reference = $request->input('reference');
+
+        $orders->save();
+
+        return redirect('orders')->with('status','Your Order was successfully place with ID NO-');
     }
 
     /**
@@ -90,5 +109,12 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function kkoo()
+    {
+        $kkoo_orders = Order::all();
+
+        return view('orders.kkoo',compact('kkoo_orders'));
     }
 }
