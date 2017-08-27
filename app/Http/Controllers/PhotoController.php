@@ -52,9 +52,8 @@ class PhotoController extends Controller
     {
 
         $product = Product::create($request->all());
-        foreach ($request->photos as $photo) {
-            $pic = Image::make(Input::file('photo'))->resize(300, 200);
-            $filename = $pic->store('public');
+        foreach($request->photos as $photo) {
+            $filename = $photo->store('photos');
             ProductsPhoto::create([
                 'product_id' => $product->id,
                 'filename' => $filename
