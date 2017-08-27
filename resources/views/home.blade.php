@@ -14,8 +14,19 @@
                 </div>
             </div>
 
+            <div class="col-md-4 col-md-offset-0">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><strong>Categories</h3></strong></div>
+                    <div class="panel-body">
+
+                    </div>
+                </div>
+            </div>
+
+            
+            @can('Create Category')
             <div class="col-md-5 col-md-offset-0">
-                <div class="panel panel-danger">
+                <div class="panel panel-primary">
                     <div class="panel-heading"><strong>Admin Panel</h3></strong></div>
                     <div class="panel-body">
                        <strong> <a href="{{url('/permissions')}}">View Permissions</a></strong><br>
@@ -28,15 +39,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4 col-md-offset-0">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><strong>Categories</h3></strong></div>
-                    <div class="panel-body">
-
-                    </div>
-                </div>
-            </div>
+            @endcan
 
         </div>
     </div>
