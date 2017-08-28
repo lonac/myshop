@@ -22,7 +22,9 @@
                             <tbody>
                                 @foreach($mycarts as $mycart)
                                     <tr>
-                                        <td>--</td>
+                                        <td>
+                                            <img src="{{ asset('images/catalog/' .$mycart->product_id) }}" class= "img-responsive style= height: 10px; width: 10px;">
+                                        </td>
                                         <td></td>
                                         <td></td>
                                         <td>

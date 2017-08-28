@@ -7,9 +7,9 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 @if(session('status'))
-                <div class="alert alert-success">
-                    {{session('status')}}
-                </div>
+                    <div class="alert alert-success">
+                        {{session('status')}}
+                    </div>
                 @endif
                 <div class="panel panel-default">
                     <div class="panel-heading"><h3>Products</h3></div>
@@ -17,7 +17,7 @@
                        @if($products->count()>0)
                             @foreach($products as  $product)
                                 <div class="panel-body">
-                                    <a href="">
+                                    <a href="{{url('/products/'.$product->id)}}">
                                         <img src="{{ asset('images/catalog/' .$product->name) }}" class= "img-responsive style= height: 22px; width: 100px;">
                                     </a>     
                                 </div>

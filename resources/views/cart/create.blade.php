@@ -16,7 +16,9 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>     
-                                    <th>Product Image</th>
+                                    <th>
+                                        <img src="{{ asset('images/catalog/' .$product->name) }}" class= "img-responsive style= height: 10px; width: 10px;">
+                                    </th>
                                     <th>Product Name</th>
                                     <th>Cost</th>
                                 </tr>

@@ -78,8 +78,8 @@ class ProductController extends Controller
 
     //Display a successful message upon save
         return redirect()->route('products.index')
-            ->with('status', 'Product,
-             '. $product->name.' created');
+            ->with('status', '
+             '. $product->name.' Uploaded');
     }
 
     /**
