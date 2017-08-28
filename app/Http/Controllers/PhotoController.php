@@ -14,8 +14,6 @@ use App\Subcategory;
 
 use App\ProductsPhoto;
 
-use Image;
-
 class PhotoController extends Controller
 {
     /**
@@ -56,7 +54,7 @@ class PhotoController extends Controller
             $filename = $photo->store('photos');
             ProductsPhoto::create([
                 'product_id' => $product->id,
-                'filename' => $filename
+                'filename' => $filename,
             ]);
         }
         return redirect()->route('photos.index')->with('flash_messgae','Product Successfully Uploaded');

@@ -29,7 +29,6 @@
                         <!-- Links --> 
                         <li><a href="/">Home</a></li>
                         <li><a href="/news">News</a></li>
-                        <li><a href="/products">Products</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/contacts">Contact Us</a></li>
                         <li><a href="/help">Help</a></li>
