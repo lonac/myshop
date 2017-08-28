@@ -18,10 +18,16 @@
                             @foreach($products as  $product)
                                 <div class="panel-body">
                                     <a href="{{url('/products/'.$product->id)}}">
-                                        <img src="{{ asset('images/catalog/' .$product->name) }}" class= "img-responsive style= height: 22px; width: 100px;">
+                                        <img src="{{ asset('images/catalog/' .$product->name) }}" style="width:100%">
+                                    <p class="teaser">
+                                       {{  str_limit($product->body, 10) }} {{-- Limit teaser to 100 characters --}}
+                                    </p>
                                     </a>     
                                 </div>
                             @endforeach
+                        <div class="text-center">
+                        {!! $products->links() !!}
+                    </div>
                        @else
                        <p><h2>No Products So Far!</h2></p>
                        @endif

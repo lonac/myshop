@@ -20,7 +20,9 @@
 
             <div class="col-md-7 col-md-offset-0">
                 <div class="panel panel-default">
-                    <img class="mySlides" src="{{asset('product/image/trouser1.png')}}" style="width:100%">
+                    <center>
+                        <img src="{{asset('product/image/trouser1.png')}}" style="width:50%">
+                    </center>
                 </div>
              </div>
         
@@ -35,5 +37,52 @@
             </div>
 
         </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">1</div>
+                    <div class="panel-body">
+
+                    </div>
+                </div>
+            </div>
+
+           <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">2</div>
+                    <div class="panel-body">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">3</div>
+                    <div class="panel-body">
+                        
+                    </div>
+                </div>
+            </div>
+
+           <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">4</div>
+                    <div class="panel-body">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+        </div>
+
+
+        
     </div>
 @endsection
