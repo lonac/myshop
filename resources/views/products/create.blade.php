@@ -8,7 +8,7 @@
 
         <h2>Add New Product</h2>
             {{-- Using the Laravel HTML Form Collective to create our form --}}
-            {{ Form::open(array('route' => 'products.store')) }}
+            {{ Form::open(array('route' => 'products.store','files'=>true)) }}
 
                 @if($categories->count()>0)
                     <div class="form-group">
@@ -20,7 +20,7 @@
                         </select>
                     </div>
                 @else
-                 <strong><a href="categories/create">Add Category first</a></strong>
+                 <strong><a href="/categories/create">Add Category first</a></strong>
                 @endif
 
                 @if($subcategories->count()>0)
@@ -33,7 +33,7 @@
                         </select>
                     </div>
                 @else
-                 <strong><a href="subcategories/create">Add Subcategory first</a></strong>
+                 <strong><a href="/subcategories/create">Add Subcategory first</a></strong>
                 @endif
 
                 <div class="form-group">
@@ -53,6 +53,10 @@
 
                      {{ Form::label('body', 'More Specifications') }}
                     {{ Form::textarea('body', null, array('class' => 'form-control')) }}
+                    <br>
+
+                     {{ Form::label('image', 'Choose Photo') }}
+                    {{ Form::file('image', null, array('class' => 'form-control')) }}
                     <br>
 
                     {{ Form::submit('Add Product', array('class' => 'btn btn-success btn-lg btn-block')) }}

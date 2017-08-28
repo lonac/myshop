@@ -9,10 +9,10 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                             @foreach ($place as $placee)
-                                <strong><a href="{{ route('reachableplaces.show', $placee->id ) }}">{{ $placee->name}}</a></strong>
+                                <strong><a href="{{ route('/reachableplaces.show', $placee->id ) }}">{{ $placee->name}}</a></strong>
                             @endforeach 
                             @can('Create Category')
-                                <a href="{{url('reachableplaces/create')}}" class="button">Add Place</a>
+                                <a href="{{url('/reachableplaces/create')}}" class="button">Add Place</a>
                             @endcan                  
                     </div>
                         <div class="panel-body">

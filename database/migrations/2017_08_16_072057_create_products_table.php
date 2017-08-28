@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('manufacturer');
             $table->string('body')->nullable();
             $table->string('cost');
+           // $table->string('photo');
             $table->timestamps();
         });
     }

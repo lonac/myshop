@@ -19,9 +19,7 @@ class PagesController extends Controller
 
          $category = Category::all();
 
-         $productpictures= ProductsPhoto::all();
-
-      return view('welcome',compact('products','category','productpictures'));  
+      return view('welcome',compact('products','category'));  
     }
 
     public function about()

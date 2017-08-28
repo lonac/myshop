@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\ProductRequest;
+
 use App\Product;
 use App\Dimension;
 use Auth;
@@ -13,6 +15,7 @@ use App\Subcategory;
 use App\ReachablePlaces;
 use App\ProductsPhoto;
 use App\PaymentMode;
+
 
 class ProductController extends Controller
 {
@@ -53,29 +56,29 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-         $this->validate($request, [
-            'name'=>'required|max:100',
-            'body'=>'required',
-            'manufacturer'=>'required',
-            'categoryname'=>'required',
-            'subcategoryname'=>'required',
-            'cost'=>'required',
-            ]);
 
-        $name = $request['name'];
-        $manufacturer = $request['manufacturer'];
-        $categoryname = $request['categoryname'];
-        $subcategoryname = $request['subcategoryname'];
-        $cost = $request['cost'];
-        $body = $request['body'];
+        $product = new Product(array(
+      'name' => $request->get('name'),
+      'manufacturer' => $request->get('manufacturer'),
+      'categoryname' => $request->get('categoryname'),
+      'subcategoryname' => $request->get('subcategoryname'),
+      'cost' => $request->get('cost'),
+      'body' => $request->get('body')
+    ));
 
-        $product = Product::create($request->only('name', 'cost','body','manufacturer','categoryname','subcategoryname'));
+    $product->save();
+
+   $imageName = $product->name; 
+
+    $request->file('image')->move(
+        base_path() . '/public/images/catalog/', $imageName
+    );
 
     //Display a successful message upon save
         return redirect()->route('products.index')
-            ->with('flash_message', 'Article,
+            ->with('status', 'Product,
              '. $product->name.' created');
     }
 
@@ -91,6 +94,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id); //Find product of id = $id
 
         $places = ReachablePlaces::all();
+        
 
         $paymentmodes = PaymentMode::all();
 

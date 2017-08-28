@@ -6,21 +6,27 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
+                @if(session('status'))
+                <div class="alert alert-success">
+                    {{session('status')}}
+                </div>
+                @endif
                 <div class="panel panel-default">
                     <div class="panel-heading"><h3>Products</h3></div>
                     <div class="panel-heading">Page {{ $products->currentPage() }} of {{ $products->lastPage() }}</div>
-                        @foreach ($productpictures as $productpicture)
-                            <div class="panel-body">
-                                <a href="{{url('products/'.$productpicture->product_id)}}">
-                                    <img src="{{ asset('storage/' . $productpicture->filename) }}" class= "img-responsive style= height: 22px; width: 100px;">
-                                </a>     
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="text-center">
-                        {!! $products->links() !!}
-                    </div>
+                       @if($products->count()>0)
+                            @foreach($products as  $product)
+                                <div class="panel-body">
+                                    <a href="">
+                                        <img src="{{ asset('images/catalog/' .$product->name) }}" class= "img-responsive style= height: 22px; width: 100px;">
+                                    </a>     
+                                </div>
+                            @endforeach
+                       @else
+                       <p><h2>No Products So Far!</h2></p>
+                       @endif
                 </div>
             </div>
         </div>
+     </div>
 @endsection

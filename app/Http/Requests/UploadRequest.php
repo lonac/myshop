@@ -30,8 +30,10 @@ class UploadRequest extends FormRequest
               'categoryname'=>'required',
               'subcategoryname'=>'required',
               'cost'=>'required',
-              'photo' => 'image|mimes:jpeg,bmp,png|size:1200'
+            //  'photo' => 'image|mimes:jpeg,bmp,png|size:1200'
+
         ];
+
         $photos = count($this->input('photos'));
         foreach(range(0, $photos) as $index) {
             $rules['photos.' . $index] = 'image|mimes:jpeg,bmp,png|max:1200';

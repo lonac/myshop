@@ -1,3 +1,4 @@
+
 @extends('layouts.master')
 
 @section('title', '| View Products')
@@ -40,7 +41,7 @@
                     </div>
                 @else
                     @can('Create Category')
-                         <strong><a href="reachableplaces/create">Add Place first</a></strong>
+                         <strong><a href="/reachableplaces/create">Add Place first</a></strong>
                      @endcan
                 @endif
 
@@ -89,18 +90,9 @@
         </div>
         <div class="col-md-6">
             <div class="panel panel-deafault">
-                <div class="panel panel-heading">Images Here!</div>
-                    <div class="panel panel-body">
-                        @foreach ($productpictures as $productpicture)
-                          <div class="panel-body">
-                                <a href="{{url('products/'.$productpicture->product_id)}}">
-                                    <img src="{{ asset('storage/' . $productpicture->filename) }}" class= "img-responsive style= height: 22px; width: 100px;">
-                                </a>     
-                            </div>
-                        @endforeach
-                    </div>
+                <div class="panel panel-heading"></div>
+                    <img src="{{ asset('images/catalog/' .$product->name) }}" class= "img-responsive style= height: 50px; width: 150px;">
             </div>
-
         </div>
     </div>
 

@@ -46,10 +46,10 @@ class PhotoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UploadRequest $request)
+    public function store(Request $request)
     {
 
-        $product = Product::create($request->all());
+       /* $product = Product::create($request->all());
         foreach($request->photos as $photo) {
             $filename = $photo->store('photos');
             ProductsPhoto::create([
@@ -58,7 +58,19 @@ class PhotoController extends Controller
             ]);
         }
         return redirect()->route('photos.index')->with('flash_messgae','Product Successfully Uploaded');
-    }
+       
+
+   */
+
+        $this->validate($request, [
+            'photo' => 'mimes:jpeg,bmp,png,jpg', //only allow this type extension file.
+        ]);
+
+        $file = $request->file('photo');
+        // image upload in public/upload folder.
+        $file->move('uploads', $file->getClientOriginalName()); 
+        echo 'Image Uploaded Successfully';
+    } 
 
     /**
      * Display the specified resource.
