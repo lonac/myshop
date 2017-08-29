@@ -5,14 +5,20 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12 col-md-offset-0">
                 @if(session('status'))
                     <div class="alert alert-success">
                         {{session('status')}}
                     </div>
                 @endif
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Products</h3></div>
+                    <div class="panel-heading"><h4>Products for 
+                        @if($categories->count()>0)
+                            @foreach($categories as $category)
+                                <a href="{{'/categories/'.$category->id}}">{{$category->name}}</a>
+                            @endforeach
+                        @endif
+                    </h4></div>
                     <div class="panel-heading">Page {{ $products->currentPage() }} of {{ $products->lastPage() }}</div>
                        @if($products->count()>0)
                             @foreach($products as  $product)
@@ -26,8 +32,8 @@
                                 </div>
                             @endforeach
                         <div class="text-center">
-                        {!! $products->links() !!}
-                    </div>
+                            {!! $products->links() !!}
+                        </div>
                        @else
                        <p><h2>No Products So Far!</h2></p>
                        @endif

@@ -20,6 +20,20 @@
 
             <div class="col-md-7 col-md-offset-0">
                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p><marquee scrollamount="2" direction="left" behavior="scroll" style="background:colorname">
+                           <font color="blue">
+                            <strong>
+                                @if($category->count()>0)
+                                    @foreach($category as $catee)
+                                        <a href="{{url('categories/'.$catee->id)}}">{{$catee->name}}</a>
+                                    @endforeach
+                                @endif
+
+                            </strong>
+                           </font>
+                        </marquee></p>
+                    </div>
                     <center>
                         <img src="{{asset('product/image/trouser1.png')}}" style="width:50%">
                     </center>

@@ -33,9 +33,11 @@ class ProductController extends Controller
 
         $productpictures =ProductsPhoto::all();
 
+        $categories = Category::all();
+
        $products = Product::orderby('id','desc')->paginate('8');
 
-        return view('products.index',compact('products','productpictures'));
+        return view('products.index',compact('products','productpictures','categories'));
     }
 
     /**
