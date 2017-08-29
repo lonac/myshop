@@ -17,9 +17,9 @@ class PagesController extends Controller
     {
         $products = Product::orderby('id','desc')->paginate('8');       
 
-         $category = Category::all();
+         $categories = Category::all();
 
-      return view('welcome',compact('products','category'));  
+      return view('welcome',compact('products','categories'));  
     }
 
     public function about()

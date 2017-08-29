@@ -9,9 +9,9 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading"><strong>Categories</h3></strong></div>
                     <div class="panel-body">
-                        @if($category->count()>0)
-                            @foreach($category as $catee)
-                                <a href="{{url('categories/'.$catee->id)}}">{{$catee->name}}</a><br>
+                        @if($categories->count()>0)
+                            @foreach($categories as $category)
+                                <a href="{{url('categories/'.$category->id)}}">{{$category->name}}</a><br>
                             @endforeach
                         @endif
                     </div>
@@ -24,9 +24,9 @@
                         <p><marquee scrollamount="2" direction="left" behavior="scroll" style="background:colorname">
                            <font color="blue">
                             <strong>
-                                @if($category->count()>0)
-                                    @foreach($category as $catee)
-                                        <a href="{{url('categories/'.$catee->id)}}">{{$catee->name}}</a>
+                                @if($categories->count()>0)
+                                    @foreach($categories as $category)
+                                        <a href="{{url('categories/'.$category->id)}}">{{$category->name}}</a>
                                     @endforeach
                                 @endif
                             </strong>
@@ -51,51 +51,20 @@
 
         </div>
 
-        <div class="row">
-            <div class="col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">1</div>
-                    <div class="panel-body">
+        @if($categories->count()>0)
+            @foreach($categories as $category)
+                <div class="row">
+                   <div class="col-md-12 col-md-offset-0">
+                        <div class="panel panel-info">
+                            <div class="panel-heading"><h4>{{$category->name}}</h4></div>
+                            <div class="panel-body">
 
-                    </div>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
-            </div>
-
-           <div class="col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">2</div>
-                    <div class="panel-body">
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">3</div>
-                    <div class="panel-body">
-                        
-                    </div>
-                </div>
-            </div>
-
-           <div class="col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">4</div>
-                    <div class="panel-body">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-3">
-            </div>
-        </div>
-
-
+            @endforeach
+        @endif
         
     </div>
 @endsection

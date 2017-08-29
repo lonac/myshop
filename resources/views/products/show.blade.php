@@ -25,7 +25,7 @@
             </div>    
             <div class="panel-body">
                 <strong>By: </strong><font color="blue"> {{$product->manufacturer}}</font><br>
-                <h2>{{$product->cost}} /= Tshs. </h2><br>
+                <h2>{{$product->cost}}/= Tshs. /item</h2><br>
                 <hr>
                   <form>
                     {{ csrf_field() }}
@@ -41,17 +41,13 @@
                     </div>
                 @else
                     @can('Create Category')
-                         <strong><a href="/reachableplaces/create">Add Place first</a></strong>
+                         <strong><a href="{{url('/reachableplaces/create')}}">Add Place first</a></strong>
                      @endcan
                 @endif
 
                     <div class="form-group">
                         <label for="Quantity">Quantity:</label>
                             <input type="number" class="form-control" name="quantity" value="1">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Region">Colors:</label>
                     </div>
 
                     <div class="form-group">       
@@ -66,7 +62,7 @@
                   <form>
 
                     <div class="form-group">
-                       <h3><label for="payment">Payment Mode:</label></h3>
+                       <h3><label for="payment">Payment Modes</label></h3>
                        @if($paymentmodes->count()>0)
                            @foreach ($paymentmodes as $paymentmode)
                                 <strong>Company Name:</strong>{{ $paymentmode->companyname}}
