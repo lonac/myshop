@@ -29,7 +29,6 @@
                                         <a href="{{url('categories/'.$catee->id)}}">{{$catee->name}}</a>
                                     @endforeach
                                 @endif
-
                             </strong>
                            </font>
                         </marquee></p>

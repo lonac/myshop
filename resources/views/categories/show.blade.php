@@ -44,6 +44,7 @@
                                                 <a href="{{ route('products.show', $product->id ) }}"><b>{{ $product->name }}</b><br>
                                                     <p class="teaser">
                                                        {{  str_limit($product->body, 100) }} {{-- Limit teaser to 100 characters --}}
+                                                        <img src="{{ asset('images/catalog/' .$product->name) }}" style="width:10%">
                                                     </p>
                                                 </a>
                                             </li>

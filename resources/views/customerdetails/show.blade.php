@@ -7,10 +7,10 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-2">
-			<div class="panel panel-success">
-				<div class="panel-heading"><h3>Buyer's Details :  
+			<div class="panel panel-primary">
+				<div class="panel-heading"><h4>Buyer's Details :  
 				<a href="{{url('customerdetails/edit')}}" class="btn btn-success">Edit Details?</a>
-				</h3></div>
+				</h4></div>
 				@if(!$customerdetail==null)
 				<div class="panel-body">
 					<label>First Name: </label> {{$customerdetail->firstname}}<br>
@@ -21,7 +21,7 @@
 					<label>Phone Numbers: </label> {{$customerdetail->phonenumber1}}  {{$customerdetail->phonenumber2}} <br>
 				</div>
 				@else
-					<div class="panel-heading"><h2><a href="{{url('customerdetails/create')}}">Add Buyer's Details</a></h2></div>
+					<div class="panel-body"><h2><a href="{{url('customerdetails/create')}}">Add Buyer's Details</a></h2></div>
 				@endif
 	    	</div>
 		</div>
