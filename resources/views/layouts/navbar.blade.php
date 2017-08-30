@@ -17,13 +17,7 @@
                       <div class="input-group">
                          <input type="text" class="form-control" placeholder="Search"> 
                       </div>
-                </form>
-                <li>
-                        <a href="{{url('/cart')}}" class="btn btn-info btn-sm">
-                              <span class="glyphicon glyphicon-shopping-cart"></span> Cart
-                        </a>
-                     </li>
-                        
+                </form>                       
             </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Links --> 
@@ -33,7 +27,12 @@
                         <li><a href="/about">About</a></li>
                         <li><a href="/contacts">Contact Us</a></li>
                         <li><a href="/help">Help</a></li>
-                    
+                        <li>
+                            <a href="{{url('/cart')}}" class="btn btn-default btn-lg-12">
+                                  <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+                            </a>
+                        </li>
+                            
                                 <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Sign In</a></li>

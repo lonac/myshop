@@ -6,6 +6,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
+                @if(session('status'))
+                    <div class="alert alert-success">
+                        {{session('status')}}
+                    </div>
+                @endif
                 <div class="panel panel-default">
                     <div class="panel-heading"><h2>My Cart</h2></div>
                         <div class="panel-body">
@@ -28,11 +33,11 @@
                                         <td></td>
                                         <td></td>
                                         <td>
-                                        <form method="POST" action="{{ url('products/'.$mycart->product_id.'/cart') }}"  onclick="return confirm('You are about to delete Company?');">
+                                        <form method="POST" action="{{ url('cart') }}"  onclick="return confirm('Remove Product from List');">
                                             {{ method_field('delete') }}
 
                                             {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger">Remove</button>
                                         </form>     
                                         </td>
                                         
@@ -61,7 +66,7 @@
                 </div>
             @endif
 
-            @if(!@customerdetail==null)
+            @if(!$customerdetail==null)
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="panel panel-default">

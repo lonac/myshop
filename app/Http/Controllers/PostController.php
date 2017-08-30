@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use Auth;
 use Session;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -23,7 +24,9 @@ class PostController extends Controller
     {
         $posts = Post::orderby('id','desc')->paginate('5');
 
-        return view('news.index',compact('posts'));
+        $categories = Category::all();
+
+        return view('news.index',compact('posts','categories'));
     }
     /**
      * Show the form for creating a new resource.

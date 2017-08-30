@@ -71,8 +71,8 @@ class CartController extends Controller
 
         $carts->save();
 
-        return redirect()->route('carts.index')
-            ->with('flash_message', 'Product added
+        return view('carts.index')
+            ->with('status', 'Product added
               to cart');
 
     }
@@ -122,7 +122,11 @@ class CartController extends Controller
     public function destroy($id)
     {
         //get the Id of the Cart
-        $user = Auth::user();
+       $cart = Cart::findOrFail($id);
+
+       $carts->delete();
+
+       return view('carts.index')->with('status','Product successfully Removed');
 
     }
 }

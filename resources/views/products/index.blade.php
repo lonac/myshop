@@ -24,7 +24,8 @@
                             @foreach($products as  $product)
                                 <div class="panel-body">
                                     <a href="{{url('/products/'.$product->id)}}">
-                                        <img src="{{ asset('images/catalog/' .$product->name) }}" style="width:100%">
+                                        <img src="{{ asset('images/catalog/' .$product->name) }}" style="width:20%">
+                                        {{$product->name}}
                                     <p class="teaser">
                                        {{  str_limit($product->body, 10) }} {{-- Limit teaser to 100 characters --}}
                                     </p>

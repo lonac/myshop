@@ -24,16 +24,28 @@ class PagesController extends Controller
 
     public function about()
     {
-    	return view('about');
+    	 $products = Product::orderby('id','desc')->paginate('8');       
+
+         $categories = Category::all();
+
+      return view('about',compact('products','categories'));
     }
 
     public function contacts()
     {
-    	return view('contacts');
+    	 $products = Product::orderby('id','desc')->paginate('8');       
+
+         $categories = Category::all();
+
+      return view('contacts',compact('products','categories'));
     }
 
     public function help()
     {
-    	return view('help');
+    	 $products = Product::orderby('id','desc')->paginate('8');       
+
+         $categories = Category::all();
+
+      return view('help',compact('products','categories')); 
     }
 }
