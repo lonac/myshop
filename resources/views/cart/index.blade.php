@@ -11,7 +11,7 @@
                         {{session('status')}}
                     </div>
                 @endif
-                <div class="panel panel-default">
+                <div class="panel panel-info">
                     <div class="panel-heading"><h2>My Cart</h2></div>
                         <div class="panel-body">
                         @if($mycarts->count()>0)

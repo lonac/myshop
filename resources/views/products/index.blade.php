@@ -11,7 +11,7 @@
                         {{session('status')}}
                     </div>
                 @endif
-                <div class="panel panel-default">
+                <div class="panel panel-info">
                     <div class="panel-heading"><h4>Products for 
                         @if($categories->count()>0)
                             @foreach($categories as $category)
@@ -19,7 +19,6 @@
                             @endforeach
                         @endif
                     </h4></div>
-                    <div class="panel-heading">Page {{ $products->currentPage() }} of {{ $products->lastPage() }}</div>
                        @if($products->count()>0)
                             @foreach($products as  $product)
                                 <div class="panel-body">

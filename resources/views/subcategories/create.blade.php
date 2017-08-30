@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <h1>{{$category->name}} Category</h1>
-            <div class="panel panel-primary">
+            <div class="panel panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">Add subcategory:</h3>
                 </div>

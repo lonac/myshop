@@ -7,7 +7,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-2">
-			<div class="panel panel-primary">
+			<div class="panel panel-info">
 				<div class="panel-heading"><h4>Buyer's Details :  
 					<a href="{{url('customerdetails/edit')}}" class="btn btn-success">Edit Details?</a>
 				</h4></div>

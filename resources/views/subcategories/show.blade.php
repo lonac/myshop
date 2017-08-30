@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-0">
-            <div class="panel panel-default">
+            <div class="panel panel-info">
                 <div class="panel panel-heading"><h4>{{$subcategory->name}} </h4> </div>         
                 <div class="panel-body">
                     @if($products->count()>0)
