@@ -21,7 +21,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','product'])->except('index','show');
+        $this->middleware(['auth','product'])->except('index','show','cost');
     }
     /**
      * Display a listing of the resource.
