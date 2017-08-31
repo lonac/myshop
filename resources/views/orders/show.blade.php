@@ -6,7 +6,7 @@
 
 <div class="container">
 
-    <h1>{{ $post->title }}</h1>
+    <h3>{{ $post->title }}</h3>
     <hr>
     <p class="lead">{{ $post->body }} </p>
     <hr>
