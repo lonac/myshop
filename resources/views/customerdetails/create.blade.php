@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
-        <div class="panel panel-primary">
+        <div class="panel panel-info">
             <div class="panel-heading">Customer's Details</div>
                 <div class="panel-body">
             {{-- Using the Laravel HTML Form Collective to create our form --}}

@@ -71,9 +71,8 @@ class CartController extends Controller
 
         $carts->save();
 
-        return view('carts.index')
-            ->with('status', 'Product added
-              to cart');
+
+        return redirect('cart');
 
     }
 
