@@ -171,4 +171,16 @@ class ProductController extends Controller
             ->with('flash_message',
              'Product successfully deleted');
     }
+
+    public function cost(Request $request,$id)
+    {
+        $product = Product::findOrFail($id);
+        $product_cost = $product->cost;
+        
+        $quantity = $request->input('quantity');
+
+        $totalcost = $product_cost * $quantity;
+
+        return redirect('products/'.$product->id)->with('status','TOTAL COST is '.$totalcost.'/= Tshs');
+    }
 }
