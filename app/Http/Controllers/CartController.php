@@ -12,6 +12,8 @@ use App\Product;
 
 use Session;
 
+use App\ReachablePlaces;
+
 class CartController extends Controller
 {
     public function __construct()
@@ -51,7 +53,9 @@ class CartController extends Controller
 
         $mycart = Auth::user()->carts;
 
-        return view('cart.create',compact('product','mycart'));
+        $places = ReachablePlaces::all();
+
+        return view('cart.create',compact('product','mycart','places'));
     }
 
     /**
@@ -69,10 +73,30 @@ class CartController extends Controller
         $carts->user_id = Auth::user()->id;
         $carts->product_id = $product->id;
 
-        $carts->save();
+        $get_place = $request->input('place');
+        $get_quantity = $request->input('quantity');
 
+        $product_cost = $product->cost;
 
-        return redirect('cart');
+         if($get_place=="Dar es salaam")
+        {
+            $totalcost = ($product_cost * $get_quantity) + 800;
+            $carts->cost = $totalcost;
+            $carts->quantity = $get_quantity;
+            $carts->place = $get_place;
+            $carts->save();
+        }
+        else
+        {
+            $totalcost = ($product_cost * $get_quantity) + 4750;
+            $carts->cost = $totalcost;
+            $carts->quantity = $get_quantity;
+            $carts->place = $get_place;
+            $carts->save();
+
+        }
+
+        return redirect('cart')->with('status','Product Added to Cart successfully');
 
     }
 

@@ -35,7 +35,12 @@
                             {!! $products->links() !!}
                         </div>
                        @else
-                       <p><h2>No Products So Far!</h2></p>
+                       <div class="panel-body">
+                           <p><h2>No Products So Far!</h2></p>
+                            @can('Create Product')
+                            <a href="{{url('/products/create')}}" class="btn btn-primary">Add Products?</a>
+                            @endcan
+                        </div>
                        @endif
                 </div>
             </div>

@@ -190,8 +190,6 @@ class ProductController extends Controller
             $totalcost = ($product_cost * $quantity) + 4750;
         }
 
-       // $totalcost = $product_cost * $quantity;
-
         return redirect('products/'.$product->id)->with('status','TOTAL COST is '.$totalcost.'/= Tshs');
     }
 }

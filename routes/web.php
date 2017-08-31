@@ -50,6 +50,7 @@ Route::resource('categories','CategoriesController');
 //reachable places
 //Route::resource('reachableplaces','ReachablePlacesController');
 Route::get('reachableplaces','ReachablePlacesController@index');
+Route::get('reachableplaces/create','ReachablePlacesController@create');
 Route::post('reachableplaces/create','ReachablePlacesController@store');
 Route::get('reachableplaces/{id}','ReachablePlacesController@show');
 Route::get('reachableplaces/{id}/edit','ReachablePlacesController@edit');

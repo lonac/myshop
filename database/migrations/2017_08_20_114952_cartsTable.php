@@ -19,6 +19,9 @@ class CartsTable extends Migration
             $table->foreign('product_id')->references('id')->on('products')->onUpdate('cascade');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
+            $table->string('place');
+            $table->integer('quantity');
+            $table->integer('cost');
             $table->timestamps();
         });
     }

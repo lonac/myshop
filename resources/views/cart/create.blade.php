@@ -13,13 +13,13 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>  
-                                <th>Product Name</th>             
-                                     <th>Cost</th>
-                                    <th>Quantity</th>           
-                                    <th>Total Cost</th>
+                                    <th>Name</th>             
+                                    <th>Cost</th>
+                                    <th>Quantity</th>  
+                                    <th>Region/city</th>         
                                     <th>--- 
                                     </th>
-                                    <th>nnnn</th>
+                                   
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,11 +32,19 @@
                                         </div>
                                     </td>    
                                     <td>
-                                        <?php
-                                        $total_cost = ($product->cost) * 5;
-                                            echo "$$$$$";
-
-                                        ?>
+                                    @if($places->count()>0)
+                                        <div class="form-group">
+                                            <select class="form-control" name="place">
+                                                @foreach ($places as $placee)
+                                                    <option value="{{$placee->name}}">{{$placee->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    @else
+                                        @can('Create Category')
+                                             <strong><a href="{{url('/reachableplaces/create')}}">Add Place first</a></strong>
+                                         @endcan
+                                    @endif
                                     </td>
                                     <td>
                                      <img src="{{ asset('images/catalog/' .$product->name) }}" style="width:10%">

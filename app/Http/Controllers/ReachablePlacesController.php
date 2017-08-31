@@ -44,7 +44,7 @@ class ReachablePlacesController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->validate($request,[
+        $this->validate($request,[
                 'name'=>'required|max:50',
             ]);
 
@@ -53,8 +53,8 @@ class ReachablePlacesController extends Controller
 
         $place->save();
 
-        return redirect('reachableplaces.index')->with('status','
-            ReachablePlaces successfully added');
+        return redirect('reachableplaces')->with('status','
+            Place successfully added');
     }
 
     /**
