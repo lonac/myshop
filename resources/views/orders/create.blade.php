@@ -17,7 +17,7 @@
                             @if($customer!==null)
                             <p>Review the <a href="{{url('customerdetails/show')}}" class="btn bnt-primary">Buyer's Details</a> in Here</p></h4>
                             @else
-                               <a href="{{url('/customerdetails/create')}}" class="btn btn-primary">Add Customer's Details</a>
+                               <a href="{{url('/customerdetails/create')}}" class="btn btn-primary">Shipping Place</a>
                             @endif
                         </div>
                 </div>

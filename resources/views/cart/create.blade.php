@@ -53,7 +53,7 @@
                             </tbody>
                         </table>
                         <div class="form-group">
-                          <button type="submit" class="btn btn-success">Add Product</button>     
+                          <button type="submit" class="btn btn-success">Confirm Product</button>     
                         </div>  
                     </div>
 
