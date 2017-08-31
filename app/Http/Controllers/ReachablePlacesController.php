@@ -12,7 +12,7 @@ class ReachablePlacesController extends Controller
 {
      public function __construct()
     {
-        $this->middleware(['auth','product'])->except('index','show');
+        $this->middleware(['auth','product'])->except('index');
     }
     /**
      * Display a listing of the resource.
@@ -44,12 +44,16 @@ class ReachablePlacesController extends Controller
      */
     public function store(Request $request)
     {
+        return $this->validate($request,[
+                'name'=>'required|max:50',
+            ]);
+
         $place = new ReachablePlaces;
         $place->name = $request->input('name');
 
         $place->save();
 
-        return redirect()->route('reachableplaces.index')->with('message_flash','
+        return redirect('reachableplaces.index')->with('status','
             ReachablePlaces successfully added');
     }
 
@@ -96,9 +100,7 @@ class ReachablePlacesController extends Controller
         $place->name = $request->input('name');
         $place->save();
 
-        return redirect('reachableplaces.show', 
-            $place->id)->with('flash_message', 
-            'Article, '. $place->name.' updated');
+        return redirect('reachableplaces')->with('status','Place successfully Updated');
     }
 
     /**
@@ -112,8 +114,8 @@ class ReachablePlacesController extends Controller
         $place = ReachablePlaces::findOrFail($id);
         $place->delete();
 
-        return redirect()->route('reachableplaces.index')
-            ->with('flash_message',
-             'Article successfully deleted');
+        return redirect('reachableplaces')
+            ->with('status',
+             'Place successfully Deleted');
     }
 }

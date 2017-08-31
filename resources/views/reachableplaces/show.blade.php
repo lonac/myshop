@@ -14,21 +14,22 @@
                             @can('Edit Category')
                                     <a href="{{ route('reachableplaces.edit', $place->id) }}" class="btn btn-info" role="button">Edit</a>
                              @endcan
-                        </strong>         
+                        </strong>  
+                        </div>       
+                        <div class="panel-body"> 
+                            <form method="POST"  action="{{url('/reachableplaces/'.$place->id)}}">
+                                <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
 
-                            {!! Form::open(['method' => 'DELETE', 'route' => ['reachableplaces.destroy', $place->id] ]) !!}
-                            <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
-
-                            @can('Delete Category')
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                            @endcan
-                            {!! Form::close() !!}
+                                @can('Delete Category')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                @endcan
+                            </form>
                         </div>
 
-                         <div class="panel-body"> 
-                            <h2>Here is {{$place->name}} Area</h2>
+                         
+                    <h2>Here is {{$place->name}} Area</h2>
 
-                        </div>
+                        
              </div>
     </div>
 </div>

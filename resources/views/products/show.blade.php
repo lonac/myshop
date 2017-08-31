@@ -31,11 +31,10 @@
 
                     {{ csrf_field() }}
 
-                {{--
                 @if($places->count()>0)
                     <div class="form-group">
-                        <label for="name">Shipping place</label>
-                        <select class="form-control" name="name">
+                        <label for="place">Shipping place</label>
+                        <select class="form-control" name="place">
                             @foreach ($places as $placee)
                                 <option value="{{$placee->name}}">{{$placee->name}}</option>
                             @endforeach
@@ -47,7 +46,6 @@
                      @endcan
                 @endif
 
-                --}}
 
                     <div class="form-group">
                         <label for="Quantity">Quantity:</label>
@@ -64,7 +62,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <a href="{{ url('/products/'.$product->id.'/cart/create') }}" class="btn btn-primary" role="button">Select Product</a>
+                        <a href="{{ url('/products/'.$product->id.'/cart/create') }}" class="btn btn-primary btn-lg btn-block" role="button">Select Product</a>
                     </div>
                   </form>
 

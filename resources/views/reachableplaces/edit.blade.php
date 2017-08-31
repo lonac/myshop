@@ -6,19 +6,24 @@
 <div class="row">
 
     <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading"><h4>Edit Area/Location</h4></div>
+                <form method="POST" action="{{url('reachableplaces/'.$place->id.'/edit')}}">
 
-        <h1>Edit Area/Location</h1>
-        <hr>
-            {{ Form::model($place, array('route' => array('reachableplaces.update', $place->id), 'method' => 'PUT')) }}
-            <div class="form-group">
-            {{ Form::label('name', 'Area/Location Name') }}
-            {{ Form::text('name', null, array('class' => 'form-control')) }}<br>
-            
-            {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
+                    {{csrf_field()}}
 
-            {{ Form::close() }}
-          </div>
+                    {{method_field('patch')}}
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <input type="text" name="name" value="{{$place->name}}" class="form-control">
+                        </div>
+                        
+                        {{ Form::submit('Update', array('class' => 'btn btn-primary')) }}
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
     </div>
-</div>
-
 @endsection

@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
-        <h1>Add Reachable place(Region or City or Country)</h1>
+        <h1>Add Reachable place in Tanzania(Region or City)</h1>
         <hr>
 
     {{-- Using the Laravel HTML Form Collective to create our form --}}
