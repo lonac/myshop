@@ -21,7 +21,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','product'])->except('index','show');
+        $this->middleware(['auth','product'])->except('index','show','cost');
     }
     /**
      * Display a listing of the resource.
@@ -179,7 +179,18 @@ class ProductController extends Controller
         
         $quantity = $request->input('quantity');
 
-        $totalcost = $product_cost * $quantity;
+        $place = $request->input('place');
+
+        if($place=="Dar es salaam")
+        {
+            $totalcost = ($product_cost * $quantity) + 800;
+        }
+        else
+        {
+            $totalcost = ($product_cost * $quantity) + 4750;
+        }
+
+       // $totalcost = $product_cost * $quantity;
 
         return redirect('products/'.$product->id)->with('status','TOTAL COST is '.$totalcost.'/= Tshs');
     }
