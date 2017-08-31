@@ -40,7 +40,11 @@ class OrderController extends Controller
     {
         $paymentmodes = PaymentMode::all();
 
-        return view('orders.create',compact('paymentmodes'));
+        $customer = Auth::user()->customers;
+        
+        $carts = Auth::user()->carts;
+
+        return view('orders.create',compact('paymentmodes','customer','carts'));
     }
 
     /**
