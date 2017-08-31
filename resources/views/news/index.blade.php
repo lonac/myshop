@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-9 col-md-offset-0">
                 <div class="panel panel-info">
-                    <div class="panel-heading"><h4>New</h4></div>
+                    <div class="panel-heading"><h4>News</h4></div>
                     @foreach ($posts as $post)
                         <div class="panel-body">
                             <li style="list-style-type:disc">

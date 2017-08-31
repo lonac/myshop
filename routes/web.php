@@ -33,6 +33,7 @@ Route::resource('news', 'PostController');
 
 //Product controller
 Route::resource('products','ProductController');
+Route::post('products/{id}','ProductController@cost');
 
 //Route::get('categories/{id}/subcategories/{sub_id}/products','ProductController@index');
 //Route::get('categories/{id}/subcategories/{sub_id}/products/create','ProductController@create');

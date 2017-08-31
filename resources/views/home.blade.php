@@ -9,7 +9,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong>Categories</h3></strong></div>
                     <div class="panel-body">
-
+                      <strong>
+                          @if($categories->count()>0)
+                              @foreach($categories as $category)
+                                  <a href="{{url('categories/'.$category->id)}}">{{$category->name}}</a><br>
+                              @endforeach
+                          @endif
+                      </strong>
                     </div>
                 </div>
             </div>

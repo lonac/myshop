@@ -7,6 +7,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-2">
+			@if(session('status'))
+				<div class="alert alert-success">
+					{{session('status')}}
+				</div>
+			@endif
 			<div class="panel panel-info">
 				<div class="panel-heading"><h4>Buyer's Details :  
 					<a href="{{url('customerdetails/edit')}}" class="btn btn-success">Edit Details?</a>

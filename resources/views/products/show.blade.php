@@ -27,9 +27,11 @@
                 <strong>By: </strong><font color="blue"> {{$product->manufacturer}}</font><br>
                 <h2>{{$product->cost}}/= Tshs. /item</h2><br>
                 <hr>
-                  <form>
+                  <form method="post" action="{{url('products/'.$product->id) }}">
+
                     {{ csrf_field() }}
 
+                {{--
                 @if($places->count()>0)
                     <div class="form-group">
                         <label for="name">Shipping place</label>
@@ -45,16 +47,24 @@
                      @endcan
                 @endif
 
+                --}}
+
                     <div class="form-group">
                         <label for="Quantity">Quantity:</label>
                             <input type="number" class="form-control" name="quantity" value="1">
                     </div>
 
                     <div class="form-group">       
-                        <label for="totalcost">Total Cost:</label>
+                        @if(session('status'))
+                            <div class="alert alert-danger">
+                                {{session('status')}}
+                            </div>
+                        @endif
+                         {{ Form::submit('Check  Cost', array('class' => 'btn btn-success btn-lg btn-block')) }}
                     </div>
+                    
                     <div class="form-group">
-                        <a href="{{ url('/products/'.$product->id.'/cart/create') }}" class="btn btn-info" role="button">Add To Cart</a>
+                        <a href="{{ url('/products/'.$product->id.'/cart/create') }}" class="btn btn-primary" role="button">Select Product</a>
                     </div>
                   </form>
 

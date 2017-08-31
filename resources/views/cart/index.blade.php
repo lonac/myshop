@@ -47,7 +47,7 @@
                         </table>
 
                         @else
-                            <a href="{{url('/products')}}" type="button" class="btn btn-success">Shop Now?</a>
+                           <strong>No Product in Your Cart <a href="{{url('/products')}}" type="button" class="btn btn-success">Shop Now?</a></strong> 
                         @endif
                         
                     </div>

@@ -127,7 +127,7 @@ class CustomersDetailsController extends Controller
 
         $customerdetails->save();
 
-        return redirect('customerdetails/show');
+        return redirect('customerdetails/show')->with('status','Customer Details Successfully Updated');
     }
 
     /**
