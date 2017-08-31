@@ -70,12 +70,13 @@ Route::patch('categories/{id}/subcategories/edit','SubCategoriesController@updat
 Route::resource('dimensions','DimensionsProductController');
 
 //cart
-Route::get('cart','CartController@index');
-Route::get('cart/show','CartController@show');
+
+Route::resource('cart','CartController');
+//Route::get('cart','CartController@index');
 Route::get('products/{id}/cart/create','CartController@create');
 Route::post('products/{id}/cart/create','CartController@store');
 Route::get('products/{id}/cart/edit','CartController@edit');
-Route::patch('products/{id}/cart/edit','CartController@update');
+Route::patch('products/{id}/cart/edit','CartController@update'); 
 
 
 //photo upload

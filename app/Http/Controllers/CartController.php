@@ -106,11 +106,11 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-         $mycarts = Auth::user()->carts;
+         $mycart = Cart::findOrFail($id);
 
-         return view('cart.show',compact('mycarts'));
+         return view('cart.show',compact('mycart'));
     }
 
     /**
@@ -145,11 +145,11 @@ class CartController extends Controller
     public function destroy($id)
     {
         //get the Id of the Cart
-       $cart = Cart::findOrFail($id);
+       $cart = Cart::whereUserId(Auth::user()->id)->whereId($id)->first();
 
-       $carts->delete();
+       $cart->delete();
 
-       return view('carts.index')->with('status','Product successfully Removed');
+       return redirect('cart')->with('status','Product successfully Removed');
 
     }
 }

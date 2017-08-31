@@ -18,9 +18,10 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>     
-                                    <th>Product Image</th>
-                                    <th>Product Name</th>
+                                    <th>--</th>
+                                    <th>Name</th>
                                     <th>Cost</th>
+                                    <th>Quantity</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -28,19 +29,15 @@
                                 @foreach($mycarts as $mycart)
                                     <tr>
                                         <td>
-                                            <img src="{{ asset('images/catalog/' .$mycart->product_id) }}" class= "img-responsive style= height: 10px; width: 10px;">
+                                            <img src="{{ asset('images/catalog/' .$mycart->name) }}" class= "img-responsive style= height: 10px; width: 10px;">
                                         </td>
                                         <td></td>
-                                        <td></td>
+                                        <td>{{$mycart->cost}}</td>
+                                        <td>{{$mycart->quantity}}</td>
                                         <td>
-                                        <form method="POST" action="{{ url('cart') }}"  onclick="return confirm('Remove Product from List');">
-                                            {{ method_field('delete') }}
-
-                                            {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger">Remove</button>
-                                        </form>     
-                                        </td>
-                                        
+                                           {{-- <a href="{{url('/cart/'.$mycart->id)}}" class="btn btn-warning">Edit?</a> --}}
+                                            <a href="{{url('/cart/'.$mycart->id)}}" class="btn btn-danger">Remove?</a>  
+                                        </td>                
                                      </tr>
                                 @endforeach
                             </tbody>
