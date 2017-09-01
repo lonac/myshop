@@ -55,7 +55,9 @@ class CartController extends Controller
 
         $places = ReachablePlaces::all();
 
-        return view('cart.create',compact('product','mycart','places'));
+        $sizes = $product->sizes()->where('product_id',$product->id)->get();
+
+        return view('cart.create',compact('product','mycart','places','sizes'));
     }
 
     /**
@@ -72,9 +74,12 @@ class CartController extends Controller
 
         $carts->user_id = Auth::user()->id;
         $carts->product_id = $product->id;
+        $carts->size = $request->input('size');
 
         $get_place = $request->input('place');
         $get_quantity = $request->input('quantity');
+
+
 
         $product_cost = $product->cost;
 

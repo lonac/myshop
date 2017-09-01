@@ -22,6 +22,7 @@
                                     <th>Name</th>
                                     <th>Cost</th>
                                     <th>Quantity</th>
+                                    <th>Size</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -34,6 +35,7 @@
                                         <td></td>
                                         <td>{{$mycart->cost}}</td>
                                         <td>{{$mycart->quantity}}</td>
+                                        <td>{{$mycart->size}}</td>
                                         <td>
                                            {{-- <a href="{{url('/cart/'.$mycart->id)}}" class="btn btn-warning">Edit?</a> --}}
                                             <a href="{{url('/cart/'.$mycart->id)}}" class="btn btn-danger">Remove?</a>  

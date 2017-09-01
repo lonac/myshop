@@ -16,7 +16,8 @@
                                     <th>Name</th>             
                                     <th>Cost</th>
                                     <th>Quantity</th>  
-                                    <th>Region/city</th>         
+                                    <th>Region/city</th>   
+                                    <th>Size</th>      
                                     <th>--- 
                                     </th>
                                    
@@ -44,6 +45,21 @@
                                         @can('Create Category')
                                              <strong><a href="{{url('/reachableplaces/create')}}">Add Place first</a></strong>
                                          @endcan
+                                    @endif
+                                    </td>
+                                    <td>
+                                    @if($sizes->count()>0)
+                                        <div class="form-group">
+                                            <select class="form-control" name="size">
+                                                @foreach ($sizes as $size)
+                                                    <option value="{{$size->size}}">{{$size->size}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    @else
+                                       @can('Create Product')
+                                             <strong><a href="{{url('/products/'.$product->id.'/sizes/create')}}">Add Size?</a></strong>
+                                     @endcan 
                                     @endif
                                     </td>
                                     <td>

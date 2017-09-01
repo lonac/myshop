@@ -12,7 +12,11 @@
                     </div>
                 @endif
                 <div class="panel panel-info">
-                    <div class="panel-heading"><h4>Products for 
+                    <div class="panel-heading">
+                    @can('Create Product')
+                        <h4><a href="{{url('products/create')}}" class="btn btn-warning">Upload New Product</a></h4>
+                    @endcan
+                    <h4>Products for 
                         @if($categories->count()>0)
                             @foreach($categories as $category)
                                 <a href="{{'/categories/'.$category->id}}">{{$category->name}}</a>

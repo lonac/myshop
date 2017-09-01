@@ -22,6 +22,7 @@ class CartsTable extends Migration
             $table->string('place');
             $table->integer('quantity');
             $table->integer('cost');
+            $table->float('size')->nullable();
             $table->timestamps();
         });
     }

@@ -78,10 +78,10 @@ class ProductController extends Controller
         base_path() . '/public/images/catalog/', $imageName
     );
 
+
     //Display a successful message upon save
-        return redirect()->route('products.index')
-            ->with('status', '
-             '. $product->name.' Uploaded');
+    return redirect('products/'.$product->id.'/sizes/create')->with('status','Product successfully Uploaded');
+
     }
 
     /**
