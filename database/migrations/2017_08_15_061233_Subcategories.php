@@ -17,7 +17,7 @@ class Subcategories extends Migration
             $table->increments('id');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->timestamps();
         });
     }
