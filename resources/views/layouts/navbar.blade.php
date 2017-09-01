@@ -13,6 +13,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" background-color="blue">
             <ul class="nav navbar-nav navbar-left">
+                <li><a href="/about">About</a></li>
                  <form class="navbar-form navbar-right form-horizontal" role="search">
                       <div class="input-group">
                          <input type="text" class="form-control" placeholder="Search"> 
@@ -24,7 +25,7 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/products">Products</a></li>
                         <li><a href="/news">News</a></li>
-                        <li><a href="/about">About</a></li>
+                        
                         <li><a href="/contacts">Contact Us</a></li>
                         <li><a href="/help">Help</a></li>
                         <li>
