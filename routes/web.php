@@ -101,3 +101,14 @@ Route::get('orders/edit','OrderController@edit');
 Route::patch('orders/edit','OrderController@update');
 Route::get('orders/kkoo','OrderController@kkoo');
 
+//products details
+Route::get('products/{id}/sizes','SizeController@index');
+Route::get('products/{id}/sizes/create','SizeController@create');
+Route::post('products/{id}/sizes/create','SizeController@store');
+Route::get('products/{id}/sizes/{size_id}','SizeController@show');
+Route::post('products/{id}/sizes/{size_id}','SizeController@destroy');
+Route::get('products/{id}/sizes/{size_id}/edit','SizeController@edit');
+Route::patch('products/{id}/sizes/{size_id}/edit','SizeController@update');
+
+
+

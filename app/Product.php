@@ -27,6 +27,11 @@ class Product extends Model
     {
         return $this->belongsTo('App\Cart','product_id');
     }
+
+    public function sizes()
+    {
+        return $this->hasMany('App\Size');
+    }
 }
 
 

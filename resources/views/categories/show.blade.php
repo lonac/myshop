@@ -36,7 +36,7 @@
                         </div>
 
                          <div class="panel-body"> 
-                            <h2>Here is {{$cat->name}} Products</h2>
+                            <h2>{{$cat->name}} Products</h2>
                                 @if($products->count()>0)
                                    @foreach ($products as $product)
                                         <div class="panel-body">
