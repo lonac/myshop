@@ -85,13 +85,6 @@ Route::resource('photos', 'PhotoController');
 //payment modes
 Route::resource('paymentmodes','PaymentModeController');
 
-/*customer's details
-Route::get('customerdetails','CustomersDetailsController@index');
-Route::get('customerdetails/create','CustomersDetailsController@create');
-Route::post('customerdetails/create','CustomersDetailsController@store');
-Route::get('customerdetails/edit','CustomersDetailsController@edit');
-Route::get('customerdetails/show','CustomersDetailsController@show');
-Route::patch('customerdetails/edit','CustomersDetailsController@update'); */
 
 //order's details
 Route::get('orders','OrderController@index');
