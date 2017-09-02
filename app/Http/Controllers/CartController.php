@@ -33,9 +33,9 @@ class CartController extends Controller
        {
          $mycarts = $user->carts;
 
-         $customerdetail = Auth::user()->customers;
+         $myship = Auth::user()->shipping_addresses;
 
-         return view('cart.index',compact('mycarts','customerdetail'));
+         return view('cart.index',compact('mycarts','myship'));
        }
 
           return view('cart.guest');
@@ -101,7 +101,7 @@ class CartController extends Controller
 
         }
 
-        return redirect('cart')->with('status','Product Added to Cart successfully');
+        return redirect('cart/'.$carts->id.'/shippingaddress/create')->with('status','Products successfully added to Cart');
 
     }
 
@@ -150,7 +150,8 @@ class CartController extends Controller
     public function destroy($id)
     {
         //get the Id of the Cart
-       $cart = Cart::whereUserId(Auth::user()->id)->whereId($id)->first();
+
+       $cart = Auth::user()->carts->id->first();
 
        $cart->delete();
 

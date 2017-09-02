@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Customer Details')
+@section('title', 'Shipping Address')
 
 @section('content')
     <div class="row">

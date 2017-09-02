@@ -18,6 +18,7 @@
                             {{ method_field('delete') }}
 
                             {{ csrf_field() }}
+                            <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
                             <button type="submit" class="btn btn-danger">Delete</button>
                             <a href="{{url('cart/'.$cart->id.'/shippingaddress/edit')}}" class="btn btn-success">Edit</a>
                         </form>
@@ -31,7 +32,9 @@
                             <label>Phone Numbers: </label> {{$myship->phonenumber1}}  {{$myship->phonenumber2}} <br>
                         </div>
                     @else
-                        <strong><a href="{{url('cart/'.$cart->id.'/shippingaddress/create')}}">Add Details</a></strong>
+                        <div class="panel-heading">
+                            <strong><a href="{{url('cart/'.$cart->id.'/shippingaddress/create')}}">Add Details</a></strong>
+                        </div>
                     @endif
                 </div>
             </div>

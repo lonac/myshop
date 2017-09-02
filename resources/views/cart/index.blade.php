@@ -23,6 +23,7 @@
                                     <th>Cost</th>
                                     <th>Quantity</th>
                                     <th>Size</th>
+                                    <th>Address</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -37,8 +38,11 @@
                                         <td>{{$mycart->quantity}}</td>
                                         <td>{{$mycart->size}}</td>
                                         <td>
+                                            <a href="{{url('/cart/'.$mycart->id.'/shippingaddress')}}" class="btn btn-primary">Shipping Address</a> 
+                                        </td>
+                                        <td>
                                            {{-- <a href="{{url('/cart/'.$mycart->id)}}" class="btn btn-warning">Edit?</a> --}}
-                                            <a href="{{url('/cart/'.$mycart->id)}}" class="btn btn-danger">Remove?</a>  
+                                            <a href="{{url('/cart/'.$mycart->id)}}" class="btn btn-danger">Remove?</a> 
                                         </td>                
                                      </tr>
                                 @endforeach
@@ -53,19 +57,7 @@
                     </div>
                 </div>
             </div>
-           @if($mycarts->count()>0)
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="panel panel-default">
-                            <div class="panel-heading"><h2>Shipping Address:
-                               <a href="{{'customerdetails/show'}}" class="btn btn-success">View Details</a></h2>
-                             </div>
-                         </div>
-                    </div>
-                </div>
-            @endif
-
-            @if(!$customerdetail==null)
+            @if(!$myship==null)
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="panel panel-default">
