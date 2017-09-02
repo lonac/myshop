@@ -18,4 +18,9 @@ class Cart extends Model
     {
     	return $this->hasMany('App\Product','product_id');
     }
+
+    public function shipping_addresses()
+    {
+    	return $this->hasOne('App\ShippingAddress');
+    }
 }

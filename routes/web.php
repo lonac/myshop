@@ -85,13 +85,13 @@ Route::resource('photos', 'PhotoController');
 //payment modes
 Route::resource('paymentmodes','PaymentModeController');
 
-//customer's details
+/*customer's details
 Route::get('customerdetails','CustomersDetailsController@index');
 Route::get('customerdetails/create','CustomersDetailsController@create');
 Route::post('customerdetails/create','CustomersDetailsController@store');
 Route::get('customerdetails/edit','CustomersDetailsController@edit');
 Route::get('customerdetails/show','CustomersDetailsController@show');
-Route::patch('customerdetails/edit','CustomersDetailsController@update');
+Route::patch('customerdetails/edit','CustomersDetailsController@update'); */
 
 //order's details
 Route::get('orders','OrderController@index');
@@ -109,6 +109,14 @@ Route::get('products/{id}/sizes/{size_id}','SizeController@show');
 Route::post('products/{id}/sizes/{size_id}','SizeController@destroy');
 Route::get('products/{id}/sizes/{size_id}/edit','SizeController@edit');
 Route::patch('products/{id}/sizes/{size_id}/edit','SizeController@update');
+
+//shipping details
+Route::get('cart/{id}/shippingaddress','ShippingAddressController@index');
+Route::post('cart/{id}/shippingaddress','ShippingAddressController@destroy');
+Route::get('cart/{id}/shippingaddress/create','ShippingAddressController@create');
+Route::post('cart/{id}/shippingaddress/create','ShippingAddressController@store');
+Route::get('cart/{id}/shippingaddress/edit','ShippingAddressController@edit');
+Route::patch('cart/{id}/shippingaddress/edit','ShippingAddressController@update');
 
 
 

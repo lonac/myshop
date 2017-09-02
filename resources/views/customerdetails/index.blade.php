@@ -5,8 +5,9 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-info">
+                    @if($customerdetail!==null)
                     <div class="panel-heading">
                         <form method="POST" action="{{ url('customerdetails') }}">
                             {{ method_field('delete') }}
@@ -24,6 +25,9 @@
                             <label>Region: </label> {{$customerdetail->region}}<br>
                             <label>Phone Numbers: </label> {{$customerdetail->phonenumber1}}  {{$customerdetail->phonenumber2}} <br>
                         </div>
+                    @else
+                        <strong><a href="{{url('/customerdetails/create')}}">Add Details</a></strong>
+                    @endif
                 </div>
             </div>
     </div>

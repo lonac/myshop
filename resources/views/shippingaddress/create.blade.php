@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Shipping Details')
+@section('title', 'Customer Details')
 
 @section('content')
     <div class="row">
@@ -40,13 +40,17 @@
 
                     {{ Form::label('Phonenumber', 'Phone Number (2)') }}
                     {{ Form::number('phonenumber2', null, array('class' => 'form-control')) }}
-                    <br>      
+                    <br>
+
+                    
 
                     {{ Form::submit('Save Details', array('class' => 'btn btn-success btn-lg btn-block')) }}
                     {{ Form::close() }}
                 </div>
             </div>
-        </div>      
+        </div>
+
+        
         </div>
     </div>
 

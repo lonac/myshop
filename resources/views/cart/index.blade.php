@@ -57,7 +57,7 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <div class="panel panel-default">
-                            <div class="panel-heading"><h2>Buyer's Details:
+                            <div class="panel-heading"><h2>Shipping Address:
                                <a href="{{'customerdetails/show'}}" class="btn btn-success">View Details</a></h2>
                              </div>
                          </div>
