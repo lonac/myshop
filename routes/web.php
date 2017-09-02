@@ -87,12 +87,13 @@ Route::resource('paymentmodes','PaymentModeController');
 
 
 //order's details
-Route::get('orders','OrderController@index');
-Route::get('orders/create','OrderController@create');
-Route::post('orders/create','OrderController@store');
-Route::get('orders/edit','OrderController@edit');
-Route::patch('orders/edit','OrderController@update');
-Route::get('orders/kkoo','OrderController@kkoo');
+Route::get('cart/{id}/orders','ProductOrderController@index');
+Route::get('cart/{id}/orders/create','ProductOrderController@create');
+Route::post('cart/{id}/orders/create','ProductOrderController@store');
+Route::get('cart/{id}/orders/edit','ProductOrderController@edit');
+Route::patch('cart/{id}/orders/edit','ProductOrderController@update');
+Route::get('cart/{id}/orders/payments','ProductOrderController@payments');
+Route::get('orders/kkoo','ProductOrderController@kkoo');
 
 //products details
 Route::get('products/{id}/sizes','SizeController@index');

@@ -11,32 +11,23 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <div class="panel panel-primary">
-                    <div class="panel-heading"><h3>Orders</h3></div>
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h3>Orders Review</h3></div>
                         <div class="panel-body">
-                           @if($myorders!==null)
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>     
-                                            <th>Order ID</th>
-                                            <th>reference</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($myorders as $order)
-                                            <tr>
-                                                <td>--</td>
-                                                <td></td>
-                                                <td>Pending</td>        
-                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-
-                                @else
-                                    <a href="{{url('/products')}}" type="button" class="btn btn-success">Shop Now?</a>
-                             @endif 
+                           @if($order!==null)
+                            <h4>
+                                <label for="name">User Name : </label>  {{Auth::user()->name}}<br>
+                                <label for="orderid">Order ID : </label>  {{$order->id}}<br>
+                                <label for="reference">Payment Reference : </label> {{$order->reference}} <br>
+                                <label for="shipping">Shipping Address : </label>
+                                <a href="{{url('cart/'.$cart->id.'/shippingaddress')}}" class="btn btn-primary">Review Address</a><br>
+                            </h4>
+                           @else
+                            <h3>You have already placed an order</h3>
+                             <p><h2>Make <a href="{{url('/cart/'.$cart->id.'/orders/create')}}" class="btn btn-primary"
+                                >PAYMENT NOW</a> OR <a href="{{url('/cart')}}" class="btn btn-warning">PAYMENT LATER</a> for this Order</h2></p>
+     
+                           @endif
                         </div>
                 </div>
             </div>

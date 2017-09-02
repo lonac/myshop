@@ -1,35 +1,21 @@
 @extends('layouts.master')
 
-@section('title','Payment on Orders')
+@section('title','Order')
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-info">
-                    <div class="panel-heading"><h3>Orders</h3></div>
-                        <div class="panel-body">
-                            @if($carts!==null)
-                                <h4><p>Review your <a href="{{url('cart')}}">Cart Products</a> in here before making Payments</p>
-                           @else
-                                <a href="{{url('/product')}}">Shop First</a>
-                            @endif
-                            @if($customer!==null)
-                            <p>Review the <a href="{{url('customerdetails/show')}}" class="btn bnt-primary">Buyer's Details</a> in Here</p></h4>
-                            @else
-                               <a href="{{url('/customerdetails/create')}}" class="btn btn-primary">Shipping Place</a>
-                            @endif
-                        </div>
-                </div>
-            </div>
-        </div>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+                @if(session('status'))
+                    <div class="alert alert-success">
+                        {{session('status')}}
+                    </div>
+                @endif
                 <div class="panel panel-info">
-                    <div class="panel-heading"><h3>Payments for your Order!</h3></div>
+                    <div class="panel-heading"><h3>Payments Order!</h3></div>
                     <div class="panel-body">
-                        <form method="POST" action="{{url('orders/create')}}">  
+                        <form method="POST" action="{{url('cart/'.$cart->id.'/orders/create')}}">  
                             {{ csrf_field()}}
                             <div class="form-group">
                                 <p><strong>Make Sure the Names and Account Number displayed Corresponds!</strong></p>

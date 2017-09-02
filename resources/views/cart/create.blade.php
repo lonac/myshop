@@ -69,7 +69,7 @@
                             </tbody>
                         </table>
                         <div class="form-group">
-                          <button type="submit" class="btn btn-success">Confirm Product</button>     
+                          <button type="submit" class="btn btn-success">Place Order</button>     
                         </div>  
                     </div>
 

@@ -23,4 +23,9 @@ class Cart extends Model
     {
     	return $this->hasOne('App\ShippingAddress');
     }
+
+    public function product_orders()
+    {
+        return $this->hasOne('App\ProductOrder');
+    }
 }

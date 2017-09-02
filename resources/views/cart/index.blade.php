@@ -24,6 +24,7 @@
                                     <th>Quantity</th>
                                     <th>Size</th>
                                     <th>Address</th>
+                                    <th>Order</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -39,6 +40,9 @@
                                         <td>{{$mycart->size}}</td>
                                         <td>
                                             <a href="{{url('/cart/'.$mycart->id.'/shippingaddress')}}" class="btn btn-primary">Shipping Address</a> 
+                                        </td>
+                                        <td>
+                                            <a href="{{url('/cart/'.$mycart->id.'/orders')}}" class="btn btn-success">Check Order</a> 
                                         </td>
                                         <td>
                                            {{-- <a href="{{url('/cart/'.$mycart->id)}}" class="btn btn-warning">Edit?</a> --}}

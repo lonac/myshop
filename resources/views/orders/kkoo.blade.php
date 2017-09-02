@@ -16,17 +16,19 @@
                                         <tr>
                                             <th>User's Names</th>     
                                             <th>Order ID</th>
+                                            <th>Cart ID</th>
                                             <th>reference</th>
                                             <th>Buyer's Details</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($kkoo_orders as $orders)
+                                        @foreach($kkoo_orders as $order)
                                             <tr>
                                                 <td></td>
-                                                <td>--</td>
-                                                <td></td>
+                                                <td>{{$order->id}}</td>
+                                                <td>{{$order->cart_id}}</td>
+                                                <td>{{$order->reference}}</td>
                                                 <td></td>
                                                 <td>Pending</td>        
                                              </tr>

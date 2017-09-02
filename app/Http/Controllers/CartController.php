@@ -101,7 +101,7 @@ class CartController extends Controller
 
         }
 
-        return redirect('cart/'.$carts->id.'/shippingaddress/create')->with('status','Products successfully added to Cart');
+        return redirect('cart/'.$carts->id.'/shippingaddress/create')->with('status','Your Order has been Placed');
 
     }
 

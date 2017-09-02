@@ -5,8 +5,13 @@
 @section('content')
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
+            @if(session('status'))
+                <div class="alert alert-success">
+                    {{session('status')}}
+                </div>
+            @endif
         <div class="panel panel-info">
-            <div class="panel-heading">Shipping  Address</div>
+            <div class="panel-heading"><h4>Add shipping  address below</h4></div>
                 <div class="panel-body">
             {{-- Using the Laravel HTML Form Collective to create our form --}}
                 <form METHOD="POST" action="{{url('cart/'.$cart->id.'/shippingaddress/create')}}">

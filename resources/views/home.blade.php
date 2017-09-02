@@ -34,6 +34,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading"><strong>Admin Panel</h3></strong></div>
                     <div class="panel-body">
+                      <h3><a href="{{url('orders/kkoo')}}">ALL KKOO ORDERS</a></h3>
                        <strong> <a href="{{url('/permissions')}}">View Permissions</a></strong><br>
                        <strong> <a href="{{url('/roles')}}">View Roles</a></strong><br>
                        <strong> <a href="{{url('/users')}}">View Users</a></strong><br>

@@ -67,7 +67,7 @@ class ShippingAddressController extends Controller
 
         $shippindetails->save();
 
-        return redirect('cart/'.$cart->id.'/shippingaddress')->with('status','Details successfully added');
+        return redirect('cart/'.$cart->id.'/orders/payments')->with('status','Shipping Address Saved');
     }
 
     /**
