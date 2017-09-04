@@ -9,7 +9,7 @@
                     <div class="panel-heading"></div>
                     @foreach ($subcat as $subcatee)
                         <div class="panel-body">
-                                <a href="{{url('categories/'.$category->id.'/subcategories/'.$subcatee->id)}}">{{ $subcatee->name }}<br></a> 
+                            <a href="{{url('categories/'.$category->id.'/subcategories/'.$subcatee->id)}}">{{ $subcatee->name }}  <br></a>  
                         </div>
                     @endforeach
                 </div>

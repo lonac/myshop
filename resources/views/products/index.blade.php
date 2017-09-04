@@ -19,7 +19,7 @@
                     <h4>Products for 
                         @if($categories->count()>0)
                             @foreach($categories as $category)
-                                <a href="{{'/categories/'.$category->id}}">{{$category->name}}</a>
+                                <a href="{{'/categories/'.$category->id}}">{{$category->name}}</a>  
                             @endforeach
                         @endif
                     </h4></div>
