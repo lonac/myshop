@@ -31,9 +31,19 @@ class ProductOrderController extends Controller
 
         $user = Auth::user();
 
-        $order = $cart->product_orders()->where('user_id',$user->id)->get();
+        $user_id = $cart->user_id;
+        $auth_user_id = $user->id;
+        if($user_id==$auth_user_id)
+        {
+             $order = $cart->product_orders()->where('user_id',$user->id)->get();
 
-        return view('orders.index',compact('order','cart'));
+            return view('orders.index',compact('order','cart'));
+        }
+        else
+        {
+           return redirect('/cart');
+        }
+       
     }
 
     /**
@@ -43,11 +53,24 @@ class ProductOrderController extends Controller
      */
     public function create($id)
     {
-        $cart = Cart::findOrFail($id);
+        $cart = Cart::findOrFail($id); 
 
-         $paymentmodes = PaymentMode::all();
+        $user_id = $cart->user_id;
+        $auth_user_id = $user->id;
+        if($user_id==$auth_user_id)
+        {
+              $paymentmodes = PaymentMode::all();
 
-        return view('orders.create',compact('cart','paymentmodes'));
+            return view('orders.create',compact('cart','paymentmodes'));
+        }
+        else
+        {
+           return redirect('/cart');
+        }
+
+
+
+        
     }
 
     /**
@@ -131,6 +154,17 @@ class ProductOrderController extends Controller
     public function payments($id)
     {
         $cart = Cart::findOrFail($id);
-        return view('orders.payments',compact('cart'));
+
+        $user_id = $cart->user_id;
+        $auth_user_id = $user->id;
+        if($user_id==$auth_user_id)
+        {
+            return view('orders.payments',compact('cart'));
+        }
+        else
+        {
+           return redirect('/cart');
+        }
+        
     }
 }

@@ -97,7 +97,7 @@ class ShippingAddressController extends Controller
         $shippindetails->region = $request->input('region');
         $shippindetails->address = $request->input('address');
         $shippindetails->phonenumber1 = $request->input('phonenumber1');
-        $shippindetails->Phonenumber2 = $request->input('phonenumber2');
+        $shippindetails->phonenumber2 = $request->input('phonenumber2');
         $shippindetails->cart_id = $cart->id;
       //  $shippindetails->user_id = Auth::user()->id;
 
