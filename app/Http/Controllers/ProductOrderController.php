@@ -10,6 +10,8 @@ use App\ProductOrder;
 
 use App\Product;
 
+use Auth;
+
 use App\PaymentMode;
 
 class ProductOrderController extends Controller
@@ -27,7 +29,9 @@ class ProductOrderController extends Controller
     {
         $cart = Cart::findOrFail($id);
 
-        $order = $cart->product_orders;
+        $user = Auth::user();
+
+        $order = $cart->product_orders()->where('user_id',$user->id)->get();
 
         return view('orders.index',compact('order','cart'));
     }
@@ -62,6 +66,7 @@ class ProductOrderController extends Controller
         $cart = Cart::findOrFail($id);
         $order = new ProductOrder;
         $order->cart_id = $cart->id;
+        $order->user_id = Auth::user()->id;
         $order->company = $request->input('company');
         $order->reference = $request->input('reference');
 

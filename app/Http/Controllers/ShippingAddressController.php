@@ -8,6 +8,8 @@ use App\ShippingAddress;
 
 use App\Cart;
 
+use Auth;
+
 class ShippingAddressController extends Controller
 {
     /**
@@ -21,7 +23,25 @@ class ShippingAddressController extends Controller
 
         $myship = $cart->shipping_addresses;
 
-        return view('shippingaddress.index',compact('myship','cart')); 
+        //get the user_id from Cart
+
+        $user_id = $cart->user_id;
+
+        //get the aunthenticated user
+
+        $auth_user_id = Auth::user()->id;
+
+        //compare the id
+
+        if($user_id==$auth_user_id)
+        {
+           return view('shippingaddress.index',compact('myship','cart')); 
+        }
+        else
+        {
+           return redirect('/products');
+        }
+
     }
 
     /**
@@ -62,8 +82,10 @@ class ShippingAddressController extends Controller
         $shippindetails->region = $request->input('region');
         $shippindetails->address = $request->input('address');
         $shippindetails->phonenumber1 = $request->input('phonenumber1');
-        $shippindetails->Phonenumber2 = $request->input('Phonenumber2');
+        $shippindetails->Phonenumber2 = $request->input('phonenumber2');
         $shippindetails->cart_id = $cart->id;
+      //  $shippindetails->user_id = Auth::user()->id;
+
 
         $shippindetails->save();
 

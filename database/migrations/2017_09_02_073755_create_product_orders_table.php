@@ -15,6 +15,8 @@ class CreateProductOrdersTable extends Migration
     {
         Schema::create('product_orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
             $table->integer('cart_id')->unsigned();
             $table->foreign('cart_id')->references('id')->on('carts')->onUpdate('cascade');
             $table->string('company');

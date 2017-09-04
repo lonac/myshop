@@ -29,7 +29,7 @@
                             <label>Last Name: </label> {{$myship->lastname}}<br>
                             <label>Address: </label> {{$myship->address}}<br>
                             <label>Region: </label> {{$myship->region}}<br>
-                            <label>Phone Numbers: </label> {{$myship->phonenumber1}}  {{$myship->phonenumber2}} <br>
+                            <label>Phone Numbers: </label> {{$myship->phonenumber1}} <strong>,</strong> {{$myship->phonenumber2}} <br>
                         </div>
                     @else
                         <div class="panel-heading">
