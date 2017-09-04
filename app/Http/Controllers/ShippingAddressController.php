@@ -12,6 +12,10 @@ use Auth;
 
 class ShippingAddressController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -53,7 +57,18 @@ class ShippingAddressController extends Controller
     {
         $cart = Cart::findOrFail($id);
 
-        return view('shippingaddress.create',compact('cart'));
+        $user_id = $cart->user_id;
+        $auth_user_id = Auth::user()->id;
+        if($user_id==$auth_user_id)
+        {
+           return view('shippingaddress.create',compact('cart'));
+        }
+        else
+        {
+           return redirect('/products');
+        }
+
+        
     }
 
     /**
@@ -117,7 +132,20 @@ class ShippingAddressController extends Controller
 
         $myship = $cart->shipping_addresses;
 
-        return view('shippingaddress.edit',compact('myship','cart'));
+        $user_id = $cart->user_id;
+        $auth_user_id = Auth::user()->id;
+        if($user_id==$auth_user_id)
+        {
+           return view('shippingaddress.edit',compact('myship','cart'));
+        }
+        else
+        {
+           return redirect('/products');
+        }
+
+
+
+        
     }
 
     /**
