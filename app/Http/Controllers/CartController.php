@@ -113,9 +113,28 @@ class CartController extends Controller
      */
     public function show($id)
     {
-         $mycart = Cart::findOrFail($id);
+        $mycart = Cart::findOrFail($id);
 
-         return view('cart.show',compact('mycart'));
+        //get the user_id from Cart
+
+        $user_id = $mycart->user_id;
+
+        //get the aunthenticated user id
+
+        $auth_user_id = Auth::user()->id;
+
+        //compare the id's
+
+        if($user_id==$auth_user_id)
+        {
+           return view('cart.show',compact('mycart'));
+        }
+        else
+        {
+           return redirect('/products');
+        }
+
+         
     }
 
     /**
