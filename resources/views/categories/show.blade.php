@@ -10,7 +10,7 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3>
-                        {{ $cat->name }} =>
+                        {{ $cat->name }} >>
                             @can('Edit Category')
                                     <a href="{{ route('categories.edit', $cat->id) }}" class="btn btn-info" role="button">Edit</a>
                              @endcan

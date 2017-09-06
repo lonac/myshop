@@ -8,6 +8,8 @@ use App\Product;
 
 use App\Category;
 
+use App\Subcategory;
+
 use App\ProductsPhoto;
 
 class PagesController extends Controller
@@ -19,7 +21,9 @@ class PagesController extends Controller
 
          $categories = Category::all();
 
-      return view('welcome',compact('products','categories'));  
+         $subcategories = Subcategory::all();
+
+      return view('welcome',compact('products','categories','subcategories'));  
     }
 
     public function about()
