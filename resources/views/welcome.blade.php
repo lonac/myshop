@@ -6,15 +6,15 @@
  <div class="container">
         <div class="row">
             <div class="col-md-2 col-md-offset-0">
-                <div class="panel panel-info">
-                    <div class="panel-heading"><strong>Categories</h3></strong></div>
-                    <div class="panel-body">
-                        @if($categories->count()>0)
-                            @foreach($categories as $category)
-                                <a href="{{url('categories/'.$category->id)}}">{{$category->name}}</a><br>
-                            @endforeach
-                        @endif
-                    </div>
+                <div class="dropdown">
+                    <button class="categoriesbtn">Categories</button>
+                        <div class="dropdown-content">
+                            @if($categories->count()>0)
+                                @foreach($categories as $category)
+                                    <a href="{{url('categories/'.$category->id)}}">{{$category->name}}</a><br>
+                                @endforeach
+                            @endif
+                        </div>
                 </div>
             </div>
 

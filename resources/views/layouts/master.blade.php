@@ -12,6 +12,11 @@
     <!-- Bootstrap Material Design -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.css">
     <link rel="stylesheet" type="text/css" href="/css/ripples.min.css">
+
+    <!-- categories and subcategories included-->
+    <link rel="stylesheet" type="text/css" href="{{url('css/categories.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url('css/try.css')}}">
+
 </head>
     <body>
         @include('layouts.navbar')
