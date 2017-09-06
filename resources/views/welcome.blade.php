@@ -21,7 +21,7 @@
             <div class="col-md-7 col-md-offset-0">
                 <form>
                     <p><marquee scrollamount="2" direction="left" behavior="scroll" style="background:colorname">
-                           <font color="blue">
+                           <font color="Darker">
                             <strong>
                                Welcome to Kkootz, you can easily shop the products you like!
                             </strong>
@@ -55,7 +55,7 @@
         @if($categories->count()>0)
          @foreach($categories as $category)
             <div class="row">
-                <div class="col-md-10 col-md-offset-0">    
+                <div class="col-md-12 col-md-offset-0">    
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         
