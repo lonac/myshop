@@ -56,7 +56,7 @@ class ProductOrderController extends Controller
         $cart = Cart::findOrFail($id); 
 
         $user_id = $cart->user_id;
-        $auth_user_id = $user->id;
+        $auth_user_id = Auth::user()->id;
         if($user_id==$auth_user_id)
         {
               $paymentmodes = PaymentMode::all();
@@ -156,7 +156,7 @@ class ProductOrderController extends Controller
         $cart = Cart::findOrFail($id);
 
         $user_id = $cart->user_id;
-        $auth_user_id = $user->id;
+        $auth_user_id = Auth::user()->id;
         if($user_id==$auth_user_id)
         {
             return view('orders.payments',compact('cart'));
