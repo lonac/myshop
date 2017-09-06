@@ -15,7 +15,10 @@
 
     <!-- categories and subcategories included-->
     <link rel="stylesheet" type="text/css" href="{{url('css/categories.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{url('css/try.css')}}">
+
+    <!-- for products -->
+    <link rel="stylesheet" type="text/css" href="{{url('css/products.css')}}">
+
 
 </head>
     <body>
