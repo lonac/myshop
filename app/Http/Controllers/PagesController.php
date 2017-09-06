@@ -17,13 +17,12 @@ class PagesController extends Controller
  
     public function index()
     {
-        $products = Product::orderby('id','desc')->paginate('8');       
 
          $categories = Category::all();
 
          $subcategories = Subcategory::all();
 
-      return view('welcome',compact('products','categories','subcategories'));  
+      return view('welcome',compact('categories','subcategories'));  
     }
 
     public function about()

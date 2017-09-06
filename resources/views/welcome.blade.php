@@ -23,7 +23,7 @@
                     <p><marquee scrollamount="2" direction="left" behavior="scroll" style="background:colorname">
                            <font color="Darker">
                             <strong>
-                               Welcome to Kkootz, you can easily shop the products you like!
+                               Karibu Kkootz, jukwaa linalokuletea bidhaa toka ndani na nje ya nchi, huduma zetu ni hadi Mlangoni!
                             </strong>
                            </font>
                         </marquee></p>
