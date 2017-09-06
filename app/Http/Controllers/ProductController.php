@@ -80,7 +80,7 @@ class ProductController extends Controller
 
 
     //Display a successful message upon save
-    return redirect('products/'.$product->id.'/sizes/create')->with('status','Product successfully Uploaded');
+    return redirect('products/'.$product->id.'/clothsizes/create')->with('status','Product successfully Uploaded');
 
     }
 

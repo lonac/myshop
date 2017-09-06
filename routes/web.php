@@ -112,5 +112,11 @@ Route::post('cart/{id}/shippingaddress/create','ShippingAddressController@store'
 Route::get('cart/{id}/shippingaddress/edit','ShippingAddressController@edit');
 Route::patch('cart/{id}/shippingaddress/edit','ShippingAddressController@update');
 
-
+Route::get('products/{id}/clothsizes','ClotherSizeController@index');
+Route::get('products/{id}/clothsizes/create','ClotherSizeController@create');
+Route::post('products/{id}/clothsizes/create','ClotherSizeController@store');
+Route::get('products/{id}/clothsizes/{size_id}','ClotherSizeController@show');
+Route::post('products/{id}/clothsizes/{size_id}','ClotherSizeController@destroy');
+Route::get('products/{id}/clothsizes/{size_id}/edit','ClotherSizeController@edit');
+Route::patch('products/{id}/clothsizes/{size_id}/edit','ClotherSizeController@update');
 
