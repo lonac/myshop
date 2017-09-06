@@ -9,19 +9,17 @@
             <div class="col-md-10 col-md-offset-0">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <strong>
-                        {{ $cat->name }}
+                        <h3>
+                        {{ $cat->name }} =>
                             @can('Edit Category')
                                     <a href="{{ route('categories.edit', $cat->id) }}" class="btn btn-info" role="button">Edit</a>
                              @endcan
-                        </strong>
-                        
                             @if(!$subcat->isEmpty())
                                 @foreach($subcat as $subcatee)
                                 <a href="{{ url('categories/'.$cat->id.'/subcategories/'.$subcatee->id) }}"> {{$subcatee->name}}  </a> 
                                 @endforeach
                             @endif
-
+                        </h3>
                             {!! Form::open(['method' => 'DELETE', 'route' => ['categories.destroy', $cat->id] ]) !!}
                             <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
                             

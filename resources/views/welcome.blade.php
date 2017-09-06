@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-2 col-md-offset-0">
                 <div class="dropdown">
-                    <button class="categoriesbtn">Categories</button>
+                    <button class="categoriesbtn"><strong>Categories</strong></button>
                         <div class="dropdown-content">
                             @if($categories->count()>0)
                                 @foreach($categories as $category)
@@ -24,11 +24,7 @@
                         <p><marquee scrollamount="2" direction="left" behavior="scroll" style="background:colorname">
                            <font color="blue">
                             <strong>
-                                @if($categories->count()>0)
-                                    @foreach($categories as $category)
-                                        <a href="{{url('categories/'.$category->id)}}">{{$category->name}}</a>
-                                    @endforeach
-                                @endif
+                               Welcome to Kkootz, you can easily shop the products you like!
                             </strong>
                            </font>
                         </marquee></p>
