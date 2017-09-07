@@ -6,7 +6,7 @@
     <div class="row">
         @can('Create Product')
         <div class="col-md-8 col-md-offset-2">
-            <h3>Does the Product Has Any SIZE??</h3>
+            <h3>Add size for products like SHOES, etc</h3>
             <div class="panel panel-info">
                 @if(session('status'))
                     <div class="alert alert-success">
