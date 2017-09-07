@@ -23,18 +23,37 @@
                             @endforeach
                         @endif
                     </h4></div>
+                    <div class="panel-body">
+                    <table class="table table-hover">
                        @if($products->count()>0)
                             @foreach($products as  $product)
-                                <div class="panel-body">
-                                    <a href="{{url('/products/'.$product->id)}}">
-                                        <img src="{{ asset('images/catalog/' .$product->name) }}" style="width:20%">
-                                        {{$product->name}}
-                                    <p class="teaser">
-                                       {{  str_limit($product->body, 10) }} {{-- Limit teaser to 100 characters --}}
-                                    </p>
-                                    </a>     
-                                </div>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                {{$product->name}} for {{$product->categoryname}}
+                                            </td>
+                                            <td>
+                                                <p class="teaser">
+                                                    <a href="{{url('/products/'.$product->id)}}">
+                                                       {{  str_limit($product->body, 20) }} Read more >>>
+                                                    </a> 
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <strong>{{$product->cost}}</strong>
+                                            </td>
+
+                                            <td>
+                                                <a href="{{url('/products/'.$product->id)}}">
+                                                     <img src="{{ asset('images/catalog/' .$product->name) }}" style="width:10%">
+                                                 </a>
+                                            </td>
+
+                                          </tr>
+                                    </tbody>                
                             @endforeach
+                             </table>       
+                                </div>
                         <div class="text-center">
                             {!! $products->links() !!}
                         </div>
