@@ -30,6 +30,8 @@ class OrderController extends Controller
 
         $myorders = $user->orders()->where('user_id',$user->id)->get();
 
+        dd($myorders);
+
         return view('orders.index',compact('myorders'));
     }
 

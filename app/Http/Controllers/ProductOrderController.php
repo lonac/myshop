@@ -35,9 +35,11 @@ class ProductOrderController extends Controller
         $auth_user_id = $user->id;
         if($user_id==$auth_user_id)
         {
-             $order = $cart->product_orders()->where('cart_id',$cart->id)->get();
+             $order = $cart->product_orders;
 
-            return view('orders.index',compact('order','cart'));
+             $allorder = ProductOrder::where('user_id',$user->id)->get();
+
+            return view('orders.index',compact('order','cart','allorder'));
         }
         else
         {
