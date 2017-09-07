@@ -12,8 +12,6 @@ use App\Product;
 
 use Session;
 
-use App\ReachablePlaces;
-
 class CartController extends Controller
 {
     public function __construct()
@@ -53,11 +51,11 @@ class CartController extends Controller
 
         $mycart = Auth::user()->carts;
 
-        $places = ReachablePlaces::all();
-
         $sizes = $product->sizes()->where('product_id',$product->id)->get();
 
-        return view('cart.create',compact('product','mycart','places','sizes'));
+        $clothsize = $product->clothes_sizes()->where('product_id',$product->id)->get();
+
+        return view('cart.create',compact('product','mycart','sizes','clothsize'));
     }
 
     /**
@@ -76,30 +74,15 @@ class CartController extends Controller
         $carts->product_id = $product->id;
         $carts->size = $request->input('size');
 
-        $get_place = $request->input('place');
         $get_quantity = $request->input('quantity');
 
 
 
         $product_cost = $product->cost;
+        $carts->cost = $product_cost;
+        $carts->quantity = $get_quantity;
+        $carts->save();
 
-         if($get_place=="Dar es salaam")
-        {
-            $totalcost = ($product_cost * $get_quantity) + 800;
-            $carts->cost = $totalcost;
-            $carts->quantity = $get_quantity;
-            $carts->place = $get_place;
-            $carts->save();
-        }
-        else
-        {
-            $totalcost = ($product_cost * $get_quantity) + 4750;
-            $carts->cost = $totalcost;
-            $carts->quantity = $get_quantity;
-            $carts->place = $get_place;
-            $carts->save();
-
-        }
 
         return redirect('cart/'.$carts->id.'/shippingaddress/create')->with('status','Your Order has been Placed');
 

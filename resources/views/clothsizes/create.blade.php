@@ -6,7 +6,7 @@
     <div class="row">
         @can('Create Product')
         <div class="col-md-8 col-md-offset-2">
-            <h3>Add size for products like SHOES, etc</h3>
+            <h3>Size for Products like CLOTHES,</h3>
             <div class="panel panel-info">
                 @if(session('status'))
                     <div class="alert alert-success">
@@ -17,15 +17,16 @@
                    <h4> Add Size for {{$product->name}}</h4>
                 </div>
                 <div class="panel-body"> 
-                    <form method="POST" action="{{ url('products/'.$product->id.'/sizes/create') }}">
+                    <form method="POST" action="{{ url('products/'.$product->id.'/clothsizes/create') }}">
 
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <input type="text" name="size" id="size" class="form-control" placeholder="e.g. 35" />
+                            <input type="text" name="size" id="size" class="form-control" 
+                            placeholder="XXL,XL,L,M (add one by one)" />
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">ADD</button>
-                            <a href="{{url('products/'.$product->id)}}" class="btn btn-warning">DONE</a>
+                            <a href="{{url('products/'.$product->id.'/sizes/create')}}" class="btn btn-warning">SKIP</a>
                         </div>
                     
                     </form>
