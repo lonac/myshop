@@ -33,7 +33,9 @@
                         </div>
                     @else
                         <div class="panel-heading">
-                            <strong><a href="{{url('cart/'.$cart->id.'/shippingaddress/create')}}">Add Details</a></strong>
+                            <h3>No Address for This</h3>
+                            <strong><a href="{{url('cart/'.$cart->id.'/shippingaddress/create')}}" class="btn btn-primary btn-lg btn-block">
+                                Add Address</a></strong>
                         </div>
                     @endif
                 </div>

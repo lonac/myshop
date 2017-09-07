@@ -73,12 +73,12 @@
 
                     <div class="form-group">
                        <h2> <label for="protection">Customer Protection</label></h2>
-                        here is the guarantee
+                        If the product is from china,it will take up to 30 days and if it is  Tanzania, it will take up to 3days!
                     </div>
 
                     <div class="form-group">
                         <h3><label for="policy">Return Policy</label></h3>
-                        <p>The product will be returned if it is not the one ordered!</p>                 
+                        <p>The product will be returned in 5 days after receiving if it is not the one ordered!</p>                 
                     </div>
                   </form>
             </div>
