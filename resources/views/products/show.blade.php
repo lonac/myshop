@@ -107,7 +107,9 @@
                 <div class="panel panel-default">
                     <div class="panel panel-heading">Item Specifications:</div>
                     <div class="panel-body">
-
+                        @if($phonedetails!==null)
+                            @include('phonesdetails._table_form')
+                        @endif
                     </div>
                 </div>
             </form>

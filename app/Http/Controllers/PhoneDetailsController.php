@@ -68,7 +68,7 @@ class PhoneDetailsController extends Controller
 
         $phonedetailsphonedetails->save();
 
-        return redirect('products/'.$product->id.'/phonesdetails')->with('status','Specifications successfully added');
+        return redirect('products/'.$product->id)->with('status','Specifications successfully added');
     }
 
     /**
