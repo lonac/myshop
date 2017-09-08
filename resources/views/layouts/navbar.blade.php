@@ -13,7 +13,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" background-color="blue">
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="/about">About</a></li>                    
+                <form  action="{{ url('search') }}" method="GET" class="navbar-form navbar-right form-horizontal" role="form">
+                      <div class="input-group">
+                          <input autofocus class="typeahead form-control" autocomplete="off" name="q"
+                           placeholder="product name, company,"
+                           type="text" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
+                      </div>               
+                </form>
+                    <li><a href="/about">About</a></li>                    
             </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Links --> 
