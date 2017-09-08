@@ -19,10 +19,11 @@
             </div>
 
             <div class="col-md-7 col-md-offset-0">
-                    <p>
+                <p>
                         @include('searchproducts._search_form')
-                    </p>
-                <form>        
+                </p> 
+                    
+                <form>       
                          <div class="products-content products-section" style="width:100%;height:60%;">
                         <center>
                              <img src="{{asset('product/image/jeans.jpg')}}" style="width:50%" class="kkooProducts">

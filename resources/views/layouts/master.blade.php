@@ -19,6 +19,7 @@
     <!-- for products -->
     <link rel="stylesheet" type="text/css" href="{{url('css/products.css')}}">
 
+    <script src="/js/prodanimationheader.js"></script>
 
 </head>
     <body>
@@ -45,6 +46,7 @@
                 $.material.init();
             });
         </script>
+        <script src="/js/prodanimationfooter.js"></script>
     </body>
 
 </html>

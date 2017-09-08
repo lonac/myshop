@@ -1,0 +1,10 @@
+ <div class="dropdown">
+    @if($subcategories->count()>0)
+        @foreach($subcategories as $subcategory)
+        <button class="categoriesbtn btn-lg btn-block"></button>
+            <div class="dropdown-content">
+                <a href="{{url('categories/'.$subcategory->id)}}">{{$subcategory->name}}</a><br>
+            </div>
+        @endforeach
+    @endif
+</div>

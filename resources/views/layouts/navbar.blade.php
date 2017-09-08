@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" background-color="blue">
             <ul class="nav navbar-nav navbar-left">
                 <form  action="{{ url('search') }}" method="GET" class="navbar-form navbar-right form-horizontal" role="form">
-                      <div class="input-group">
+                      <div class="input-group input-group-lg">
                           <input autofocus class="typeahead form-control" autocomplete="off" name="q"
                            placeholder="product name, company,"
                            type="text" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">

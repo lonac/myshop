@@ -35,20 +35,11 @@ Route::resource('news', 'PostController');
 Route::resource('products','ProductController');
 Route::post('products/{id}','ProductController@cost');
 
-//Route::get('categories/{id}/subcategories/{sub_id}/products','ProductController@index');
-//Route::get('categories/{id}/subcategories/{sub_id}/products/create','ProductController@create');
-//Route::post('categories/{id}/subcategories/{sub_id}/products/create','ProductController@store');
-//Route::get('categories/{id}/subcategories/{sub_id}/products/{prod_id}','ProductController@show');
-
-
-
-
 //Categories controller
 
 Route::resource('categories','CategoriesController');
 
 //reachable places
-//Route::resource('reachableplaces','ReachablePlacesController');
 Route::get('reachableplaces','ReachablePlacesController@index');
 Route::get('reachableplaces/create','ReachablePlacesController@create');
 Route::post('reachableplaces/create','ReachablePlacesController@store');
@@ -112,6 +103,7 @@ Route::post('cart/{id}/shippingaddress/create','ShippingAddressController@store'
 Route::get('cart/{id}/shippingaddress/edit','ShippingAddressController@edit');
 Route::patch('cart/{id}/shippingaddress/edit','ShippingAddressController@update');
 
+//cloth details
 Route::get('products/{id}/clothsizes','ClotherSizeController@index');
 Route::get('products/{id}/clothsizes/create','ClotherSizeController@create');
 Route::post('products/{id}/clothsizes/create','ClotherSizeController@store');
@@ -124,3 +116,12 @@ Route::patch('products/{id}/clothsizes/{size_id}/edit','ClotherSizeController@up
 //search
 Route::get('search',array('as'=>'search','uses'=>'SearchController@search'));
 Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'SearchController@autocomplete'));
+
+//phone details
+Route::get('products/{id}/phonesdetails','PhoneDetailsController@index');
+Route::get('products/{id}/phonesdetails/create','PhoneDetailsController@create');
+Route::post('products/{id}/phonesdetails/create','PhoneDetailsController@store');
+Route::get('products/{id}/phonesdetails/{phone_id}','PhoneDetailsController@show');
+Route::post('products/{id}/phonesdetails/{phone_id}','PhoneDetailsController@destroy');
+Route::get('products/{id}/phonesdetails/edit','PhoneDetailsController@edit');
+Route::patch('products/{id}/phonesdetails/edit','PhoneDetailsController@update');
