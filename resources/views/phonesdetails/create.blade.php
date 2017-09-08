@@ -65,6 +65,7 @@
                         <br>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-lg btn-block">SAVE DETAILS</button>
+                            <a href="{{url('/products/'.$product->id)}}" class="btn btn-warning btn-lg btn-block">DONE</a>
                         </div>
                     
                     </form>

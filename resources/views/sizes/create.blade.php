@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">ADD</button>
-                            <a href="{{url('products/'.$product->id)}}" class="btn btn-warning">DONE</a>
+                            <a href="{{url('products/'.$product->id.'/phonesdetails/create')}}" class="btn btn-warning">SKIP</a>
                         </div>
                     
                     </form>
