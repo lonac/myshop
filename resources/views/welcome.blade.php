@@ -19,15 +19,10 @@
             </div>
 
             <div class="col-md-7 col-md-offset-0">
-                <form>
-                    <p><marquee scrollamount="2" direction="left" behavior="scroll" style="background:colorname">
-                           <font color="Darker">
-                            <strong>
-                               Karibu Kkootz, jukwaa linalokuletea bidhaa toka ndani na nje ya nchi, huduma zetu ni hadi Mlangoni!
-                            </strong>
-                           </font>
-                        </marquee></p>
-
+                    <p>
+                        @include('searchproducts._search_form')
+                    </p>
+                <form>        
                          <div class="products-content products-section" style="width:100%;height:60%;">
                         <center>
                              <img src="{{asset('product/image/jeans.jpg')}}" style="width:50%" class="kkooProducts">
@@ -37,6 +32,13 @@
                              <img src="{{asset('product/image/suits.jpg')}}" style="width:50%" class="kkooProducts">
                         </center>
                     </div>
+                    <p><marquee scrollamount="2" direction="left" behavior="scroll" style="background:colorname">
+                           <font color="Darker">
+                            <strong>
+                               Karibu Kkootz, jukwaa linalokuletea bidhaa toka ndani na nje ya nchi, huduma zetu ni hadi Mlangoni!
+                            </strong>
+                           </font>
+                        </marquee></p>
                 </form>
              </div>
         

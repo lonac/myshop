@@ -8,17 +8,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <strong> <a class="navbar-brand" href="/">KKOO</a></strong>          
+               <strong> <a class="navbar-brand" href="/">KKOOTZ</a></strong>          
             </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" background-color="blue">
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="/about">About</a></li>
-                 <form class="navbar-form navbar-right form-horizontal" role="search">
-                      <div class="input-group">
-                         <input type="text" class="form-control" placeholder="Search"> 
-                      </div>
-                </form>                       
+                <li><a href="/about">About</a></li>                    
             </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Links --> 

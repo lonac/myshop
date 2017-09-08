@@ -120,3 +120,7 @@ Route::post('products/{id}/clothsizes/{size_id}','ClotherSizeController@destroy'
 Route::get('products/{id}/clothsizes/{size_id}/edit','ClotherSizeController@edit');
 Route::patch('products/{id}/clothsizes/{size_id}/edit','ClotherSizeController@update');
 
+
+//search
+Route::get('search',array('as'=>'search','uses'=>'SearchController@search'));
+Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'SearchController@autocomplete'));
