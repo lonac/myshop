@@ -6,7 +6,7 @@
     <div class="row">
         @can('Create Product')
         <div class="col-md-6 col-md-offset-2">
-            <h3>Here is for PHONES specifications ONLY, <a href="" class="btn btn-warning">SKIP?</a></h3>
+            <h3>Here is for PHONES specifications ONLY, <a href="{{url('/products/'.$product->id)}}" class="btn btn-warning">SKIP?</a></h3>
             <div class="panel panel-info">
                 @if(session('status'))
                     <div class="alert alert-success">

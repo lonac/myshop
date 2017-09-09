@@ -21,6 +21,8 @@
 
     <script src="/js/prodanimationheader.js"></script>
 
+    <script type="text/javascript" href="{{url('css/gallery.css')}}"></script>
+
 </head>
     <body>
         @include('layouts.navbar')
