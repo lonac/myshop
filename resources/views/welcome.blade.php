@@ -31,7 +31,7 @@
                         </marquee></p>
                     
                 <form>       
-                         <div class="products-content products-section" style="width:100%;height:60%;">
+                         <div class="products-content products-section" width="100"height="100">
                         <center>
                              <img src="{{asset('product/image/jeans.jpg')}}" style="width:50%" class="kkooProducts">
                             <img src="{{asset('product/image/handbag.jpg')}}" style="width:50%" class="kkooProducts">

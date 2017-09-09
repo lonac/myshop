@@ -89,7 +89,7 @@
                 <div class="panel panel-heading"></div>
                 <div class="body">
                     <div class="productimg">
-                        <img src="{{ asset('images/catalog/' .$product->name) }}" class= "img-responsive style= height: 40px; width: 100px;">
+                        <img src="{{ asset('images/catalog/' .$product->name) }}" height ="600" width ="500">
                     </div>
                 </div>
             </div>
