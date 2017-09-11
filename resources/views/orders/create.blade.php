@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Order')
+@section('title','Order Payments')
 
 @section('content')
     <div class="container">
@@ -40,13 +40,13 @@
                             <div class="form-group">
                                <h4> <div class="checkbox">
                                 <label>
-                                    <input type="checkbox">Check to Agree on <a href="">terms&condition</a> for KKOO
+                                    <input type="checkbox" name="checkbox" >Check to Agree on <a href="">terms&condition</a> for KKOO
                                 </label>
                                 </div></h4>
                             </div>
 
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">SUBMIT</button>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">SUBMIT ORDER</button>
                             </div>
                         </form>
                     </div>

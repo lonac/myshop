@@ -86,6 +86,7 @@ class ProductOrderController extends Controller
         $this->validate($request,[
             'company'=>'required',
             'reference'=>'required|max:100',
+            'checkbox'=>'required',
             ]);
 
         $cart = Cart::findOrFail($id);
