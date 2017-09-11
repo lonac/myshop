@@ -15,8 +15,8 @@
                 </div>
     			<div class="panel-body">		
                     @can('Create Category')
-                      <a href="{{url('orders/kkoo')}}" class="btn btn-success btn-sm btn-block">All Kkootz Orders</a><br>
-                       <strong> <a href="{{url('/categories')}}" class="btn btn-default btn-sm btn-block">Categories</a></strong><br>
+                      <a href="{{url('orders/kkoo')}}" class="btn btn-info btn-sm btn-block">All Kkootz Orders</a><br>
+                       <strong> <a href="{{url('/categories')}}" class="btn btn-success btn-sm btn-block">Categories</a></strong><br>
                        <strong> <a href="{{url('/reachableplaces')}}" class="btn btn-info btn-sm btn-block">Reachable Places</a></strong><br>
                        <strong> <a href="{{url('/paymentmodes')}}" class="btn btn-default btn-sm btn-block">Payment Modes</a></strong><br>
                        <strong> <a href="{{url('/dimensions')}}" class="btn btn-success btn-sm btn-block">dimensions</a></strong><br>      

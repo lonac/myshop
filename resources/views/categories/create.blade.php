@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', '| Add new Category')
+@section('title', 'Add new Category')
 
 @section('content')
     <div class="row">

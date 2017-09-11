@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', '| Add Size')
+@section('title', 'Add Size')
 
 @section('content')
     <div class="row">
@@ -24,11 +24,12 @@
                             <input type="text" name="size" id="size" class="form-control" 
                             placeholder="XXL,XL,L,M (add one by one)" />
                         </div>
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">ADD</button>
                             <a href="{{url('products/'.$product->id.'/sizes/create')}}" class="btn btn-warning">SKIP</a>
-                        </div>
-                    
+                        </div> 
+                             
                     </form>
                 </div>
             </div>
