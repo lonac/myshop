@@ -13,5 +13,10 @@ class ProductOrder extends Model
     	return $this->belongsTo('App\Cart');
     }
 
+    public function address()
+    {
+    	return $this->belongsTo('App\ShippingAddress','shipping_addresses_id');
+    }
+
 
 }
