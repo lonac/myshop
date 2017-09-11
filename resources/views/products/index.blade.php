@@ -35,11 +35,11 @@
                     <table class="table table-hover">
                        @if($products->count()>0)
                             @foreach($products as  $product)
-                                <a href="{{url('/products/'.$product->id)}}">
-                                     <img src="{{ asset('images/catalog/' .$product->name) }}" height="100" width="100">
-                                     {{$product->cost}}
-                                       {{  str_limit($product->body, 10) }} {{-- Limit teaser to 100 characters --}}
-                                 </a>
+                                  <p style="float:left; font-size: 9pt; text-align: center; width:15%; margin-right: 2%; margin-bottom: 1.5em;">
+                                     <a href="{{url('/products/'.$product->id)}}"><img src="{{ asset('images/catalog/' .$product->name) }}" height="100" width="100"><br> 
+                                        <strong>{{  str_limit($product->name, 10) }}</strong></a><br>
+                                        <strong>Tshs.{{$product->cost}}/=</strong>  
+                                   </p>
                             @endforeach
                              </table>       
                                 </div>
