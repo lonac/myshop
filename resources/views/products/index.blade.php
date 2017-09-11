@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','products')
+@section('title','Products')
 
 @section('content')
     <div class="container">
@@ -35,10 +35,10 @@
                     <table class="table table-hover">
                        @if($products->count()>0)
                             @foreach($products as  $product)
-                                  <p style="float:left; font-size: 9pt; text-align: center; width:15%; margin-right: 2%; margin-bottom: 1.5em;">
+                                  <p style="float:left; font-size: 9pt; text-align: center; width:30%; margin-right: 2%; margin-bottom: 1.5em;">
                                      <a href="{{url('/products/'.$product->id)}}"><img src="{{ asset('images/catalog/' .$product->name) }}" height="100" width="100"><br> 
-                                        <strong>{{  str_limit($product->name, 10) }}</strong></a><br>
-                                        <strong>Tshs.{{$product->cost}}/=</strong>  
+                                        <strong>{{  str_limit($product->name,10) }}</strong></a><br>
+                                        Tsh.<strong>{{$product->cost}}</strong>  
                                    </p>
                             @endforeach
                              </table>       

@@ -22,7 +22,9 @@ class PagesController extends Controller
 
          $subcategories = Subcategory::all();
 
-      return view('welcome',compact('categories','subcategories'));  
+         $products =Product::all();
+
+      return view('welcome',compact('categories','subcategories','products'));  
     }
 
     public function about()

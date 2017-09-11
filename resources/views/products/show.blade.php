@@ -46,7 +46,7 @@
                         </select>
                         <label for="Quantity">Quantity:</label>
                             <input type="number" name="quantity" value="1">
-                            {{ Form::submit('Check  Cost', array('class' => 'btn btn-success')) }}
+                            {{ Form::submit('Check  Cost', array('class' => 'btn btn-success btn-lg btn-block')) }}
                     </div>
                 @else
                     @can('Create Category')
@@ -84,13 +84,11 @@
             </div>
          </div>
         </div>
-        <div class="col-md-6">
-            <div class="panel panel-deafault">
+        <div class="col-md-5">
+            <div class="panel panel-info">
                 <div class="panel panel-heading"></div>
                 <div class="body">
-                    <div class="productimg">
-                        <img src="{{ asset('images/catalog/' .$product->name) }}" height ="600" width ="500">
-                    </div>
+               <img src="{{ asset('images/catalog/' .$product->name) }}" height="500" width="400">
                 </div>
             </div>
         </div>

@@ -23,37 +23,71 @@
                         @include('searchproducts._search_form')
                 </p> 
                  <p><marquee scrollamount="2" direction="left" behavior="scroll" style="background:colorname">
-                           <font color="Darker">
-                            <strong>
-                               Karibu Kkootz, jukwaa linalokuletea bidhaa toka ndani na nje ya nchi, huduma zetu ni hadi Mlangoni!
-                            </strong>
-                           </font>
-                        </marquee></p>
-                    
-                <form>       
-                         <div class="products-content products-section" width="100"height="100">
-                        <center>
-                             <img src="{{asset('product/image/jeans.jpg')}}" style="width:50%" class="kkooProducts">
-                            <img src="{{asset('product/image/handbag.jpg')}}" style="width:50%" class="kkooProducts">
-                            <img src="{{asset('product/image/trouser.jpg')}}" style="width:50%" class="kkooProducts">
-                             <img src="{{asset('product/image/singebtn.jpg')}}" style="width:50%" class="kkooProducts">
-                             <img src="{{asset('product/image/suits.jpg')}}" style="width:50%" class="kkooProducts">
-                        </center>
+                   <font color="Darker">
+                    <strong>
+                       Karibu Kkootz, jukwaa linalokuletea bidhaa toka ndani na nje ya nchi, huduma zetu ni hadi Mlangoni!
+                    </strong>
+                   </font>
+                </marquee></p>
+                <form>
+                    <!-- Carousel container -->
+                    <div id="product-pics" class="carousel slide" data-ride="carousel" height="500" width="400">
+
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                        <li data-target="#product-pics" data-slide-to="0" class="active"></li>
+                        <li data-target="#product-pics" data-slide-to="1"></li>
+                        <li data-target="#product-pics" data-slide-to="2"></li>
+                        <li data-target="#product-pics" data-slide-to="3"></li>
+                        </ol>
+
+                        <!-- Content -->
+                        <div class="carousel-inner" role="listbox">
+
+                        <!-- Slide 1 -->
+                        <div class="item active">
+                        <img src="{{asset('product/image/jeans.jpg')}}" height="500" width="400" class="kkooProducts">
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="item">
+                        <img src="{{asset('product/image/handbag.jpg')}}" height="500" width="400" class="kkooProducts">
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="item">
+                        <img src="{{asset('product/image/trouser.jpg')}}" height="500" width="400" class="kkooProducts">
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="item">
+                        <img src="{{asset('product/image/singebtn.jpg')}}" height="500" width="400" class="kkooProducts">
+                        </div>
+
+                        </div>
+
+                        <!-- Previous/Next controls -->
+                        <a class="left carousel-control" href="#product-pics" role="button" data-slide="prev">
+                        <span class="icon-prev" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#product-pics" role="button" data-slide="next">
+                        <span class="icon-next" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                        </a>
+>>>>>>> business
                     </div>
-                   
                 </form>
              </div>
         
-
             <div class="col-md-3 col-md-offset-0">
                 <div class="panel panel-info">
-                    <div class="panel-heading"><strong>more</h3></strong></div>
+                    <div class="panel-heading"><strong>N</h3></strong></div>
                     <div class="panel-body">
                                 
                     </div>
                 </div>
             </div>
-
         </div>
 
         @if($categories->count()>0)
@@ -73,25 +107,6 @@
             </div>
             @endforeach
          @endif
-
-        
     </div>
-
-    <script>
-        var myIndex = 0;
-        carousel();
-
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("kkooProducts");
-            for (i = 0; i < x.length; i++) {
-               x[i].style.display = "none";  
-            }
-            myIndex++;
-            if (myIndex > x.length) {myIndex = 1}    
-            x[myIndex-1].style.display = "block";  
-            setTimeout(carousel, 5000); // Change image every 2 seconds
-        }
-        </script>
 
 @endsection
