@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="row">
-            <div class="col-md-10 col-md-offset-0">
+            <div class="col-md-12 col-md-offset-0">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3>
@@ -34,19 +34,13 @@
                         </div>
 
                          <div class="panel-body"> 
-                            <h2>{{$cat->name}} Products</h2>
                                 @if($products->count()>0)
                                    @foreach ($products as $product)
-                                        <div class="panel-body">
-                                            <li style="list-style-type:disc">
-                                                <a href="{{ route('products.show', $product->id ) }}"><b>{{ $product->name }}</b><br>
-                                                    <p class="teaser">
-                                                       {{  str_limit($product->body, 100) }} {{-- Limit teaser to 100 characters --}}
-                                                        <img src="{{ asset('images/catalog/' .$product->name) }}" style="width:10%">
-                                                    </p>
-                                                </a>
-                                            </li>
-                                        </div>
+                                        <p style="float:left; font-size: 9pt; text-align: center; width:30%; margin-right: 2%; margin-bottom: 1.5em;">
+                                             <a href="{{url('/products/'.$product->id)}}"><img src="{{ asset('images/catalog/' .$product->name) }}" height="100" width="100"><br> 
+                                                <strong>{{  str_limit($product->name,10) }}</strong></a><br>
+                                                Tsh.<strong>{{$product->cost}}</strong>  
+                                           </p>
                                     @endforeach
                                 @else
                                     <p>No products in Here</p>

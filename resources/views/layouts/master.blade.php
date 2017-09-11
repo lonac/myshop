@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.css">
     <link rel="stylesheet" type="text/css" href="/css/ripples.min.css">
 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
     <!-- categories and subcategories included-->
     <link rel="stylesheet" type="text/css" href="{{url('css/categories.css')}}">
 
@@ -49,6 +51,19 @@
             });
         </script>
         <script src="/js/prodanimationfooter.js"></script>
+
+        <!-- Initialize Bootstrap functionality -->
+        <script>
+        // Initialize tooltip component
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        // Initialize popover component
+        $(function () {
+          $('[data-toggle="popover"]').popover()
+        })
+        </script>
     </body>
 
 </html>

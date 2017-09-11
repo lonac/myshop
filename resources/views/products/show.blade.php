@@ -46,7 +46,7 @@
                         </select>
                         <label for="Quantity">Quantity:</label>
                             <input type="number" name="quantity" value="1">
-                            {{ Form::submit('Check  Cost', array('class' => 'btn btn-success')) }}
+                            {{ Form::submit('Check  Cost', array('class' => 'btn btn-success btn-lg btn-block')) }}
                     </div>
                 @else
                     @can('Create Category')
