@@ -31,6 +31,9 @@ Route::resource('permissions', 'PermissionController');
 
 Route::resource('news', 'PostController');
 
+//admins
+Route::resource('admins','AdminPanelController');
+
 //Product controller
 Route::resource('products','ProductController');
 Route::post('products/{id}','ProductController@cost');

@@ -55,6 +55,9 @@
                                         </a>
 
                                         <a href="{{url('/home')}}">My Account</a>
+                                        @can('Create Product')
+                                        <a href="{{url('/admins')}}">Admin</a>
+                                        @endcan
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
