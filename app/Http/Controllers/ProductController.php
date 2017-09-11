@@ -61,6 +61,9 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
+        $this->validate($request,[
+            'name'=>'required|max:50',
+            ]);
 
         $product = new Product(array(
       'name' => $request->get('name'),

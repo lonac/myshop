@@ -18,7 +18,7 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>     
-                                    <th>--</th>
+                                    <th>View</th>
                                     <th>Name</th>
                                     <th>Cost</th>
                                     <th>Quantity</th>
@@ -32,9 +32,11 @@
                                 @foreach($mycarts as $mycart)
                                     <tr>
                                         <td>
-                                            <img src="{{ asset('images/catalog/' .$mycart->name) }}" class= "img-responsive style= height: 10px; width: 10px;">
+                                            <img src="{{ asset('images/catalog/' .$mycart->products->name) }}" height="30" width="30">
                                         </td>
-                                        <td></td>
+                                        <td>
+                                            {{ str_limit($mycart->products->name,10)}}
+                                        </td>
                                         <td>{{$mycart->cost}}</td>
                                         <td>{{$mycart->quantity}}</td>
                                         <td>{{$mycart->size}}</td>

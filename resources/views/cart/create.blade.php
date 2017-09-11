@@ -4,11 +4,11 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-8 col-md-offset-1">
             <form method="POST" action="{{ url('products/'.$product->id.'/cart/create') }}">
                 {{ csrf_field() }}
                 <div class="panel panel-info">
-                    <div class="panel-heading"><h4>Add Products to Cart</h4></div>
+                    <div class="panel-heading"><h4>Product added to Cart</h4></div>
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>

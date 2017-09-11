@@ -20,7 +20,7 @@
                            type="text" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
                       </div>               
                 </form>
-                    <li><a href="/about">About</a></li>                    
+                    {{--<li><a href="/about">About</a></li>  --}}                  
             </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Links --> 
@@ -28,7 +28,7 @@
                         <li><a href="/products">Products</a></li>
                         <li><a href="/news">News</a></li>
                         
-                        <li><a href="/contacts">Contact Us</a></li>
+                        {{--<li><a href="/contacts">Contact Us</a></li>--}}
                         <li><a href="/help">Help</a></li>
                         <li>
                             <a href="{{url('/cart')}}" class="btn btn-default btn-lg-12">

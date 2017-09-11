@@ -33,7 +33,7 @@
                         </div>
                     @else
                         <div class="panel-heading">
-                            <h3>No Address for This</h3>
+                            <h3>No Address for This Product</h3>
                             <strong><a href="{{url('cart/'.$cart->id.'/shippingaddress/create')}}" class="btn btn-primary btn-lg btn-block">
                                 Add Address</a></strong>
                         </div>
