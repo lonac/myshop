@@ -77,7 +77,6 @@
                         <span class="icon-next" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                         </a>
->>>>>>> business
                     </div>
                 </form>
              </div>
