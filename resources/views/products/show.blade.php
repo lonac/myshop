@@ -84,13 +84,11 @@
             </div>
          </div>
         </div>
-        <div class="col-md-6">
-            <div class="panel panel-deafault">
+        <div class="col-md-5">
+            <div class="panel panel-info">
                 <div class="panel panel-heading"></div>
                 <div class="body">
-                    <div class="productimg">
-                        <img src="{{ asset('images/catalog/' .$product->name) }}" class= "img-responsive style= height: 40px; width: 100px;">
-                    </div>
+                    <img src="{{ asset('images/catalog/' .$product->name) }}" height="500" width="400">
                 </div>
             </div>
         </div>
