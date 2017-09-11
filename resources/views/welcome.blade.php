@@ -40,31 +40,33 @@
                         <li data-target="#product-pics" data-slide-to="2"></li>
                         <li data-target="#product-pics" data-slide-to="3"></li>
                         </ol>
+                        <center>
 
-                        <!-- Content -->
-                        <div class="carousel-inner" role="listbox">
+                            <!-- Content -->
+                            <div class="carousel-inner" role="listbox">
 
-                        <!-- Slide 1 -->
-                        <div class="item active">
-                        <img src="{{asset('product/image/jeans.jpg')}}" height="500" width="400" class="kkooProducts">
-                        </div>
+                            <!-- Slide 1 -->
+                            <div class="item active">
+                            <img src="{{asset('product/image/jeans.jpg')}}" height="500" width="400" class="kkooProducts">
+                            </div>
 
-                        <!-- Slide 2 -->
-                        <div class="item">
-                        <img src="{{asset('product/image/handbag.jpg')}}" height="500" width="400" class="kkooProducts">
-                        </div>
+                            <!-- Slide 2 -->
+                            <div class="item">
+                            <img src="{{asset('product/image/handbag.jpg')}}" height="500" width="400" class="kkooProducts">
+                            </div>
 
-                        <!-- Slide 3 -->
-                        <div class="item">
-                        <img src="{{asset('product/image/trouser.jpg')}}" height="500" width="400" class="kkooProducts">
-                        </div>
+                            <!-- Slide 3 -->
+                            <div class="item">
+                            <img src="{{asset('product/image/trouser.jpg')}}" height="500" width="400" class="kkooProducts">
+                            </div>
 
-                        <!-- Slide 3 -->
-                        <div class="item">
-                        <img src="{{asset('product/image/singebtn.jpg')}}" height="500" width="400" class="kkooProducts">
-                        </div>
+                            <!-- Slide 3 -->
+                            <div class="item">
+                            <img src="{{asset('product/image/singebtn.jpg')}}" height="500" width="400" class="kkooProducts">
+                            </div>
 
-                        </div>
+                            </div>
+                        </center>
 
                         <!-- Previous/Next controls -->
                         <a class="left carousel-control" href="#product-pics" role="button" data-slide="prev">
