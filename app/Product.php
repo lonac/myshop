@@ -43,6 +43,11 @@ class Product extends Model
         return $this->hasOne('App\PhoneDetails');
     }
 
+    public function product_dimensions()
+    {
+        return $this->hasOne('App\ProductDimension');
+    }
+
 }
 
 

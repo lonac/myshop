@@ -128,3 +128,12 @@ Route::get('products/{id}/phonesdetails/{phone_id}','PhoneDetailsController@show
 Route::post('products/{id}/phonesdetails/{phone_id}','PhoneDetailsController@destroy');
 Route::get('products/{id}/phonesdetails/edit','PhoneDetailsController@edit');
 Route::patch('products/{id}/phonesdetails/edit','PhoneDetailsController@update');
+
+//products dimension category
+Route::get('products/{id}/dimensions','ProductDimensionController@index');
+Route::get('products/{id}/dimensions/create','ProductDimensionController@create');
+Route::post('products/{id}/dimensions/create','ProductDimensionController@store');
+Route::get('products/{id}/dimensions/{phone_id}','ProductDimensionController@show');
+Route::post('products/{id}/dimensions/{phone_id}','ProductDimensionController@destroy');
+Route::get('products/{id}/dimensions/edit','ProductDimensionController@edit');
+Route::patch('products/{id}/dimensions/edit','ProductDimensionController@update');

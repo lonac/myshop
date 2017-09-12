@@ -10,6 +10,8 @@ use App\Cart;
 
 use App\Product;
 
+use App\ProductDimension;
+
 use Session;
 
 class CartController extends Controller
@@ -51,11 +53,9 @@ class CartController extends Controller
 
         $mycart = Auth::user()->carts;
 
-        $sizes = $product->sizes()->where('product_id',$product->id)->get();
+        $dimension = $product->product_dimensions;
 
-        $clothsize = $product->clothes_sizes()->where('product_id',$product->id)->get();
-
-        return view('cart.create',compact('product','mycart','sizes','clothsize'));
+        return view('cart.create',compact('product','mycart','dimension'));
     }
 
     /**
