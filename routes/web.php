@@ -89,14 +89,6 @@ Route::patch('cart/{id}/orders/edit','ProductOrderController@update');
 Route::get('cart/{id}/orders/payments','ProductOrderController@payments');
 Route::get('orders/kkoo','ProductOrderController@kkoo');
 
-//products details
-Route::get('products/{id}/sizes','SizeController@index');
-Route::get('products/{id}/sizes/create','SizeController@create');
-Route::post('products/{id}/sizes/create','SizeController@store');
-Route::get('products/{id}/sizes/{size_id}','SizeController@show');
-Route::post('products/{id}/sizes/{size_id}','SizeController@destroy');
-Route::get('products/{id}/sizes/{size_id}/edit','SizeController@edit');
-Route::patch('products/{id}/sizes/{size_id}/edit','SizeController@update');
 
 //shipping details
 Route::get('cart/{id}/shippingaddress','ShippingAddressController@index');
@@ -105,15 +97,6 @@ Route::get('cart/{id}/shippingaddress/create','ShippingAddressController@create'
 Route::post('cart/{id}/shippingaddress/create','ShippingAddressController@store');
 Route::get('cart/{id}/shippingaddress/edit','ShippingAddressController@edit');
 Route::patch('cart/{id}/shippingaddress/edit','ShippingAddressController@update');
-
-//cloth details
-Route::get('products/{id}/clothsizes','ClotherSizeController@index');
-Route::get('products/{id}/clothsizes/create','ClotherSizeController@create');
-Route::post('products/{id}/clothsizes/create','ClotherSizeController@store');
-Route::get('products/{id}/clothsizes/{size_id}','ClotherSizeController@show');
-Route::post('products/{id}/clothsizes/{size_id}','ClotherSizeController@destroy');
-Route::get('products/{id}/clothsizes/{size_id}/edit','ClotherSizeController@edit');
-Route::patch('products/{id}/clothsizes/{size_id}/edit','ClotherSizeController@update');
 
 
 //search
