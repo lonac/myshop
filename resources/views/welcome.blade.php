@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-2 col-md-offset-0">
                 <div class="dropdown">
-                    <button class="categoriesbtn btn-lg btn-block"><strong>Categories</strong></button>
+                    <strong>Categories</strong>
                         <div class="dropdown-content">
                             @if($categories->count()>0)
                                 @foreach($categories as $category)
