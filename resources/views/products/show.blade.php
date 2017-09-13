@@ -98,17 +98,9 @@
         <div class="col-md-12">
             <form>
                 <div class="panel panel-default">
-                    <div class="panel panel-heading">Item Details:</div>
-                    <div class="panel-body">
-                        <strong>Manufacturer:</strong> {{$product->manufacturer}}<br>
-                        <strong>Model:</strong>
-                    </div>
-                </div>
-            </form>
-            <form>
-                <div class="panel panel-default">
                     <div class="panel panel-heading">Item Specifications:</div>
                     <div class="panel-body">
+                        <strong>Manufacturer:</strong> {{$product->manufacturer}}<br>
                         @if($phonedetails!==null)
                             @include('phonesdetails._table_form')
                         @endif
@@ -121,17 +113,6 @@
                     <div class="panel panel-heading">Item Descriptions:</div>
                     <div class="panel-body">
                        {{$product->body}}
-                    </div>
-                </div>
-            </form>
-
-            <form>
-                <div class="panel panel-default">
-                    <div class="panel panel-heading">Package Description:</div>
-                    <div class="panel-body">
-                        <strong>Package size:</strong><br>
-                        <strong>Package Weight:</strong><br>
-
                     </div>
                 </div>
             </form>
