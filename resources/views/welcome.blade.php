@@ -6,15 +6,15 @@
  <div class="container">
         <div class="row">
             <div class="col-md-2 col-md-offset-0">
-                <div class="dropdown">
-                    <button class="categoriesbtn btn-lg btn-block"><strong>Categories</strong></button>
-                        <div class="dropdown-content">
-                            @if($categories->count()>0)
-                                @foreach($categories as $category)
-                                    <a href="{{url('categories/'.$category->id)}}">{{$category->name}}</a><br>
-                                @endforeach
-                            @endif
-                        </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading"><strong>Categories</strong></div>
+                    <div class="panel-body">
+                        @if($subcategories->count()>0)
+                            @foreach($subcategories as $subcategory)
+                                <strong><a href="">{{$subcategory->categories->name}}</a> </strong>  <br>
+                            @endforeach
+                        @endif
+                    </div>
                 </div>
             </div>
 
@@ -83,7 +83,7 @@
         
             <div class="col-md-3 col-md-offset-0">
                 <div class="panel panel-info">
-                    <div class="panel-heading"><strong>N</h3></strong></div>
+                    <div class="panel-heading"><strong>N</strong></div>
                     <div class="panel-body">
                                 
                     </div>
