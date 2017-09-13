@@ -6,16 +6,19 @@
  <div class="container">
         <div class="row">
             <div class="col-md-2 col-md-offset-0">
-                <div class="panel panel-info">
-                    <div class="panel-heading"><strong>Categories</strong></div>
-                    <div class="panel-body">
-                        @if($subcategories->count()>0)
-                            @foreach($subcategories as $subcategory)
-                                <strong><a href="">{{$subcategory->categories->name}}</a> </strong>  <br>
-                            @endforeach
-                        @endif
+                
+                @if($subcategories->count()>0)
+                    @foreach($subcategories as $subcategory)
+                    <div class="dropdown">
+                        <button class="categoriesbtn btn-btn-default">
+                            <strong><a href="">{{$subcategory->categories->name}}</a></strong><br></button>
+                            <div class="dropdown-content">
+                               
+                            </div>
                     </div>
-                </div>
+                      @endforeach
+                 @endif
+
             </div>
 
             <div class="col-md-7 col-md-offset-0">
