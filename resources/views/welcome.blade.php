@@ -5,20 +5,17 @@
 @section('content')
  <div class="container">
         <div class="row">
-            <div class="col-md-2 col-md-offset-0">
-                
-                @if($subcategories->count()>0)
-                    @foreach($subcategories as $subcategory)
-                    <div class="dropdown">
-                        <button class="categoriesbtn btn-btn-default">
-                            <strong><a href="">{{$subcategory->categories->name}}</a></strong><br></button>
-                            <div class="dropdown-content">
-                               
-                            </div>
-                    </div>
-                      @endforeach
-                 @endif
-
+            <div class="col-md-2 col-md-offset-0">   
+                    @if($categories->count()>0)
+                        @foreach($categories as $category)
+                            <strong><a href="{{$category->url}}">{{$category->name}}</a></strong><br>
+                                @if($category->subcategories->count()) 
+                                    @foreach ($category->subcategories as $subcategory)
+                                        <strong><a href="{{$subcategory->url}}">{{$subcategory->name}}</a></strong><br>
+                                    @endforeach
+                                @endif
+                        @endforeach
+                    @endif
             </div>
 
             <div class="col-md-7 col-md-offset-0">
