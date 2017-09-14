@@ -53,4 +53,9 @@ class PagesController extends Controller
 
       return view('help',compact('products','categories')); 
     }
+
+    public function terms()
+    {
+        return view('/terms&conditions');
+    }
 }

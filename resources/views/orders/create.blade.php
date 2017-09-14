@@ -40,7 +40,7 @@
                             <div class="form-group">
                                <h4> <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="checkbox" >Check to Agree on <a href="">terms&condition</a> for KKOO
+                                    <input type="checkbox" name="checkbox" >Check to Agree on <a href="{{url('/terms&conditions')}}">terms&condition</a> for KKOO
                                 </label>
                                 </div></h4>
                             </div>
