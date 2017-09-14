@@ -179,6 +179,10 @@ class ProductController extends Controller
 
     public function cost(Request $request,$id)
     {
+        $this->validate($request,[
+                'quantity'=>'required|min:1',
+            ]);
+
         $product = Product::findOrFail($id);
         $product_cost = $product->cost;
         
@@ -188,11 +192,27 @@ class ProductController extends Controller
 
         if($place=="Dar es salaam")
         {
-            $totalcost = ($product_cost * $quantity) + 800;
+            if($quantity>0)
+            {
+               $totalcost = ($product_cost * $quantity) + 800; 
+            }
+            else
+            {
+                $totalcost ="Unknown";
+            }
+            
         }
         else
         {
-            $totalcost = ($product_cost * $quantity) + 4750;
+            if($quantity>0)
+            {
+              $totalcost = ($product_cost * $quantity) + 4750;
+            }
+            else
+            {
+                $totalcost ="Unknown";
+            }
+            
         }
 
         return redirect('products/'.$product->id)->with('status','TOTAL COST is '.$totalcost.'/= Tshs');

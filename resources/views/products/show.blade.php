@@ -49,15 +49,23 @@
 
                 @if($places->count()>0)
                     <div class="form-group">
-                        <label for="place">Place</label>
-                        <select name="place">
-                            @foreach($places as $placee)
-                                <option value="{{$placee->name}}">{{$placee->name}}</option>
-                            @endforeach
-                        </select>
-                        <label for="Quantity">Quantity:</label>
-                            <input type="number" name="quantity" value="1">
+                        <div class="col-md-4">
+                            <label for="place">Place</label>
+                            <select name="place">
+                                @foreach($places as $placee)
+                                    <option value="{{$placee->name}}">{{$placee->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="Quantity">Quantity:</label>
+                                <input type="number" name="quantity" value="1">
+                        </div>
+                        <div class="form-group">
                             {{ Form::submit('Check  Cost', array('class' => 'btn btn-success btn-lg btn-block')) }}
+                        </div>
                     </div>
                 @else
                     @can('Create Category')
