@@ -24,7 +24,7 @@
                                     <div class="dropdown-content">
                                          @if($category->subcategories->count()) 
                                             @foreach ($category->subcategories as $subcategory)
-                                               <ul> <strong><a href="{{url('/categories/'.$subcategory->category_id.'/subcategories'.$subcategory->id)}}">
+                                               <ul> <strong><a href="{{url('/categories/'.$subcategory->category_id.'/subcategories/'.$subcategory->id)}}">
                                                     {{$subcategory->name}}</a></strong></ul>
                                             @endforeach
                                         @endif
