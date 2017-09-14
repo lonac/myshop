@@ -15,13 +15,38 @@
                                 @endforeach
                             @endif
                         </div>
+                <div class="col-md-2 col-md-offset-0"> 
+                    <h3>Kkootz</h3>
                 </div>
+                <div class="col-md-7 col-md-offset-0">
+                     @include('searchproducts._search_form')
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-0">   
+                <div class="panel panel-info">
+                    <div class="panel-heading"><strong>Categories</strong></div>
+                    <div class="panel-body">
+                        @if($categories->count()>0)
+                            @foreach($categories as $category) 
+                                <div class="dropdown dropdown-right" role="dropdown" aria-labelledby="dropdown"> 
+                                    <strong><a href="{{url('/categories/'.$category->id)}}">{{$category->name}}</a></strong>     
+                                    <div class="dropdown-content">
+                                         @if($category->subcategories->count()) 
+                                            @foreach ($category->subcategories as $subcategory)
+                                               <ul> <strong><a href="{{url('/categories/'.$subcategory->category_id.'/subcategories'.$subcategory->id)}}">
+                                                    {{$subcategory->name}}</a></strong></ul>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>       
+                            @endforeach
+                        @endif 
+                    </div>
+                </div>    
             </div>
 
             <div class="col-md-7 col-md-offset-0">
-                <p>
-                        @include('searchproducts._search_form')
-                </p> 
                  <p><marquee scrollamount="2" direction="left" behavior="scroll" style="background:colorname">
                    <font color="Darker">
                     <strong>
@@ -80,15 +105,12 @@
                     </div>
                 </form>
              </div>
-        
-            <div class="col-md-3 col-md-offset-0">
-                <div class="panel panel-info">
-                    <div class="panel-heading"><strong>N</h3></strong></div>
-                    <div class="panel-body">
-                                
+             <div class="col-md-3 col-md-offset-0">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"><strong>N</strong></div>
                     </div>
                 </div>
-            </div>
+
         </div>
 
         @if($categories->count()>0)
