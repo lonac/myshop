@@ -5,16 +5,6 @@
 @section('content')
  <div class="container">
         <div class="row">
-            <div class="col-md-2 col-md-offset-0">
-                <div class="dropdown">
-                    <strong>Categories</strong>
-                        <div class="dropdown-content">
-                            @if($categories->count()>0)
-                                @foreach($categories as $category)
-                                    <a href="{{url('categories/'.$category->id)}}">{{$category->name}}</a><br>
-                                @endforeach
-                            @endif
-                        </div>
                 <div class="col-md-2 col-md-offset-0"> 
                     <h3>Kkootz</h3>
                 </div>
