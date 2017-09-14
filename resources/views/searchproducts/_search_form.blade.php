@@ -4,7 +4,7 @@
                placeholder="product name, company,"
                type="text" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
         <span class="input-group-btn">
-			<button class="btn btn-primary btn-lg" type="submit">Search</button>
+			<button class="btn btn-info btn-lg" type="submit">Search</button>
 		</span>
     </div>
 </form>
