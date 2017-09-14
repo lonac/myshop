@@ -6,16 +6,26 @@
  <div class="container">
         <div class="row">
             <div class="col-md-2 col-md-offset-0">   
-                    @if($categories->count()>0)
-                        @foreach($categories as $category)
-                            <strong><a href="{{$category->url}}">{{$category->name}}</a></strong><br>
-                                @if($category->subcategories->count()) 
-                                    @foreach ($category->subcategories as $subcategory)
-                                        <strong><a href="{{$subcategory->url}}">{{$subcategory->name}}</a></strong><br>
-                                    @endforeach
-                                @endif
-                        @endforeach
-                    @endif
+                <div class="panel panel-info">
+                    <div class="panel-heading"><strong>Categories</strong></div>
+                    <div class="panel-body">
+                        @if($categories->count()>0)
+                            @foreach($categories as $category) 
+                                <div class="dropdown dropdown-right" role="dropdown" aria-labelledby="dropdown"> 
+                                    <strong><a href="{{url('/categories'.$category->id)}}">{{$category->name}}</a></strong>     
+                                    <div class="dropdown-content">
+                                         @if($category->subcategories->count()) 
+                                            @foreach ($category->subcategories as $subcategory)
+                                               <ul> <strong><a href="{{url('/categories/'.$subcategory->category_id.'/subcategories'.$subcategory->id)}}">
+                                                    {{$subcategory->name}}</a></strong></ul>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>       
+                            @endforeach
+                        @endif 
+                    </div>
+                </div>    
             </div>
 
             <div class="col-md-7 col-md-offset-0">
