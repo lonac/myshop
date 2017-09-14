@@ -6,7 +6,8 @@
  <div class="container">
         <div class="row">
                 <div class="col-md-2 col-md-offset-0"> 
-                     <img src="{{asset('logo/image/kkootz.png')}}" height="50" width="150">
+                    <a href="/"><img src="{{asset('logo/image/kkootz.png')}}" height="50" width="150">
+                    </a> 
                 </div>
                 <div class="col-md-7 col-md-offset-0">
                      @include('searchproducts._search_form')

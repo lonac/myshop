@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Category;
 
+use App\Cart;
+
+use Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -27,6 +31,15 @@ class HomeController extends Controller
     {
         $categories = Category::all();
 
-        return view('home',compact('categories'));
+        $user = Auth::user();
+
+       if($user)
+       {
+         $mycarts = $user->carts;
+
+         return view('home',compact('mycarts','categories'));
+       }
+
+         return view('home',compact('categories'));
     }
 }
