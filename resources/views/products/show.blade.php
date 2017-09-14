@@ -7,21 +7,32 @@
 
 <div class="container">
     <div class="row">
+
+        <div class="col-md-5">
+            <div class="panel panel-info">
+                <div class="panel panel-heading">
+                    <h3>
+                        {!! Form::open(['method' => 'DELETE', 'route' => ['products.destroy', $product->id] ]) !!}
+                        {{ $product->name }}
+                        <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
+                        @can('Edit Product')
+                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-info" role="button">Edit</a>
+                        @endcan
+                        @can('Delete Product')
+                         {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                        @endcan
+                        {!! Form::close() !!}
+                    </h3>
+                </div>
+                <div class="panel-body">
+               <img src="{{ asset('images/catalog/' .$product->name) }}" height="500" width="400">
+                </div>
+            </div>
+        </div>
         <div class="col-md-5">
             <div class="panel panel-info">
             <div class="panel panel-heading">
-            <h2>
-                {!! Form::open(['method' => 'DELETE', 'route' => ['products.destroy', $product->id] ]) !!}
-                {{ $product->name }}
-                <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
-                @can('Edit Product')
-                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-info" role="button">Edit</a>
-                @endcan
-                @can('Delete Product')
-                 {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                @endcan
-                {!! Form::close() !!}
-            </h2>
+            
             </div>    
             <div class="panel-body">
                 <strong>By: </strong><font color="blue"> {{$product->manufacturer}}</font><br>
@@ -83,14 +94,6 @@
                   </form>
             </div>
          </div>
-        </div>
-        <div class="col-md-5">
-            <div class="panel panel-info">
-                <div class="panel panel-heading"></div>
-                <div class="body">
-               <img src="{{ asset('images/catalog/' .$product->name) }}" height="500" width="400">
-                </div>
-            </div>
         </div>
     </div>
 
