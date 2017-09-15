@@ -101,6 +101,10 @@ class ProductController extends Controller
         $product = Product::findOrFail($id); //Find product of id = $id
 
         $places = ReachablePlaces::all();
+
+        $cost = $product->cost;
+
+        $loancost = ($cost * 0.35) + $cost;
         
         $phonedetails = $product->phone_details;
 
@@ -110,7 +114,7 @@ class ProductController extends Controller
 
         $productpictures = $product->products_photos()->where('product_id',$product->id)->get();
 
-        return view('products.show',compact('product','phonedetails','places','productpictures','paymentmodes','state'));
+       return view('products.show',compact('product','phonedetails','places','productpictures','paymentmodes','state','loancost'));
     }
 
     /**
@@ -192,6 +196,8 @@ class ProductController extends Controller
         $quantity = $request->input('quantity');
 
         $place = $request->input('place');
+
+       
 
         if($place=="Dar es salaam")
         {

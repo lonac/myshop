@@ -37,6 +37,7 @@
             <div class="panel-body">
                 <strong>By: </strong><font color="blue"> {{$product->manufacturer}}</font><br>
                 <h2>{{$product->cost}}/= Tshs. /item</h2><br>
+                <h4>Cost By Loan: {{$loancost}}/= Tshs</h4><br>
                  @if(session('status'))
                             <div class="alert alert-danger">
                                 {{session('status')}}

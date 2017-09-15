@@ -15,10 +15,20 @@
                     <div class="panel-heading"><strong>Categories</div>
                     <div class="panel-body">
                         @if($categories->count()>0)
-                            @foreach($categories as $category)
-                                <a href="{{'/categories/'.$category->id}}">{{$category->name}}</a><br>
+                            @foreach($categories as $category) 
+                                <div class="dropdown dropdown-right" role="dropdown" aria-labelledby="dropdown"> 
+                                    <strong><a href="{{url('/categories/'.$category->id)}}">{{$category->name}}</a></strong>     
+                                    <div class="dropdown-content">
+                                         @if($category->subcategories->count()) 
+                                            @foreach ($category->subcategories as $subcategory)
+                                               <ul> <strong><a href="{{url('/categories/'.$subcategory->category_id.'/subcategories/'.$subcategory->id)}}">
+                                                    {{$subcategory->name}}</a></strong></ul>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>       
                             @endforeach
-                        @endif
+                        @endif 
                     </div></strong>
                 </div>
 
