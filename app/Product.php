@@ -48,6 +48,11 @@ class Product extends Model
         return $this->hasOne('App\ProductDimension');
     }
 
+    public function product_states()
+    {
+        return $this->hasOne('App\ProductState');
+    }
+
 }
 
 

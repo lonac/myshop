@@ -16,6 +16,7 @@ use App\ReachablePlaces;
 use App\ProductsPhoto;
 use App\PaymentMode;
 use App\PhoneDetails;
+use App\ProductState;
 
 
 class ProductController extends Controller
@@ -105,9 +106,11 @@ class ProductController extends Controller
 
         $paymentmodes = PaymentMode::all();
 
+        $state = $product->product_states;
+
         $productpictures = $product->products_photos()->where('product_id',$product->id)->get();
 
-        return view('products.show',compact('product','phonedetails','places','productpictures','paymentmodes'));
+        return view('products.show',compact('product','phonedetails','places','productpictures','paymentmodes','state'));
     }
 
     /**

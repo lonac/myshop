@@ -5,6 +5,11 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @if(session('message'))
+            <div class="alert alert-success">
+                {{session('message')}}
+            </div>
+            @endif
             <div class="col-md-3">
                 <div class="panel panel-info">
                     <div class="panel-heading"><strong>Categories</div>

@@ -112,6 +112,13 @@
                     <div class="panel panel-heading">Item Specifications:</div>
                     <div class="panel-body">
                         <strong>Manufacturer:</strong> {{$product->manufacturer}}<br>
+                        @if($state!==null)
+                            <strong>State : </strong>{{$state->state}}
+                            @Can('Create Product')
+                                <a href="{{url('/products/'.$state->product_id.'/productstate/edit')}}" class="btn btn-warning">Edit</a>
+                            @endCan
+                            <br>
+                        @endif
                         @if($phonedetails!==null)
                             @include('phonesdetails._table_form')
                         @endif

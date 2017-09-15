@@ -120,3 +120,10 @@ Route::get('products/{id}/dimensions/{phone_id}','ProductDimensionController@sho
 Route::post('products/{id}/dimensions/{phone_id}','ProductDimensionController@destroy');
 Route::get('products/{id}/dimensions/edit','ProductDimensionController@edit');
 Route::patch('products/{id}/dimensions/edit','ProductDimensionController@update');
+
+//product State
+Route::get('products/{id}/productstate','ProductStateController@index');
+Route::get('products/{id}/productstate/create','ProductStateController@create');
+Route::post('products/{id}/productstate/create','ProductStateController@store');
+Route::get('products/{id}/productstate/edit','ProductStateController@edit');
+Route::patch('products/{id}/productstate/edit','ProductStateController@update');
