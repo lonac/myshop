@@ -72,16 +72,28 @@ class CartController extends Controller
 
         $carts->user_id = Auth::user()->id;
         $carts->product_id = $product->id;
-        $carts->size = $request->input('size');
-
-        $get_quantity = $request->input('quantity');
-
-
-
         $product_cost = $product->cost;
+
+        $get_size = $request->input('size');
+        $get_quantity = $request->input('quantity');
+        
         $carts->cost = $product_cost;
         $carts->quantity = $get_quantity;
-        $carts->save();
+        
+
+        if($get_size=="select")
+        {
+            $mycart = Auth::user()->carts;
+
+            $dimension = $product->product_dimensions;
+
+            return redirect()->back()->withErrors("Please Select the Size First")->withInput();
+        }else
+
+        {
+            $carts->size = $get_size;
+            $carts->save();
+        }
 
 
         return redirect('cart/'.$carts->id.'/shippingaddress/create')->with('status','Your Order has been Placed');

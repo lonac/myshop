@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8 col-md-offset-1">
+        <div class="col-md-8 col-md-offset-2">
             <form method="POST" action="{{ url('products/'.$product->id.'/cart/create') }}">
                 {{ csrf_field() }}
                 <div class="panel panel-info">
@@ -32,7 +32,7 @@
                                     @if($dimension->category=="clothes")
                                         <div class="form-group">
                                            <select name="size">
-                                                <option value="small">S</option><option value="medium">M</option><option value="large">L</option>
+                                               <option>select</option> <option value="small">S</option><option value="medium">M</option><option value="large">L</option>
                                                 <option value="XL">XL</option><option value="XXL">XXL</option><option value="XXL">XXL</option>
                                            </select> 
                                         </div>
