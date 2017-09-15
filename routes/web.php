@@ -88,6 +88,7 @@ Route::get('cart/{id}/orders/edit','ProductOrderController@edit');
 Route::patch('cart/{id}/orders/edit','ProductOrderController@update');
 Route::get('cart/{id}/orders/payments','ProductOrderController@payments');
 Route::get('orders/kkoo','ProductOrderController@kkoo');
+Route::get('orders/{id}','ProductOrderController@show');
 
 
 //shipping details

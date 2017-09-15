@@ -27,7 +27,7 @@
                                                 <td>{{$order->id}}</td>
                                                 <td>{{$order->cart_id}}</td>
                                                 <td>{{$order->reference}}</td>
-                                                <td></td>
+                                                <td><a href="{{url('/orders/'.$order->id)}}" class="btn btn-success">View Address</a></td>
                                                 <td>Pending</td>        
                                              </tr>
                                         @endforeach

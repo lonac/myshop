@@ -10,6 +10,8 @@ use App\ProductOrder;
 
 use App\Product;
 
+use App\ShippingAddress;
+
 use Auth;
 
 use App\PaymentMode;
@@ -33,6 +35,7 @@ class ProductOrderController extends Controller
 
         $user_id = $cart->user_id;
         $auth_user_id = $user->id;
+
         if($user_id==$auth_user_id)
         {
              $order = $cart->product_orders;
@@ -59,9 +62,10 @@ class ProductOrderController extends Controller
 
         $user_id = $cart->user_id;
         $auth_user_id = Auth::user()->id;
+
         if($user_id==$auth_user_id)
         {
-              $paymentmodes = PaymentMode::all();
+            $paymentmodes = PaymentMode::all();
 
             return view('orders.create',compact('cart','paymentmodes'));
         }
@@ -110,7 +114,14 @@ class ProductOrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = ProductOrder::findOrFail($id);
+
+        //get the cart id
+        $cart = $order->cart_id;
+
+        $address = ShippingAddress::findOrFail($cart);
+
+         return view('orders.show',compact('order','address'));
     }
 
     /**
