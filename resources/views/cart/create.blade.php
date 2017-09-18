@@ -23,7 +23,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <img src="{{ asset('images/catalog/' .$product->name) }}" width="30" height="30">
+                                        <img src="{{ asset('images/catalog/'.$product->id.'.jpg')}}" width="30" height="30">
                                     </td>
                                     <td>{{$product->name}}</td>                                   
                                     <td>{{$product->cost}}</td>  

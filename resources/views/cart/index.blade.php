@@ -32,7 +32,7 @@
                                 @foreach($mycarts as $mycart)
                                     <tr>
                                         <td>
-                                            <img src="{{ asset('images/catalog/' .$mycart->products->name) }}" height="30" width="30">
+                                            <img src="{{ asset('images/catalog/'.$mycart->product_id.'.jpg')}}" height="30" width="30">
                                         </td>
                                         <td>
                                             {{ str_limit($mycart->products->name,10)}}

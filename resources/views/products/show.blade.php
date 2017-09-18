@@ -25,7 +25,7 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-               <img src="{{ asset('images/catalog/' .$product->name) }}" height="500" width="400">
+               <img src="{{ asset('images/catalog/'.$product->id.'.jpg')}}" height="500" width="400">
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
             <div class="panel-body">
                 <strong>By: </strong><font color="blue"> {{$product->manufacturer}}</font><br>
                 <h2>{{$product->cost}}/= Tshs. /item</h2><br>
-                <h4>Cost By Loan: {{$loancost}}/= Tshs</h4><br>
+                <h4>Kwa Mkopo: {{$loancost}}/= Tshs</h4><br>
                  @if(session('status'))
                             <div class="alert alert-danger">
                                 {{session('status')}}
