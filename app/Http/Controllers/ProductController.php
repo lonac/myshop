@@ -61,36 +61,33 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
-        $this->validate($request,[
-            'name'=>'required|max:50',
-            ]);
+        
+    $this->validate($request, [
+            'name'=>'required|max:100',
+            'body'=>'required',
+            'manufacturer'=>'required',
+            'categoryname'=>'required',
+            'subcategoryname'=>'required',
+            'cost'=>'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        $product = new Product(array(
-      'name' => $request->get('name'),
-      'manufacturer' => $request->get('manufacturer'),
-      'categoryname' => $request->get('categoryname'),
-      'subcategoryname' => $request->get('subcategoryname'),
-      'cost' => $request->get('cost'),
-      'body' => $request->get('body')
-    ));
-
+        $image = $request->file('image');
+        $input['name'] = time().'.'.$image->getClientOriginalExtension();
+     
    
+        $destinationPath = public_path('/public/thumbnail');
 
-  $imageName = $product->id . '.' . 
-        $request->file('image')->getClientOriginalExtension();
+        $img = Image::make($image->getRealPath());
+        $img->resize(100, 100, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath.'/'.$input['name']);
 
-    $resize_img = Image::make($imageName)->resize(100,100);
+        $destinationPath = base_path('/public/images/catalog/');
 
-    $request->file('image')->move(
-        base_path() . '/public/images/catalog/', $resize_img
-    );
-
-    if($imageName==true)
-    {
-        $product->save(); 
-    }
+        $image->move($destinationPath, $input['name']);
 
 
     //Display a successful message upon save
