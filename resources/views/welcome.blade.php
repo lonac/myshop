@@ -47,7 +47,7 @@
                 </marquee></p>
                 <form>
                     <!-- Carousel container -->
-                    <div id="product-pics" class="carousel slide" data-ride="carousel" height="500" width="400">
+                    <div id="product-pics" class="carousel slide" data-ride="carousel" height="500%" width="400%">
 
                         <!-- Indicators -->
                         <ol class="carousel-indicators">

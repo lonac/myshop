@@ -43,3 +43,8 @@
 .dropdown:hover .subcategoriesbtn {
     background-color: #3e8e41;
 }
+
+/* for displayed image on cou */
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+}
