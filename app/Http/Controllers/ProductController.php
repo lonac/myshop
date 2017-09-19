@@ -17,6 +17,7 @@ use App\ProductsPhoto;
 use App\PaymentMode;
 use App\PhoneDetails;
 use App\ProductState;
+use Image;
 
 
 class ProductController extends Controller
@@ -75,15 +76,21 @@ class ProductController extends Controller
       'body' => $request->get('body')
     ));
 
-    $product->save();
+   
 
   $imageName = $product->id . '.' . 
         $request->file('image')->getClientOriginalExtension();
 
+    $resize_img = Image::make($imageName)->resize(100,100);
 
     $request->file('image')->move(
-        base_path() . '/public/images/catalog/', $imageName
+        base_path() . '/public/images/catalog/', $resize_img
     );
+
+    if($imageName==true)
+    {
+        $product->save(); 
+    }
 
 
     //Display a successful message upon save
