@@ -14,10 +14,10 @@ return [
     */
 
 
-    //'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
 
-    'default' => 'pgsql',
+   // 'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ return [
             'engine' => null,
         ],
 
-        'pgsql' => [
+      /*  'pgsql' => [
             'driver'   => 'pgsql',
             'host'     => parse_url(getenv("DATABASE_URL"))["host"],
             'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1),
@@ -68,6 +68,8 @@ return [
             'prefix'   => '',
             'schema'   => 'public',
         ],  
+
+        */
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
