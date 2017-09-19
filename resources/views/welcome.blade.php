@@ -48,6 +48,7 @@
                 <form>
                     <!-- Carousel container -->
                     <div id="product-pics" class="carousel slide" data-ride="carousel" height="500%" width="400%">
+                    <div id="product-pics" class="carousel slide" data-ride="carousel">
 
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
@@ -61,11 +62,16 @@
                                     @foreach($products as $product)
                                         @if($product->id==1)
                                             <div class="item active">
-                                                <img src="{{ asset('images/catalog/'.$product->id.'.jpg')}}" height="500" width="400" >
+                                               <p style="float:center; font-size: 8pt; text-align: center; margin-right: 2%; margin-bottom: 1.5em;">
+                                                 <a href="{{url('/products/'.$product->id)}}"><img src="{{ asset('images/catalog/'.$product->id.'.jpg')}}" height="400" width="500"><br> 
+                                                    </a><br>
+                                               </p>
                                             </div>
                                         @else
                                             <div class="item">
-                                                <img src="{{ asset('images/catalog/'.$product->id.'.jpg')}}" height="500" width="400" >
+                                                <p style="float:center; font-size: 8pt; text-align: center; margin-right: 2%; margin-bottom: 1.5em;">
+                                                 <a href="{{url('/products/'.$product->id)}}"><img src="{{ asset('images/catalog/'.$product->id.'.jpg')}}" height="400" width="500"><br>                          
+                                               </p>
                                             </div>
                                         @endif
                                     @endforeach
