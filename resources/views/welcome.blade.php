@@ -51,35 +51,25 @@
 
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                        <li data-target="#product-pics" data-slide-to="0" class="active"></li>
-                        <li data-target="#product-pics" data-slide-to="1"></li>
+                        <li data-target="#product-pics" data-slide-to="1" class="active"></li>
                         <li data-target="#product-pics" data-slide-to="2"></li>
-                        <li data-target="#product-pics" data-slide-to="3"></li>
                         </ol>
                         <center>
-
                             <!-- Content -->
                             <div class="carousel-inner" role="listbox">
-
-                            <!-- Slide 1 -->
-                            <div class="item active">
-                            <img src="{{asset('product/image/jeans.jpg')}}" height="500" width="400" class="kkooProducts">
-                            </div>
-
-                            <!-- Slide 2 -->
-                            <div class="item">
-                            <img src="{{asset('product/image/handbag.jpg')}}" height="500" width="400" class="kkooProducts">
-                            </div>
-
-                            <!-- Slide 3 -->
-                            <div class="item">
-                            <img src="{{asset('product/image/trouser.jpg')}}" height="500" width="400" class="kkooProducts">
-                            </div>
-
-                            <!-- Slide 3 -->
-                            <div class="item">
-                            <img src="{{asset('product/image/singebtn.jpg')}}" height="500" width="400" class="kkooProducts">
-                            </div>
+                                @if($products->count()>0)
+                                    @foreach($products as $product)
+                                        @if($product->id==1)
+                                            <div class="item active">
+                                                <img src="{{ asset('images/catalog/'.$product->id.'.jpg')}}" height="500" width="400" >
+                                            </div>
+                                        @else
+                                            <div class="item">
+                                                <img src="{{ asset('images/catalog/'.$product->id.'.jpg')}}" height="500" width="400" >
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                @endif
 
                             </div>
                         </center>
@@ -109,10 +99,9 @@
             <div class="row">
                 <div class="col-md-12 col-md-offset-0">    
                 <div class="panel panel-info">
-                    <div class="panel-heading">
-                        
+                    <div class="panel-heading">     
                             <a href="{{url('categories/'.$category->id)}}">{{$category->name}}</a><br>
-                      
+                    
                     </div>
                     <div class="panel-body"></div>
                 </div>            
