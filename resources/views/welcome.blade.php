@@ -12,6 +12,11 @@
                 <div class="col-md-7 col-md-offset-0">
                      @include('searchproducts._search_form')
                 </div>
+                <div class="col-md-3 col-md-offset-0">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"><strong>N</strong></div>
+                    </div>
+                </div>
         </div>
         <div class="row">
             <div class="col-md-2 col-md-offset-0">   
@@ -92,11 +97,7 @@
                     </div>
                 </form>
              </div>
-             <div class="col-md-3 col-md-offset-0">
-                    <div class="panel panel-info">
-                        <div class="panel-heading"><strong>N</strong></div>
-                    </div>
-                </div>
+             
 
         </div>
 
