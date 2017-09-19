@@ -77,14 +77,9 @@ class ProductController extends Controller
 
     $product->save();
 
-<<<<<<< HEAD
-   $imageName = $product->id . '.' . 
-        $request->file('image')->getClientOriginalExtension();
-=======
   $imageName = $product->id . '.' . 
         $request->file('image')->getClientOriginalExtension();
 
->>>>>>> master
 
     $request->file('image')->move(
         base_path() . '/public/images/catalog/', $imageName
