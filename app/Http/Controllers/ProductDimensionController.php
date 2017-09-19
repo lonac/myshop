@@ -48,9 +48,10 @@ class ProductDimensionController extends Controller
         $dimension = new ProductDimension;
         $dimension->category = $request->input('category');
         $dimension->product_id = $product->id;
+
         $dimension->save();
 
-        return redirect('products/'.$product->id.'/productstate/create',compact('product'));
+        return redirect('products/'.$product->id.'/productstate/create');
     }
 
     /**

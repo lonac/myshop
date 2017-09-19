@@ -42,7 +42,7 @@ class ProductStateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request, $id)
     {
         $this->validate($request,[
             'state'=>'required',
@@ -56,14 +56,15 @@ class ProductStateController extends Controller
 
         if($get_state=="select")
         {
-            return view('productstate.create',compact('product'))->with('message','Please select the State Product State');
+           return redirect()->back()->withErrors("Please Select the Product State")->withInput();
         }
         else
         {
-            $state = $get_state;
+            $state->state = $get_state;
+
             $state->save();
 
-            return redirect('products/'.$product->id)->with('message','State Successfully Added');
+            return redirect('products/'.$product->id);
 
         }
     }

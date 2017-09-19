@@ -7,11 +7,6 @@
         @can('Create Product')
         <div class="col-md-6 col-md-offset-2">
             <div class="panel panel-info">
-                @if(session('status'))
-                    <div class="alert alert-success">
-                        {{session('status')}}
-                    </div>
-                @endif
                 <div class="panel-heading">
                    <h3> Add Product State</h3>
                 </div>
@@ -20,6 +15,11 @@
 
                         {{ csrf_field() }}
                         <div class="form-group">
+                            @if(session('status'))
+                                <div class="alert alert-success">
+                                    {{session('status')}}
+                                </div>
+                            @endif
                             <label for="state">Select State</label>
                             <select name="state" class="form-control">
                                 <option>select</option><option value="new">NEW</option><option value="used">USED</option>

@@ -17,7 +17,6 @@ use App\ProductsPhoto;
 use App\PaymentMode;
 use App\PhoneDetails;
 use App\ProductState;
-use Image;
 
 
 class ProductController extends Controller
@@ -61,33 +60,30 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        
-    $this->validate($request, [
-            'name'=>'required|max:100',
-            'body'=>'required',
-            'manufacturer'=>'required',
-            'categoryname'=>'required',
-            'subcategoryname'=>'required',
-            'cost'=>'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        $this->validate($request,[
+            'name'=>'required|max:50',
+            ]);
 
-        $image = $request->file('image');
-        $input['name'] = time().'.'.$image->getClientOriginalExtension();
-     
-   
-        $destinationPath = public_path('/public/thumbnail');
+        $product = new Product(array(
+      'name' => $request->get('name'),
+      'manufacturer' => $request->get('manufacturer'),
+      'categoryname' => $request->get('categoryname'),
+      'subcategoryname' => $request->get('subcategoryname'),
+      'cost' => $request->get('cost'),
+      'body' => $request->get('body')
+    ));
 
-        $img = Image::make($image->getRealPath());
-        $img->resize(100, 100, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($destinationPath.'/'.$input['name']);
+    $product->save();
 
-        $destinationPath = base_path('/public/images/catalog/');
+  $imageName = $product->id . '.' . 
+        $request->file('image')->getClientOriginalExtension();
 
-        $image->move($destinationPath, $input['name']);
+
+    $request->file('image')->move(
+        base_path() . '/public/images/catalog/', $imageName
+    );
 
 
     //Display a successful message upon save
