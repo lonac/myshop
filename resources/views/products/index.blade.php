@@ -10,7 +10,7 @@
                 {{session('message')}}
             </div>
             @endif
-            <div class="col-md-3">
+            <div class="col-md-2 col-md-offset-0">
                 <div class="panel panel-info">
                     <div class="panel-heading"><strong>Categories</div>
                     <div class="panel-body">

@@ -199,13 +199,27 @@ class ProductController extends Controller
 
         $place = $request->input('place');
 
-       
+        $checkedradio = $request->input('checkedradio');
 
+       
         if($place=="Dar es salaam")
         {
             if($quantity>0)
             {
-               $totalcost = ($product_cost * $quantity) + 800; 
+                if( $checkedradio=="cash")
+                {
+                    $totalcost = ($product_cost * $quantity) + 800; 
+                }
+                elseif ($checkedradio=="mkopo") 
+                {
+
+                    $loan_value = (0.35 * $product_cost);
+                    $total_loan_value = $loan_value * $quantity;
+                   
+                    $totalcost = ($product_cost * $quantity) + $total_loan_value + 800; 
+
+                }
+                     
             }
             else
             {
@@ -217,7 +231,19 @@ class ProductController extends Controller
         {
             if($quantity>0)
             {
-              $totalcost = ($product_cost * $quantity) + 4750;
+              if( $checkedradio=="cash")
+                {
+                    $totalcost = ($product_cost * $quantity) + 4750; 
+                }
+                elseif ($checkedradio=="mkopo") 
+                {
+
+                    $loan_value = (0.35 * $product_cost);
+                    $total_loan_value = $loan_value * $quantity;
+                   
+                    $totalcost = ($product_cost * $quantity) + $total_loan_value + 4750; 
+
+                }
             }
             else
             {
