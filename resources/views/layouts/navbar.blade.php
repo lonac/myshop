@@ -19,7 +19,7 @@
                         <!-- Links --> 
                         <li><a href="/">Home</a></li>
                         <li><a href="/products">Products</a></li>
-                        <li><a href="/news">News</a></li>
+                        <li><a href="/posts">News</a></li>
                         
                         {{--<li><a href="/contacts">Contact Us</a></li>--}}
                         <li><a href="/about">About Us</a></li>

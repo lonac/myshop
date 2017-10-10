@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Post;
+
 use App\Product;
 
 use App\Category;
@@ -24,7 +26,9 @@ class PagesController extends Controller
 
          $products =Product::all();
 
-      return view('welcome',compact('categories','subcategories','products'));  
+         $posts = Post::orderby('id','desc')->paginate('5');
+
+      return view('welcome',compact('categories','subcategories','products','posts'));  
     }
 
     public function about()
