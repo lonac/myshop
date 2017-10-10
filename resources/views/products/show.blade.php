@@ -36,12 +36,12 @@
             <div class="panel-body">
                 <strong>By: </strong><font color="blue"> {{$product->manufacturer}}</font><br>
                 <h2>{{$product->cost}}/= Tshs. /item</h2><br>
-                <h4>Kwa Mkopo: {{$loancost}}/= Tshs</h4><br>
+                <h4>MKOPO : <strong>{{$loancost}}/= Tshs</strong></h4><br>
                  @if(session('status'))
-                            <div class="alert alert-danger">
-                                {{session('status')}}
-                            </div>
-                        @endif
+                    <div class="alert alert-danger">
+                        {{session('status')}}
+                    </div>
+                @endif
                 <hr>
                   <form method="post" action="{{url('products/'.$product->id) }}">
 
@@ -59,14 +59,28 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-md-4">
+                        <div class="col-sm-2">
                             <label for="Quantity">Quantity:</label>
                                 <input type="number" name="quantity" value="1">
-                        </div>
-                        <div class="form-group">
+                        </div>     
+                    </div>
+
+                    <div>
+                    <div class="form-group">
+                        <label class="checkbox-inline">
+                            <input type="radio" name="checkedradio" id="optionsRadios3"
+                            value="cash" checked><strong>Cash</strong>
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="checkedradio" id="optionsRadios4"
+                            value="mkopo"><strong>Mkopo</strong>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
                             {{ Form::submit('Check  Cost', array('class' => 'btn btn-success btn-lg btn-block')) }}
                         </div>
-                    </div>
+
                 @else
                     @can('Create Category')
                          <strong><a href="{{url('/reachableplaces/create')}}">Add Place first</a></strong>

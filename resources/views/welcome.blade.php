@@ -52,8 +52,8 @@
                 </marquee></p>
                 <form>
                     <!-- Carousel container -->
-                    <div id="product-pics" class="carousel slide" data-ride="carousel" height="500%" width="400%">
-                    <div id="product-pics" class="carousel slide" data-ride="carousel">
+                    <div id="product-pics" class="carousel slide" data-ride="carousel" >
+                    <div id="product-pics" class="carousel slide" data-ride="carousel" >
 
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
@@ -67,14 +67,14 @@
                                     @foreach($products as $product)
                                         @if($product->id==1)
                                             <div class="item active">
-                                               <p style="float:center; font-size: 8pt; text-align: center; margin-right: 2%; margin-bottom: 1.5em;">
+                                               <p style="float:center; font-size: 8pt; text-align: center;">
                                                  <a href="{{url('/products/'.$product->id)}}"><img src="{{ asset('images/catalog/'.$product->id.'.jpg')}}" height="400" width="500"><br> 
                                                     </a><br>
                                                </p>
                                             </div>
                                         @else
                                             <div class="item">
-                                                <p style="float:center; font-size: 8pt; text-align: center; margin-right: 2%; margin-bottom: 1.5em;">
+                                                <p style="float:center; font-size: 8pt; text-align: center; ">
                                                  <a href="{{url('/products/'.$product->id)}}"><img src="{{ asset('images/catalog/'.$product->id.'.jpg')}}" height="400" width="500"><br>                          
                                                </p>
                                             </div>
@@ -87,17 +87,20 @@
 
                         <!-- Previous/Next controls -->
                         <a class="left carousel-control" href="#product-pics" role="button" data-slide="prev">
-                        <span class="icon-prev" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                            <span class="icon-prev" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
                         </a>
                         <a class="right carousel-control" href="#product-pics" role="button" data-slide="next">
-                        <span class="icon-next" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                            <span class="icon-next" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
                         </a>
                     </div>
                 </form>
              </div>
-             
+
+            <div class="col-md-2 col-md-offset-0">
+                
+            </div>          
 
         </div>
 
@@ -107,8 +110,7 @@
                 <div class="col-md-12 col-md-offset-0">    
                 <div class="panel panel-info">
                     <div class="panel-heading">     
-                            <a href="{{url('categories/'.$category->id)}}">{{$category->name}}</a><br>
-                    
+                        <a href="{{url('categories/'.$category->id)}}">{{$category->name}}</a><br>
                     </div>
                     <div class="panel-body"></div>
                 </div>            

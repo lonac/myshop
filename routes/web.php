@@ -29,7 +29,7 @@ Route::resource('roles', 'RoleController');
 
 Route::resource('permissions', 'PermissionController');
 
-Route::resource('news', 'PostController');
+Route::resource('posts', 'PostController');
 
 //admins
 Route::resource('admins','AdminPanelController');
